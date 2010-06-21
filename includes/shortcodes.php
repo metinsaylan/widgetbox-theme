@@ -124,10 +124,9 @@ function shailan_tags($args){
 	
 } add_shortcode('the_tags', 'shailan_tags'); add_shortcode('tags', 'shailan_tags');
 
-
-
-
-
+// TODO : [shortlink]
+// TODO : [permalink]
+// TODO : [title]
 
 
 

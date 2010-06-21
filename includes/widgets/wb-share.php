@@ -1,11 +1,11 @@
 <?php 
 
-class wb_comments extends WP_Widget {
+class wb_share extends WP_Widget {
 
-    function wb_comments() {
-		$widget_ops = array('classname' => 'wb_comments', 'description' => __( 'Widgetbox comments widget' ) );
-		$this->WP_Widget('wb-comments', __('Follow'), $widget_ops);
-		$this->alt_option_name = 'wb_comments';	
+    function wb_share() {
+		$widget_ops = array('classname' => 'wb_share', 'description' => __( 'Widgetbox sharebox widget' ) );
+		$this->WP_Widget('wb-share', __('Share Box'), $widget_ops);
+		$this->alt_option_name = 'wb_share';	
     }
 	
     function widget($args, $instance) {	
@@ -76,4 +76,4 @@ class wb_comments extends WP_Widget {
 		echo "This widget has no options bro ;) Edit your comments template if you don't like the view.";
     }
 
-} add_action('widgets_init', create_function('', 'return register_widget("wb_comments");'));
+} add_action('widgets_init', create_function('', 'return register_widget("wb_share");'));
