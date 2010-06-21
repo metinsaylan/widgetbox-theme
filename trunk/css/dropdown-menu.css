@@ -1,0 +1,85 @@
+/* DROPDOWN */
+ 
+/*.admintab a{position:fixed; top:5px; left:5px; right:auto;}*/
+
+#header .shailan-dropdown-menu{ padding:2px 3px; background: url(images/opacity.png);}
+#header .shailan-dropdown-menu ul.dropdown {
+	white-space: nowrap;
+	z-index: auto;
+}
+#header .shailan-dropdown-menu ul.dropdown li{
+	margin:1px 1px;
+}
+#header .shailan-dropdown-menu ul.dropdown  li ul{ width:auto; background: #333; background: url(images/opacity.png); 		
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px; }
+#header .shailan-dropdown-menu ul.dropdown ul ul { left:100%; top:0px; }
+#header .shailan-dropdown-menu ul.dropdown  li a{ display: block;
+	padding: 5px 15px;
+	font-size: 1em;
+	color:#ddd;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px; }
+
+#header .shailan-dropdown-menu ul.dropdown li a:hover {
+	background: #333; background: url(images/opacity.png); 	
+	color: #eee;
+	text-decoration: none;
+}
+
+#header .shailan-dropdown-menu ul.dropdown li.current_page_item>a,
+#header .shailan-dropdown-menu ul.dropdown li.current-cat>a,
+#header .shailan-dropdown-menu ul.dropdown li.current-cat>a:hover,
+#header .shailan-dropdown-menu ul.dropdown li.current_page_item>a:hover,
+body.single ul.dropdown li.blogtab>a,
+body.single ul.dropdown li.blogtab>a:hover {
+	color: #333;
+	background: white;
+	text-decoration: none;
+}
+#header .shailan-dropdown-menu ul.dropdown li.current_page_ancestor>a,
+#header .shailan-dropdown-menu ul.dropdown li.current_page_ancestor>a:hover{
+	font-style:italic;
+	text-decoration:underline;
+}
+
+#header .shailan-dropdown-menu ul.dropdown li.cat-item-57 {background-image:url(images/icons/wpmini-grey.png); background-position: 5px 50%; background-repeat:no-repeat; }
+
+#header .shailan-dropdown-menu ul.dropdown li.cat-item-57 a{padding-left:25px;}
+ 
+	
+#linkcat-118 ul li{
+  padding: 5px 15px;
+  font-size: 11px;
+  line-height: 16px;
+}
+#linkcat-118 ul li a{ 
+  display:block;
+  font-size: 12px;
+  font-weight: bold;
+/* height: 26px; */
+  overflow: hidden;
+  -webkit-user-select: none;
+  background: #DFDFDF url(http://shailan.com/wp-admin/images/gray-grad.png) repeat-x 0% 0%;
+  text-shadow: white 0px 1px 0px;
+  border-color: #DFDFDF;
+  border-bottom-left-radius: 6px 6px;
+  border-bottom-right-radius: 6px 6px;
+  border-style: solid;
+  border-width: 1px;
+  border-top-left-radius: 6px 6px;
+  border-top-right-radius: 6px 6px;
+  padding: 5px 9px;
+  color:#444;
+  width:232px;
+  margin-bottom:4px;
+  margin-left:-8px;
+}
+
+#header .shailan-dropdown-menu ul.dropdown li.page-item-744 a{background:#99FF33;color:#000;}
+
+	

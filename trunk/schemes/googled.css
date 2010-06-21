@@ -1,0 +1,42 @@
+body, td, a, p, .h{ font-family: arial, sans-serif; }
+
+body { color: #444; background:#fff; }
+#wrapper { background:transparent; }
+h1, h2,h3,h4,h5,h6 {color:#555;}
+a{ text-decoration:none; color:#11c; }
+a:visited{ color:#11c; }
+a:hover{text-decoration:underline; color:#11c;}  
+
+.entry-title, #content h2, #content h3, .widgettittle, .widget-title, .widgets h4, .widget .widgettitle, h1.blog-title, h2.blog-title{ text-shadow:rgba(0,0,0,0.01) 0 0 1px; }
+li.admintab a{ background:#666; }
+#wrapper , .tab-content ul, .entry-bottom-widget ul, #primary .widget ul, #secondary .widget ul, .tab-content ul li, .entry-bottom-widget ul li, #secondary .widget ul li, #primary .widget ul li, .hentry, #respond, #comments-list #respond, .countdown, #commentform textarea{ border-color:#C3D9FF; }
+.entry-edit a{ background: #C3D9FF; }
+#respond, #comments-list #respond{ background:#E0ECFF; }
+
+#commentform textarea{ background:#fff; }
+
+#header{border-bottom: 1px solid #C9D7F1;}
+#header a, #header a:hover{color:#000;}
+#header .description{ color:#000; }
+#header .description a{ color:#000; text-decoration:underline; }
+
+#footer{color:#767676;font-size:8pt; }
+
+input[type=button], a.button{
+	border: 1px solid #BBB;
+	border-bottom-left-radius: 3px 3px;
+	border-bottom-right-radius: 3px 3px;
+	border-top-left-radius: 3px 3px;
+	border-top-right-radius: 3px 3px;
+	color: black;
+	cursor: default;
+	font: normal normal normal 70%/normal arial, sans-serif;
+	margin: 0px 8px 0px 0px;
+	outline: none;
+	padding: 3px 8px;
+	text-align: center;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+.note{background:#FFF1A8;}
