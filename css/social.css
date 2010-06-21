@@ -1,0 +1,31 @@
+div#wb-follow-container{ position:fixed; top:0px; right:0px;  }
+
+div#twitter{ position: absolute; top: 20px; right: 10px; }
+div#twitter a { float: left; height: 32px; width: 32px;
+	background: url(images/social_sprite.png) no-repeat;
+	background-position: -128px -32px; }
+div#twitter a:hover{ background-position:-128px 0px; }
+
+div#rss{ position: absolute; top: 62px; right: 10px; }
+div#rss a{ float: left; height: 32px; width: 32px;
+	background: url(images/social_sprite.png) no-repeat;
+	background-position: -896px -32px; }
+div#rss a:hover{ background-position: -896px -0px; }
+
+div#facebook{ position: absolute; top: 104px; right: 10px; }
+div#facebook a{ float: left; height: 32px; width: 32px;
+	background: url(images/social_sprite.png) no-repeat;
+	background-position: -192px -32px; }
+div#facebook a:hover{ background-position: -192px 0px; }
+
+div#delicious{ position: absolute; top: 104px; right: 10px; }
+div#delicious a{ float: left; height: 32px; width: 32px;
+	background: url(images/social_sprite.png) no-repeat;
+	background-position: 0px -32px; }
+div#delicious a:hover{ background-position: 0px 0px; }
+
+div#flickr{ position: absolute; top: 104px; right: 10px; }
+div#flickr a{ float: left; height: 32px; width: 32px;
+	background: url(images/social_sprite.png) no-repeat;
+	background-position: -64px -32px; }
+div#flickr a:hover{ background-position: -64px 0px; }

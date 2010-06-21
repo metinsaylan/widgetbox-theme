@@ -1,0 +1,62 @@
+body, body.mcecontentbody{
+	font: normal normal normal 75%/normal 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Verdana, Arial, sans-serif;
+	background:#fff; /* url(images/body_bg.jpg) 50% 0% fixed no-repeat; */
+	width:560px;	
+	padding:10px 0px;
+	margin:0px auto;
+	color: #333;
+	border-bottom:2px dotted #666;
+	border-right:1px solid #eee;
+	color: #444;
+	line-height: 2.2em;
+}
+
+h1, h2, h3, h4, h5, h6 {font-family: Georgia, Helvetica, sans-serif; text-shadow: #555 1px 1px 0.1em; }
+
+
+h4, h2, h3 {font-size: 1.8em; font-weight:500; font-family: Georgia, Helvetica, sans-serif; text-shadow: #aaa 1px 1px 0.1em;  line-height:24px; color:#666;}
+
+h4 { margin:5px; }
+
+p, ul, ol, div, blockquote{
+	margin: 13px 0px;
+}
+
+blockquote{padding:20px; border-left:2px solid #5af; margin:10px; font-style:oblique;}
+blockquote p, blockquote ul, blockquote ol, blockquote div{margin:0px;}
+
+a{ color: #27D; text-decoration: none; }
+
+div {margin:auto;}
+
+.box {border:1px solid #ddd;}
+
+pre{ background:#f0f0f0; padding:10px; border:2px solid #ccc; border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-khtml-border-radius: 8px; margin:10px; }
+code{background:#f0f0f0;}
+
+div.note, .note{ border:2px solid #ffcc00; background:#fffccc; margin:10px; padding:10px; padding-left:20px; border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-khtml-border-radius: 8px; font-style:oblique; }
+	
+div.warning, .warning{border:2px solid #bb7777; background:#ffcccc; margin:10px; padding:10px; padding-left:20px; border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-khtml-border-radius: 8px; font-style:oblique;}
+	
+
+
+.wp-caption {
+	border: 1px solid #ccc;
+	padding: 9px;
+	background: #fff;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+}
+
+		

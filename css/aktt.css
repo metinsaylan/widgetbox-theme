@@ -1,0 +1,62 @@
+#twitter-tools {
+	border:none;
+	padding:0px;
+	background:transparent;
+}
+.aktt_tweet_time{font-style:italic; color:#9fd6df;}
+#twitter-tools  div.aktt_tweets ul,
+#twitter-tools  div.aktt_tweets ul li{
+ background:transparent;
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ border:none;
+}
+#twitter-tools h2{
+	display:none;
+}
+#twitter-tools  div.aktt_tweets ul {
+ position: relative;
+ z-index: 597;
+ width:100%;
+ min-height:42px;
+}
+#twitter-tools  div.aktt_tweets ul li{
+ line-height: 1.3em;
+ vertical-align: middle;
+ zoom: 1; width:230px;
+ margin-right:60px;
+ display:inline-block;
+}
+#twitter-tools{
+	border:1px solid #42c1e3;
+	padding:10px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	background: #dbf9fe; 
+}
+#twitter-tools div.aktt_tweets ul li.aktt_more_updates{ width:42px; height:42px; 
+margin:0px; overflow:hidden; background:url(images/twitter-icon.png) no-repeat 50% 50%; 
+position:absolute; top:0px; right:0px; float:right; }
+#twitter-tools div.aktt_tweets ul li.aktt_more_updates a{ text-indent: 100%;
+background-repeat: no-repeat;
+background-position: center center;
+display: inline; 
+display: inline-block; 
+display: -moz-inline-box; 
+_display: inline; 
+zoom: 100%; 
+width: 42px; 
+padding: 0 !important; 
+overflow: hidden; 
+white-space: nowrap; 
+text-align: left; 
+word-spacing: -2ex; 
+letter-spacing: -2ex; 
+min-height: 42px; 
+_height: 42px; 
+color: transparent !important; 
+_font: 1px/0 monospace; 
+_word-spacing: -2px;
+_letter-spacing: -2px;
+ }

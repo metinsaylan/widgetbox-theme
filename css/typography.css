@@ -1,0 +1,48 @@
+/* 
+
+	M2 TYPOGRAPHY 
+	
+*/
+
+body{ font: normal normal normal 75%/normal 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Verdana, Arial, sans-serif; }
+
+h1, h2, h3, .archive-meta{font-family: Georgia, Helvetica, sans-serif; text-shadow: rgba(0, 0, 0, 0.0078125) }
+
+h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500; 
+		font-family: Georgia, Helvetica, sans-serif; text-shadow: #555 1px 1px 0.1em; color:#ffffff; }
+		
+#header .description{ text-shadow: rgba(0, 0, 0, 0.0078125) 0px 0px 0px; font-size:1.2em; font-style:oblique; }
+
+.single h1.blog-title, .page h1.blog-title, h2.blog-title{font-size:3.4em; color:#ffffff; line-height: 34px;}
+	
+.page-head h1{ font-size: 1.6em; font-weight:500; text-shadow: #aaa 1px 1px 0.1em; background:#ddd; 
+		padding:4px 8px; border-bottom-left-radius: 4px 4px;
+		border-bottom-right-radius: 4px 4px;
+		border: none;
+		border-top-left-radius: 4px 4px;
+		border-top-right-radius: 4px 4px; }
+
+.four04 .entry-title, body.page #current-content .entry-title, .entry-title { 
+		margin:5px 0px; 
+		text-align:left; 
+		font-weight:500; 
+		text-shadow: rgba(0, 0, 0, 0.0078125) 0px 0px 0px; }
+		
+
+.entry-title  a {text-decoration:none;}
+
+.entry-title, #content h2, #content h3 , .widgettittle, .widget-title, .widgets h4, .widget .widgettitle{
+	font-size: 1.8em; font-weight:500; font-family: Georgia, Helvetica, sans-serif; text-shadow: #222 1px 1px 0.1em;  line-height:24px; color:#999;
+}
+
+#content h2{font-size:2em}
+#content h3{font-size:1.8em}
+#content h4{font-size:1.5em; font-style:oblique; }
+#content h5{font-size:1.2em; font-style:oblique; }
+#content h6{font-size:1em; font-style:oblique; }
+
+.entry-content h4, .entry-meta h4, .entry-content h3 { margin:5px 0px; }
+
+.archive-meta{ font-size:1.3em; text-shadow: rgba(0, 0, 0, 0.0078125) 0px 0px 0px; }
+
+#leavecomment, .comments #loading, #comments-closed-msg{font-family: Georgia, Helvetica, sans-serif; font-size:3em; text-shadow: #fff 1px 1px 0.1em; }

@@ -1,0 +1,57 @@
+/** 
+ * wp-common.css
+ *	url		:	http://commoncss.com/wordpress/wp-common-css/
+ *	version	:	1.1
+ *	author	:	matt say ( http://shailan.com )
+ *	
+ *	Common css classes needed for wordpress themes.
+ */
+
+.clear { clear: both; }
+a img { border: none; }
+img.noborder { border: none !important; }
+.aligncenter, .center { text-align: center; }
+.aligncenter, img.center, img[align="center"] { display: block; margin-left: auto; margin-right: auto; }
+.alignright, img[align="right"] { float: right; margin: 0 0 4px 8px; display: block; }
+.alignleft, img[align="left"] { float: left; margin: 0 8px 4px 0; display: block; }
+a[rel~="attachment"] img,.gallery a img,.wp-caption { 
+	background-color: #F3F3F3;
+	border: 1px solid #ddd;
+	padding: 3px;
+	text-align: center;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+a[rel~="attachment"] img:hover,.gallery a img:hover, .wp-caption:hover { padding: 2px; border: 2px solid #27d; }
+.wp-caption a img, .wp-caption a img:hover { padding: 4px 0px 0px; border: 0 none; }
+.wp-caption .wp-caption-text { margin: 4px 0 2px; }
+.smallcaps { font-variant: small-caps; }
+abbr[title], acronym[title] { cursor: help; }
+abbr.entry-date { cursor: inherit; }
+small { font-size: 0.9em; line-height: 1.5em; }
+code { font-size: 1.1em; }
+hr { display: none; }
+img.wp-smiley { border: none !important; padding: 0 0 0 5px !important; }
+.hidden { position: absolute !important; left: 0px; top: -500px !important; width: 1px; height: 1px; overflow: hidden; }
+.alert { background: #FFF6BF; text-align: center; margin: 10px auto; padding: 4px 20px; }
+.hidetext { text-indent: -9999px; }
+.amp{ font-family: Baskerville, Palatino, "Book Antiqua", serif; font-style: italic; } 
+.rss-link{ padding-left:18px; background:url(images/icons/rss.gif) 0 50% no-repeat; }
+.logged-in a[rel~="nofollow"]{border-bottom:1px dashed #ccc;}
+#lightbox{z-index:598;} 
+.box {border:1px solid;}
+
+pre{ background:#f0f0f0; padding:10px; border:2px solid #ccc; border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-khtml-border-radius: 8px; margin:10px; }
+code{ background:#f0f0f0; padding:5px; }
+div.note, .note{ background: #FFFBBC; border: 2px solid #E6DB55; margin:10px; padding:10px; padding-left:20px; border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-khtml-border-radius: 8px; font-style:oblique; }
+div.warning, .warning{border:2px solid #bb7777; background:#ffcccc; margin:10px; padding:10px; padding-left:20px; border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-khtml-border-radius: 8px; font-style:oblique;}
