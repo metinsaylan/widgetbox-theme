@@ -242,6 +242,14 @@ function post_link(){
 	echo "<a href=\"".$p."\" class=\"post-link\">".$t."</a>"; 
 }
 
+/* Entry header widgets */
+function entry_header_widgets(){ dynamic_sidebar('widgets-entry-top'); }
+add_action('template_entry_head', 'entry_header_widgets');
+
+/* Entry footer widgets */
+function entry_footer_widgets(){ dynamic_sidebar('widgets-entry-bottom'); }
+add_action('template_entry_foot', 'entry_footer_widgets');
+
 include_once('includes/widgetbox-sidebars.php'); // SIDEBARS
 include_once('includes/widgetbox-widgets.php'); // WIDGETS
 include_once('includes/controlpanel.php'); // CPANEL 
