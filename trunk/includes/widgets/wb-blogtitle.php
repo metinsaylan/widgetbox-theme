@@ -141,12 +141,8 @@ class wb_blog_title extends WP_Widget {
 		
 		<p>
 		<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('home'); ?>" name="<?php echo $this->get_field_name('home'); ?>"<?php checked( $home ); ?> />
-		<label for="<?php echo $this->get_field_id('home'); ?>"><?php _e( 'Add homepage link' , 'widgetbox' ); ?></label><br />
-		
-<div class="widget-control-actions alignright">
-<p><small>Developed by <a href="http://prolancer.us">ProLancer.us</a></small></p>
-</div>
-			
+		<label for="<?php echo $this->get_field_id('home'); ?>"><?php _e( 'Add homepage link' ); ?></label><br />
+				
         <?php 
     }
 
