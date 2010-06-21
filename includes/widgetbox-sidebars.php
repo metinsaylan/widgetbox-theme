@@ -1,12 +1,13 @@
 <?php 
 
-// SIDEBARS
+// WIDGETBOX SIDEBARS
+
 if ( function_exists('register_sidebar') ) {
 
 			register_sidebar(array(
 		        'id' 			=>	'widgets-header',
 		        'name'			=>	'Header',
-		        'description'	=>	'Header widgets come here.',
+		        'description'	=>	'Header widgets come here. (Blog title, Navigation, Adsense..)',
 		        'before_widget'	=>	'<div id="%1$s" class="widget %2$s"><div class="widget-inner">',
 		        'after_widget'	=>	'</div></div>',
 		        'before_title'	=>	'<h4 class="widget-title"><span>',

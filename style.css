@@ -45,13 +45,15 @@ li.admintab a{ position:fixed; top: 10px; left:10px; z-index:100; zoom:1; }
 #header .description{ color:#fff; }
 #header .description a{ color:#fff; text-decoration:underline; }
 
-/*
-#header .widget ul{ list-style-type:none; margin:0px; padding:0px; }
-#header .widget ul li{ display: inline; }
-#header .widget ul li+li { border-left: 1px solid; }
-#header .widget ul li a{ display:inline; padding:.5em 1em; text-decoration: none; }
-#header .widget ul li a:hover{ text-decoration: underline; }
-*/
+#header ul.menu{ list-style-type:none; margin:0px; padding:0px; }
+#header ul.menu li{ display: inline; }
+#header ul.menu li+li { border-left: 1px solid; }
+#header ul.menu li a{ display:inline; padding:.5em 1em; text-decoration: none; }
+#header ul.menu li a:hover{ text-decoration: underline; }
+#header ul.menu li ul, #header ul.menu li ul ul, #header ul.menu li ul ul ul, #header ul.menu li ul ul ul ul {display:none;}
+#header ul.menu li.hover ul{display:block;}
+
+.widget_nav_menu{text-align:center;}
 
 #header-image-wrapper{ position:absolute; top:0px; left:0px; overflow:crop; z-index:1; height:100%; overflow:hidden;}
 #header-image{  }

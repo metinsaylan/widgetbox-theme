@@ -78,7 +78,7 @@ function wb_layout_styles(){
 		echo $indent . "div#footer{ width: ".$widgetbox_page_width."px; margin:".$widgetbox_padding."px auto; padding-bottom:".$widgetbox_padding."px }";
 		
 		// HEADER IMAGE
-		echo $indent . "div#header{ background-image:url(".get_header_image().");}";
+		echo $indent . "div#header{ background-position: bottom center; background-repeat: no-repeat; background-image: url(".get_header_image()."); }";
 		
 		echo "\n\t</style>";
 		echo "\n<!-- End of Widgetbox Layout Styles -->";
@@ -126,12 +126,25 @@ function widgetbox_setup(){*/
 		if(function_exists('register_default_headers')){
 		// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
 		register_default_headers( array(
-			'berries' => array(
-				'url' => '%s/images/headers/blue.jpg',
-				'thumbnail_url' => '%s/images/headers/blue-thumbnail.jpg',
+			'blue' => array(
+				'url' => '%s/headers/blue.jpg',
+				'thumbnail_url' => '%s/headers/blue-thumbnail.jpg',
 				/* translators: header image description */
 				'description' => __( 'Blue background', 'widgetbox' )
+			), 
+			'slate' => array(
+				'url' => '%s/headers/slate.jpg',
+				'thumbnail_url' => '%s/headers/slate-thumbnail.jpg',
+				/* translators: header image description */
+				'description' => __( 'Slate background', 'widgetbox' )
+			),
+			'grass' => array(
+				'url' => '%s/headers/grass.jpg',
+				'thumbnail_url' => '%s/headers/grass-thumbnail.jpg',
+				/* translators: header image description */
+				'description' => __( 'Grass background', 'widgetbox' )
 			)
+			
 		) );	}
 	}
 
@@ -232,7 +245,7 @@ function post_link(){
 include_once('includes/widgetbox-sidebars.php'); // SIDEBARS
 include_once('includes/widgetbox-widgets.php'); // WIDGETS
 include_once('includes/controlpanel.php'); // CPANEL 
-include_once('includes/shailan-generic.php'); // SHORTCODES
+include_once('includes/shailan-generic.php'); // GENERIC FUNCTIONS
 include_once('includes/shortcodes.php'); // SHORTCODES
 
 ?>
