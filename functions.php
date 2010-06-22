@@ -228,7 +228,7 @@ function widgetbox_posted_in() {
 }
 
 function my_init_method() {
-    if(!is_admin){
+    if(!is_admin()){
 		// Load theme scripts
 		wp_enqueue_script('jquery');  
 		wp_enqueue_script('prototype');  
