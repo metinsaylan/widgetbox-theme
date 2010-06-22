@@ -228,10 +228,15 @@ function widgetbox_posted_in() {
 }
 
 function my_init_method() {
-    wp_enqueue_script('jquery');  
-	wp_enqueue_script('prototype');  
-	wp_enqueue_script('scriptaculous');   //Effect.ScrollTo
-	wp_enqueue_script('widgetbox', get_bloginfo('template_directory').'/js/widgetbox.js', 'jquery'); 
+    if(!is_admin){
+		// Load theme scripts
+		wp_enqueue_script('jquery');  
+		wp_enqueue_script('prototype');  
+		wp_enqueue_script('scriptaculous');   //Effect.ScrollTo
+		wp_enqueue_script('widgetbox', get_bloginfo('template_directory').'/js/widgetbox.js', 'jquery'); 
+	} else {
+		// Load admin scripts
+	}
 }    
 add_action('init', 'my_init_method');
 
