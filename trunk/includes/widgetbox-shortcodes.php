@@ -42,10 +42,12 @@ function shailan_and_shortcode($args) {
 function shailan_the_ID($args){ return '<span class="meta_ID">' . get_the_ID() . '</span>'; } add_shortcode('the_ID', 'shailan_the_ID'); add_shortcode('ID', 'shailan_the_ID');
 
 /** [author], [the_author] */
-function shailan_the_author($args){ return '<span class="meta_author">' . get_the_author() . '</span>'; } add_shortcode('the_author', 'shailan_the_author'); add_shortcode('author', 'shailan_the_author');
+function shailan_the_author_shortcode($args){ return '<span class="meta_author">' . get_the_author() . '</span>'; } add_shortcode('the_author', 'shailan_the_author_shortcode'); add_shortcode('author', 'shailan_the_author_shortcode');
 
 /** [authorlink], [the_author_link] */
-function shailan_the_author_link($args){ return '<span class="meta_author_posts">' . get_the_author_link() . '</span>'; } add_shortcode('the_author_link', 'shailan_the_author_link'); add_shortcode('authorlink', 'shailan_the_author_link');
+function shailan_the_author_link_shortcode($args){ 
+	//'<span class="author vcard"><a class="url fn n" href="'.get_author_posts_url( get_the_author_meta( 'ID' ) ).'" title="View all posts by '.get_the_author().'">'.get_the_author().'</a></span>'
+	return '<span class="meta_author_posts">' . get_the_author_link() . '</span>'; } add_shortcode('the_author_link', 'shailan_the_author_link_shortcode'); add_shortcode('authorlink', 'shailan_the_author_link_shortcode');
 
 /** [date], [the_date] */
 function shailan_the_date($args){ return '<span class="meta_date">' . get_the_date() .'</span>'; } add_shortcode('the_date', 'shailan_the_date'); add_shortcode('date', 'shailan_the_date');
@@ -64,20 +66,27 @@ function shailan_the_category($args){
 	
 	$cats = get_the_category($post->ID);
 	
-	$single_cat = $cats[0]->cat_name;
-	$single_link = '<a href="'.get_category_link( $cats[0]->cat_ID ) .'" title="'.$single_cat.'">'.$single_cat.'</a>';	
+	if($post->post_type == 'post'){
 	
-	if($single){
-		return '<span class="meta_category">' . $single_link . '</span>';
-	} else {
-		$categories = '<span class="meta_category">';
-		foreach((get_the_category($post->ID)) as $category) { 
-			$cat_link = '<a href="'.get_category_link( $category->cat_ID ) .'" title="'.$category->cat_name.'">'.$category->cat_name.'</a>';
-			$categories .= $cat_link . $separator; 
-		} 
-		$categories .= '</span>';
-		return $categories;
+		$single_cat = $cats[0]->cat_name;
+		$single_link = '<a href="'.get_category_link( $cats[0]->cat_ID ) .'" title="'.$single_cat.'">'.$single_cat.'</a>';	
+	
+		if($single){
+			return '<span class="meta_category">' . $single_link . '</span>';
+		} else {
+			$categories = '<span class="meta_category">';
+			foreach((get_the_category($post->ID)) as $category) { 
+				$cat_link = '<a href="'.get_category_link( $category->cat_ID ) .'" title="'.$category->cat_name.'">'.$category->cat_name.'</a>';
+				$categories .= $cat_link . $separator; 
+			} 
+			$categories .= '</span>';
+			return $categories;
 	}
+	
+	} else {
+		return __('No categories.');
+	}
+	
 } add_shortcode('the_category', 'shailan_the_category'); add_shortcode('category', 'shailan_the_category');
 
 function shailan_categories($args){ 
@@ -118,9 +127,13 @@ function shailan_tags($args){
 	);	
 	$args = wp_parse_args( $args, $defaults );
 	extract( $args );	
-	$tag_list = get_the_tag_list( $before, $separator, $after );
 	
-	return '<span class="meta_tags">' . $tag_list . '</span>';
+	if($post->post_type == 'post'){
+		$tag_list = get_the_tag_list( $before, $separator, $after );
+		return '<span class="meta_tags">' . $tag_list . '</span>';
+	} else {
+		return __('No tags.');
+	}
 	
 } add_shortcode('the_tags', 'shailan_tags'); add_shortcode('tags', 'shailan_tags');
 

@@ -13,7 +13,7 @@ function shailan_postrss($content) {
 add_filter('the_excerpt_rss', 'shailan_postrss');
 add_filter('the_content', 'shailan_postrss');
 
-/** The Author */
+/** The Author 
 function shailan_author($authordata){
 	global $authordata;
 	
@@ -27,7 +27,33 @@ function shailan_author($authordata){
 	} else {
 		return $authordata->display_name;
 	}
-} add_filter('get_the_author_link', 'shailan_author');
+} */
+
+/** Get author link */
+function shailan_get_the_author_metalink( $meta = null , $domain = '', $title = '' ) {
+	global $authordata;
+	
+	if($meta != null && array_key_exists($meta, $authordata) && strlen($authordata->$meta)>0){
+		return '<a href="' . $domain . $authordata->$meta . '" title="' . $title . '" rel="external">' . $authordata->display_name . '</a>';
+	} else {
+		return false;
+	}
+
+}
+function shailan_the_author(){
+	global $authordata;
+	
+	$socialsite = array('twitter'=>'http://twitter.com/', 'facebook'=>'http://facebook.com/', 'url'=>'');
+	
+	foreach($socialsite as $meta=>$domain){
+		$link = shailan_get_the_author_metalink($meta, $domain);
+		if($link){ return $link; exit;}
+	}
+
+	return (is_object($authordata) ? $authordata->display_name : null);
+}
+
+add_filter('the_author', 'shailan_the_author');
 
 /** RSS Feed Thumbnails */
 function shailan_rss_post_thumbnail($content) {
@@ -190,15 +216,6 @@ function shailan_twitter_followers($twitter_id){
 	return $twitter['count'];
 }
 
-/** Get author link */
-function shailan_get_the_author_link( $meta = null , $domain = '', $title = '' ) {
-	if ( $meta && get_the_author_meta($meta) ) {
-		return '<a href="' . $domain . get_the_author_meta($meta) . '" title="' . $title . '" rel="external">' . get_the_author() . '</a>';
-	} elseif(get_the_author_meta('url')) {
-		return '<a href="' . get_the_author_meta('url') . '" title="' . esc_attr( sprintf(__("Visit %s&#8217;s website"), get_the_author()) ) . '" rel="external">' . get_the_author() . '</a>';
-	} else {
-		return get_the_author();
-	}
-}
+
 
 ?>

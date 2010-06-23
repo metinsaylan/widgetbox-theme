@@ -13,7 +13,7 @@ li.admintab a{ background:#666; }
 #respond, #comments-list #respond{ background:#E0ECFF; }
 #commentform textarea{ background:#fff; }
 #header{border-bottom: 1px solid #C9D7F1;}
-#header a, #header a:hover{color:#fff; text-shadow: #666 0px 1px 1px;}
+#header .blog-title a, #header .blog-title a:hover{ color:#fff; text-shadow: #666 0px 1px 1px; }*/
 #header .description{ color:#fff; text-shadow: #666 0px 1px 1px; font-size:16px; font-weight:bold; }
 #header .description a{ color:#fff; text-decoration:underline; text-shadow: #666 0px 1px 1px; }
 .entry-meta a, .entry-meta a:hover {color:#282;}
