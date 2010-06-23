@@ -29,63 +29,8 @@ s1.parentNode.insertBefore(s, s1);
 </script>";
 } add_action( 'wp_head', 'install_digg' );
 
-/** Set up content width */
-if ( ! isset( $content_width ) ){
-	$widgetbox_page_width = get_option('widgetbox_page_width');
-	$widgetbox_sidebar_width = get_option('widgetbox_sidebar_width');
-	$widgetbox_padding = get_option('widgetbox_padding');
-
-	$content_width = $widgetbox_page_width - $widgetbox_sidebar_width - $widgetbox_padding;
-}
-
-if(!defined('WB_SMARTLAYOUT')){
-	define('WB_SMARTLAYOUT', true); 
-};
-
-/** Widgetbox smart content widths & paddings */
-function wb_layout_styles(){
-
-	if(WB_SMARTLAYOUT){
-		$widgetbox_page_width = get_option('widgetbox_page_width');
-		$widgetbox_sidebar_width = get_option('widgetbox_sidebar_width');
-		$widgetbox_padding = get_option('widgetbox_padding');
-		
-		$content_width = $widgetbox_page_width - $widgetbox_sidebar_width - $widgetbox_padding;
-		$post_width = $content_width - 2*$widgetbox_padding;
-		
-		$content_margin = $widgetbox_sidebar_width + $widgetbox_padding;
-		$secondary_widget_width = ($widgetbox_sidebar_width>250 ? round(($widgetbox_sidebar_width - 2*$widgetbox_padding)/2) : $widgetbox_sidebar_width);
-		
-		$thumbnail_margin = -90 - $widgetbox_padding;
-		
-		$indent = "\n\t\t";
-
-		echo "\n<!-- Start of Widgetbox Layout Styles -->";
-		echo "\n\t<style type=\"text/css\" media=\"all\">";
-		
-		echo $indent . "div#wrapper{ width: ".$widgetbox_page_width."px; margin:".$widgetbox_padding."px auto; padding-bottom:".$widgetbox_padding."px }";
-		echo $indent . "div#header, div#primary .widget, .entry-content, .entry-header{ margin-bottom: ".$widgetbox_padding."px; }";
-		echo $indent . "div#container{ margin:0px -".$content_margin."px 0px 0px; }";
-		echo $indent . "div#content{ margin:0px ".$content_margin."px 0px 0px; padding-left:".$widgetbox_padding."px; padding-right:".$widgetbox_padding."px }";
-		echo $indent . "img.size-full{max-width: ".$post_width."px; border:none; padding:0; margin:0px auto ".$widgetbox_padding."px auto; } * html img.size-full{width: ".$post_width."px}";
-		echo $indent . ".hentry{ margin-bottom:".$widgetbox_padding."px; padding-bottom:".$widgetbox_padding."px }";
-		echo $indent . ".entry-thumb{ float:left; padding:0px; margin-left:".$thumbnail_margin."px; }";
-		
-		echo $indent . "div#primary{width: ".($widgetbox_sidebar_width)."px; margin:0px; margin-bottom:".$widgetbox_padding."px; margin-right:".$widgetbox_padding."px}";
-		echo $indent . "div#secondary{width: ".($widgetbox_sidebar_width)."px; margin:0px; margin-right:".$widgetbox_padding."px}";
-		//echo $indent . "div#secondary .widget{width: ".$secondary_widget_width."px; float:right; }";	
-
-		echo $indent . "div#footer{ width: ".$widgetbox_page_width."px; margin:".$widgetbox_padding."px auto; padding-bottom:".$widgetbox_padding."px }";
-		
-		// HEADER IMAGE
-		echo $indent . "div#header{ background-position: bottom center; background-repeat: no-repeat; background-image: url(".get_header_image()."); }";
-		
-		echo "\n\t</style>";
-		echo "\n<!-- End of Widgetbox Layout Styles -->";
-		echo "\n ";
-	}
-}
-add_action( 'wp_head', 'wb_layout_styles' );
+/** Load Smart layout generator if enabled */
+if(!defined('WB_SMARTLAYOUT') || WB_SMARTLAYOUT){ include_once(TEMPLATEPATH . "/includes/widgetbox-layout.php"); };
 
 // THEME SETUP (Pluggable)
 /*add_action( 'after_setup_theme', 'widgetbox_setup' );
@@ -227,7 +172,7 @@ function widgetbox_posted_in() {
 	);	
 }
 
-function my_init_method() {
+function widgetbox_init() {
     if(!is_admin()){
 		// Load theme scripts
 		wp_enqueue_script('jquery');  
@@ -238,14 +183,9 @@ function my_init_method() {
 		// Load admin scripts
 	}
 }    
-add_action('init', 'my_init_method');
+add_action('init', 'widgetbox_init');
 
-function post_link(){
-	$t = get_the_title();
-	$p = get_permalink();
-	
-	echo "<a href=\"".$p."\" class=\"post-link\">".$t."</a>"; 
-}
+function get_post_link(){ return "<a href=\"".get_permalink()."\" class=\"post-link\">".get_the_title()."</a>"; }
 
 /* Entry header widgets */
 function entry_header_widgets(){ dynamic_sidebar('widgets-entry-top'); }
@@ -257,8 +197,8 @@ add_action('template_entry_foot', 'entry_footer_widgets');
 
 include_once('includes/widgetbox-sidebars.php'); // SIDEBARS
 include_once('includes/widgetbox-widgets.php'); // WIDGETS
-include_once('includes/controlpanel.php'); // CPANEL 
-include_once('includes/shailan-generic.php'); // GENERIC FUNCTIONS
-include_once('includes/shortcodes.php'); // SHORTCODES
+include_once('includes/widgetbox-admin.php'); // ADMIN 
+include_once('includes/widgetbox-shortcodes.php'); // SHORTCODES
+include_once('includes/shailan-utilities.php'); // GENERIC FUNCTIONS
 
 ?>
