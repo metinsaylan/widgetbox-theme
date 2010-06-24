@@ -33,7 +33,7 @@ function shailan_tags_shortcode($args) {
 function shailan_and_shortcode($args) {
 	$and = '<span class="amp">&</span>';
 	return $and;
-} add_shortcode('and', 'shailan_tags_shortcode');
+} add_shortcode('and', 'shailan_and_shortcode');
 
 
 /** META SHORTCODES */

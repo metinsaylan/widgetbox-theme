@@ -14,7 +14,7 @@ include_once('widgets/wb-post-navigation.php');
 include_once('widgets/wb-adsense.php');
 include_once('widgets/wb-follow.php'); 
 include_once('widgets/wb-comments.php'); 
-include_once('widgets/wb-share.php');
+/*include_once('widgets/wb-share.php');*/
 include_once('widgets/wb-entrymeta.php');
 
 // EXCLUSIVE WIDGETS
