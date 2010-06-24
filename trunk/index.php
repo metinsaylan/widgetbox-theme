@@ -6,6 +6,7 @@
 		<?php if(!dynamic_sidebar('widgets-content')){
 			// No widget here.. Let's put some blog posts..
 			the_widget('wb_posts_widget');
+			if(is_single()){ the_widget('wb_comments'); };
 		}; ?>
 
 		</div><!-- #content -->
