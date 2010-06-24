@@ -16,8 +16,8 @@ li.admintab a{ background:#666; }
 #wrapper , .tab-content ul, .entry-bottom-widget ul, #primary .widget ul, #secondary .widget ul, .tab-content ul li, .entry-bottom-widget ul li, #secondary .widget ul li, #primary .widget ul li, .hentry, #respond, #comments-list #respond, .countdown{ border-color:#1c1c1c; }
 
 #header { background: #435b67 url(images/header-bg.jpg) bottom center no-repeat; border-bottom:1px solid #153f61; }
-#header a, #header a:hover{color:#fff;}
-/*#header .description{ color:#fff; }*/
+/*#header a, #header a:hover{color:#fff;}*/
+#header .description{ color:#fff; }
 #header .description a{ color:#fff; text-decoration:underline; }
 
 .entry-meta{color:#444;}
