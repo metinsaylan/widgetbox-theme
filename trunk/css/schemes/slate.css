@@ -17,7 +17,7 @@ li.admintab a{ background:#666; }
 
 #header { background: #435b67 url(images/header-bg.jpg) bottom center no-repeat; border-bottom:1px solid #153f61; }
 #header a, #header a:hover{color:#fff;}
-#header .description{ color:#fff; }
+/*#header .description{ color:#fff; }*/
 #header .description a{ color:#fff; text-decoration:underline; }
 
 .entry-meta{color:#444;}
