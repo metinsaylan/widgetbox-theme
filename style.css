@@ -91,7 +91,7 @@ li.admintab a{ position:fixed; top: 10px; left:10px; z-index:100; zoom:1; }
 		-khtml-border-radius: 8px; float:right; width:auto; margin-left:10px; padding:5px; font-size:80%;}
 	.entry-content div.toc ol{margin:0px;}
 		
-	.more-link{ font-size:80%; }
+	.more-link{ /*font-size:80%;*/ }
 	.more-link a:after {content: "\0020\21D2";}
 	
 	.wp-post-image{padding:0px; margin:0px;}
@@ -364,7 +364,7 @@ div#fw_tabs_tabdisplay_1.first ul.tabbed_sidebar li.tab h3, #sidebar ul div#fw_t
     .post_share .wdt_button{ margin:5px; display:block; clear:both; }
 	.post_share .small-buttons{ display:none; }
 	.wdt_button .fb_share_size_Small fb_share_count_wrapper{width:50px;}
-	.wdt_button .FBConnectButton_Small .FBConnectButton_Text{ margin-left: 13px; padding: 2px 3px 3px; }
+	.wdt_button .FBConnectButton_Small .FBConnectButton_Text{ margin-left: 10px; padding: 2px 3px 3px; }
 	.wdt_button .FBConnectButton_Small, .wdt_button .FBConnectButton_RTL_Small { background-position: -35% -232px; }
 	
 	.wdt_button_min{float:left;clear:none;padding:5px}
