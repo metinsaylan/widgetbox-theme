@@ -11,7 +11,7 @@
 .entry-content img { margin: 0 0 1.5em 0; }
 .alignleft, img.alignleft, img[align="left"] { margin-right: 1.5em; display: inline; float: left; }
 .alignright, img.alignright, img[align="right"] { margin-left: 1.5em; display: inline; float: right; }
-.center, .aligncenter, img.aligncenter { margin-right: auto; margin-left: auto; display: block; clear: both; }
+.center, .aligncenter, img.aligncenter { margin-right: auto; margin-left: auto; display: block; /*clear: both;*/ }
 .alignnone, img.alignnone { }
 .wp-caption { margin-bottom: 1.5em; text-align: center; padding-top: 5px; }
 .wp-caption img { border: 0 none; padding: 0; margin: 0; }
