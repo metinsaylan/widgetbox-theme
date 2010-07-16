@@ -1,19 +1,55 @@
-/* 
+/** Body text */
+body,
+.page-title span,
+.pingback a.url {
+	/* font: normal normal normal 75%/normal 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Verdana, Arial, sans-serif; */
+	font: normal normal normal 75%/normal "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
 
-	M2 TYPOGRAPHY 
-	
-*/
+h3#comments-title,
+h3#reply-title,
+#access .menu,
+#access div.menu ul,
+#cancel-comment-reply-link,
+.form-allowed-tags,
+#site-info,
+#site-title,
+#wp-calendar,
+.comment-meta,
+.comment-body tr th,
+.comment-body thead th,
+.entry-content label,
+.entry-content tr th,
+.entry-content thead th,
+.entry-meta,
+.entry-title,
+.entry-utility,
+#respond label,
+.navigation,
+.page-title,
+.pingback p,
+.reply,
+.widget-title,
+.wp-caption-text,
+input[type=submit]
+{
+	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+pre {
+	font-family: "Courier 10 Pitch", Courier, monospace;
+}
+code {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
 
-body{ font: normal normal normal 75%/normal 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Verdana, Arial, sans-serif; }
 
-h1, h2, h3, .archive-meta{font-family: Georgia, Helvetica, sans-serif; text-shadow: rgba(0, 0, 0, 0.0078125) }
-
+/** Blog title */
 h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500; 
-		font-family: Georgia, Helvetica, sans-serif; text-shadow: #555 1px 1px 0.1em; color:#ffffff; }
-		
+		font-family: Georgia, Helvetica, sans-serif; text-shadow: #555 1px 1px 0.1em; }
+
 #header .description{ text-shadow: rgba(0, 0, 0, 0.0078125) 0px 0px 0px; font-size:1.2em; font-style:oblique; }
 
-.single h1.blog-title, .page h1.blog-title, h2.blog-title{font-size:3.4em; color:#ffffff; line-height: 34px;}
+.single h1.blog-title, .page h1.blog-title, h2.blog-title{font-size:3.4em; line-height: 34px;}
 	
 .page-head h1{ font-size: 1.6em; font-weight:500; text-shadow: #aaa 1px 1px 0.1em; background:#ddd; 
 		padding:4px 8px; border-bottom-left-radius: 4px 4px;
@@ -31,8 +67,16 @@ h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500;
 
 .entry-title  a {text-decoration:none;}
 
-.entry-title, #content h2, #content h3 , .widgettittle, .widget-title, .widgets h4, .widget .widgettitle{
-	font-size: 1.8em; font-weight:500; font-family: Georgia, Helvetica, sans-serif; text-shadow: #222 1px 1px 0.1em;  line-height:24px; color:#999;
+.entry-title, #content h2, #content h3 {
+	text-shadow: rgba(0, 0, 0, 0.0078125) 0px 0px 0px; font-weight:500; line-height:24px; letter-spacing:2px;
+	font-family: Georgia, Helvetica, sans-serif; line-height:24px;
+	font-style:italic;
+}
+
+.widgettittle, .widget-title, .widgets h4, .widget .widgettitle{
+	font-size: 1.8em; font-weight:500; 
+	font-family: Georgia, Helvetica, sans-serif; line-height:24px;
+	font-style:italic; 
 }
 
 #content h2{font-size:2em}
@@ -46,3 +90,10 @@ h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500;
 .archive-meta{ font-size:1.3em; text-shadow: rgba(0, 0, 0, 0.0078125) 0px 0px 0px; }
 
 #leavecomment, .comments #loading, #comments-closed-msg{font-family: Georgia, Helvetica, sans-serif; font-size:3em; text-shadow: #fff 1px 1px 0.1em; }
+
+#content{
+	font-family: Georgia, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing:1px;
+}

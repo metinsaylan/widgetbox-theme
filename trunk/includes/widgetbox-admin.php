@@ -31,7 +31,7 @@ if ( @$_GET['page'] == basename(__FILE__) ) {
 foreach ($options as $value) {
 	if( isset( $_REQUEST[ $value['id'] ] ) ) { update_option( $value['id'], $_REQUEST[ $value['id'] ]  ); } else { delete_option( $value['id'] ); } }
  
-	header("Location: admin.php?page=controlpanel.php&saved=true");
+	header("Location: admin.php?page=widgetbox-admin.php&saved=true");
 die;
  
 } 
@@ -40,7 +40,7 @@ else if( @$_REQUEST['action'] && 'reset' == $_REQUEST['action'] ) {
 	foreach ($options as $value) {
 		delete_option( $value['id'] ); }
  
-	header("Location: admin.php?page=controlpanel.php&reset=true");
+	header("Location: admin.php?page=widgetbox-admin.php&reset=true");
 die;
  
 }

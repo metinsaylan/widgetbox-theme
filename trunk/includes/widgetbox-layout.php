@@ -31,14 +31,16 @@ function wb_layout_styles(){
 		echo "\n\t<style type=\"text/css\" media=\"all\">";
 		
 		echo $indent . "div#wrapper{ width: ".$widgetbox_page_width."px; margin:".$widgetbox_padding."px auto; padding-bottom:".$widgetbox_padding."px }";
-		echo $indent . "div#header, div#primary .widget, .entry-content, .entry-header{ margin-bottom: ".$widgetbox_padding."px; }";
-		echo $indent . "div#container{ margin:0px -".$content_margin."px 0px 0px; }";
+		echo $indent . "div#primary .widget, .entry-content, .entry-header{ margin-bottom: ".$widgetbox_padding."px; }";
+		echo $indent . "div#container{ padding-top: ".$widgetbox_padding."px; margin:0px -".$content_margin."px 0px 0px; }";
+		echo $indent . "#respond{ padding: ".$widgetbox_padding."px; }";
+		echo $indent . "#comments-list ol{ margin: ".$widgetbox_padding."px; }";
 		echo $indent . "div#content{ margin:0px ".$content_margin."px 0px 0px; padding-left:".$widgetbox_padding."px; padding-right:".$widgetbox_padding."px }";
 		echo $indent . "img.size-full{max-width: ".$post_width."px; border:none; padding:0; margin:0px auto ".$widgetbox_padding."px auto; } * html img.size-full{width: ".$post_width."px}";
 		echo $indent . ".hentry{ margin-bottom:".$widgetbox_padding."px; padding-bottom:".$widgetbox_padding."px }";
 		echo $indent . ".entry-thumb{ float:left; padding:0px; margin-left:".$thumbnail_margin."px; }";
 		
-		echo $indent . "div#primary{width: ".($widgetbox_sidebar_width)."px; margin:0px; margin-bottom:".$widgetbox_padding."px; margin-right:".$widgetbox_padding."px}";
+		echo $indent . "div#primary{width: ".($widgetbox_sidebar_width)."px; margin:0px; margin-top:".$widgetbox_padding."px; margin-bottom:".$widgetbox_padding."px; margin-right:".$widgetbox_padding."px}";
 		echo $indent . "div#secondary{width: ".($widgetbox_sidebar_width)."px; margin:0px; margin-right:".$widgetbox_padding."px}";
 		/*echo $indent . "div#secondary .widget{width: ".$secondary_widget_width."px; float:right; }";	*/
 

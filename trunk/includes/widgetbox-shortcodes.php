@@ -42,7 +42,13 @@ function shailan_and_shortcode($args) {
 function shailan_the_ID($args){ return '<span class="meta_ID">' . get_the_ID() . '</span>'; } add_shortcode('the_ID', 'shailan_the_ID'); add_shortcode('ID', 'shailan_the_ID');
 
 /** [author], [the_author] */
-function shailan_the_author_shortcode($args){ return '<span class="meta_author">' . get_the_author() . '</span>'; } add_shortcode('the_author', 'shailan_the_author_shortcode'); add_shortcode('author', 'shailan_the_author_shortcode');
+function shailan_the_author_shortcode($args){
+	$defaults = array(
+		'before' => '',
+		'after' => ''
+	); $args = wp_parse_args( $args, $defaults ); extract( $args );
+	
+	return '<span class="meta_author">' . $before . get_the_author() . $after . '</span>'; } add_shortcode('the_author', 'shailan_the_author_shortcode'); add_shortcode('author', 'shailan_the_author_shortcode');
 
 /** [authorlink], [the_author_link] */
 function shailan_the_author_link_shortcode($args){ 
@@ -136,6 +142,39 @@ function shailan_tags($args){
 	}
 	
 } add_shortcode('the_tags', 'shailan_tags'); add_shortcode('tags', 'shailan_tags');
+
+function shailan_comments_link($args){
+	global $post, $id;
+	
+	$defaults = array(
+		'zero' => __('Leave Comment'),
+		'one' => __('1 Comment'),
+		'more' => __('% Comments')
+	);	
+	$args = wp_parse_args( $args, $defaults );
+	extract( $args );	
+	
+	$link = get_comments_link();
+	$number = get_comments_number($id);
+
+        if ( $number > 1 )
+                $output = str_replace('%', number_format_i18n($number), ( false === $more ) ? __('% Comments') : $more);
+        elseif ( $number == 0 )
+                $output = ( false === $zero ) ? __('No Comments') : $zero;
+        else // must be one
+                $output = ( false === $one ) ? __('1 Comment') : $one;
+	
+	return '<span class="comments-link"><a href="'.$link.'" >' . $output . '</a></span>';
+} add_shortcode('comments', 'shailan_comments_link'); add_shortcode('cmnts', 'shailan_comments_link');
+
+function shailan_comment_count($args){
+	global $post, $id;	
+	$link = get_comments_link();
+	$number = get_comments_number($id);
+	
+	return '<span class="comments-count"><a href="'.$link.'" >' . $number . '</a></span>';
+} add_shortcode('comment_count', 'shailan_comment_count');
+
 
 // TODO : [shortlink]
 // TODO : [permalink]
