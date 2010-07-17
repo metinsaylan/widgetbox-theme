@@ -8,8 +8,8 @@
 a{text-decoration:none; color:#09c; border-radius:5px;}
 a:hover{ background: #09c; color:#fff; /*border-bottom:1px solid #09c; font-style:italic;*/}
 
-#content a, #primary a, #primary .widget a, #footer a{padding:2px 5px;}
-#content .post_share a{padding:0px; margin:0px;}
+/*#content a, #primary a, #primary .widget a, #footer a{ padding:2px 5px; }
+#content .post_share a{padding:0px; margin:0px;}*/
 
 body{background:#666;}
 #wrapper{background-color:#eee; border-color:#444;}
