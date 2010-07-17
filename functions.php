@@ -131,6 +131,16 @@ if ( ! function_exists( 'widgetbox_page_menu_args' ) ) :
 	add_filter('wp_page_menu_args', 'widgetbox_page_menu_args');
 endif;
 
+function widgetbox_body_class($classes){
+	global $wp_query, $wpdb;
+
+	$layout = get_option('widgetbox_active_layout');
+
+	$classes[] = strtolower($layout);
+	
+	return $classes;
+}; add_filter( 'body_class', 'widgetbox_body_class');
+
 
 function widgetbox_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
