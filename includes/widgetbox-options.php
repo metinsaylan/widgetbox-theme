@@ -8,7 +8,7 @@ foreach ($categories as $category_list ) {
 array_unshift($wp_cats, "Choose a category"); 
 
 // LOAD THEMES
-$wb_themes = array();
+/*$wb_themes = array();
 $dirpath =  TEMPLATEPATH.'/css/schemes/';
 $dh = opendir($dirpath);
 
@@ -18,7 +18,7 @@ while (false !== ($file = readdir($dh))) {
 		//Truncate the file extension and capitalize the first letter
 		$wb_themes[] = htmlspecialchars(preg_replace('/\..*$/', '', $file));
 	}
-}
+}*/
 
 // LOAD LAYOUTS
 $wb_layouts = array();
@@ -49,12 +49,12 @@ array( "type" => "open"),
 		"options" => $wb_layouts,
 		"type" => "select"),
 		
-	array(  "name" => "Color scheme",
+	/*array(  "name" => "Color scheme",
 		"desc" => " Color scheme for widgetbox.",
 		"id" => $shortname."_active_theme",
 		"std" => "light",
 		"options" => $wb_themes,
-		"type" => "select"),
+		"type" => "select"),*/
 			
 	array(  "name" => "Page width",
 		"desc" => "px. Width of the main container.",

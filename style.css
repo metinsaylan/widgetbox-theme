@@ -368,3 +368,56 @@ div#fw_tabs_tabdisplay_1.first ul.tabbed_sidebar li.tab h3, #sidebar ul div#fw_t
 	.wdt_button .FBConnectButton_Small, .wdt_button .FBConnectButton_RTL_Small { background-position: -35% -232px; }
 	
 	.wdt_button_min{float:left;clear:none;padding:5px}
+	
+	
+/** C O L O R  S C H E M E */
+a{text-decoration:none; color:#09c; border-radius:5px;}
+a:hover{ background: #09c; color:#fff; /*border-bottom:1px solid #09c; font-style:italic;*/}
+
+/*#content a, #primary a, #primary .widget a, #footer a{ padding:2px 5px; }
+#content .post_share a{padding:0px; margin:0px;}*/
+
+body{background:#666;}
+#wrapper{background-color:#eee; border-color:#444;}
+.post_share{background:#444;}
+
+.tab-content ul, .entry-bottom-widget ul, #primary .widget ul, #secondary .widget ul,
+.tab-content ul li, .entry-bottom-widget ul li, #secondary .widget ul li, #primary .widget ul li{ border-color:#ccc; }
+.hentry, #respond, #comments-list #respond, .countdown, #commentform textarea, div.meta, .box, #commentform textarea{ border-color:#abc; }
+#footer .widget ul, #footer .widget ul li{ border-color:#555; }
+
+#header .blog-title, #header .blog-title a, #header .blog-title a:link{color:#fff;}
+#header .description{color:#fff;}
+
+#content .entry-title,#content .entry-title a{color: #c03; font-size:30px; line-height:36px;}
+#content .entry-title a:hover{ color:#fff; background-color: #c03; }
+
+#content{color:#5e5d5d;}
+
+.widgettittle, .widget-title{color:#aaa;}
+
+#footer .widget-title{color:#ccc; text-shadow: #333 0px 1px 1px; }
+#footer a{color:#9c0;}
+#footer a:hover{color:#cf3; font-style:italic;}
+
+
+/** Comments */
+li.comment{border:1px solid #ccc; margin:5px; padding:10px;}
+
+.comments { clear: both; text-align: left; position: relative; margin:0px; padding-top:0px; }
+
+.bypostauthor{ background:#e7e6e0; }
+.byuser { background:#f2f2f2; }
+
+#respond, #comments-list #respond{ border-top-width:2px; border-top-style:solid; color:#666; background:#ddd; padding:10px; 
+	overflow:hidden; position:relative; }
+#respond a, #respond a:hover, #comments-list #respond a{ color:#888; }
+#comments h3{color:#909;}
+
+#commentform input[type="text"]{border:none; border-bottom:1px dashed #999; background:#dedede;}
+#commentform textarea {background:#eee; border-width:2px; border-style:solid; width:98%; }
+
+#cancel-comment-reply{position:absolute; top:5px; right:5px; }
+
+
+strong, em{background-color:#cf6;}
