@@ -12,10 +12,10 @@
 	
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url') ?>" />
 
-	<?php if(TEMPLATEPATH == STYLESHEETPATH){
+	<!-- <?php if(TEMPLATEPATH == STYLESHEETPATH){
 		$wb_theme = get_option('widgetbox_active_theme'); ?>
 <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/schemes/<?php echo $wb_theme; ?>.css" />
-	<?php } ?>
+	<?php } ?> -->
 	
 	<!-- Widget specific styles -->
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/aktt.css" />

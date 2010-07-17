@@ -45,9 +45,9 @@ code {
 
 /** Blog title */
 h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500; 
-		font-family: Georgia, Helvetica, sans-serif; text-shadow: #555 1px 1px 0.1em; }
+		font-family: Georgia, Helvetica, sans-serif; text-shadow: #333 1px 1px 3px; }
 
-#header .description{ text-shadow: rgba(0, 0, 0, 0.0078125) 0px 0px 0px; font-size:1.2em; font-style:oblique; }
+#header .description{ text-shadow: #000 0px 1px 3px; font-size:1.2em; font-style:oblique; }
 
 .single h1.blog-title, .page h1.blog-title, h2.blog-title{font-size:3.4em; line-height: 34px;}
 	
@@ -68,7 +68,7 @@ h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500;
 .entry-title  a {text-decoration:none;}
 
 .entry-title, #content h2, #content h3 {
-	text-shadow: rgba(0, 0, 0, 0.0078125) 0px 0px 0px; font-weight:500; line-height:24px; letter-spacing:2px;
+	text-shadow: #666 0px 1px 1px; font-weight:500; line-height:24px; letter-spacing:2px;
 	font-family: Georgia, Helvetica, sans-serif; line-height:24px;
 	font-style:italic;
 }
@@ -85,9 +85,9 @@ h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500;
 #content h5{font-size:1.2em; font-style:oblique; }
 #content h6{font-size:1em; font-style:oblique; }
 
-.entry-content h4, .entry-meta h4, .entry-content h3 { margin:5px 0px; }
+.entry-content h4, .entry-meta h4, .entry-content h3 { margin:5px 0px; text-shadow: rgba(0, 0, 0, 0.0078125) }
 
-.archive-meta{ font-size:1.3em; text-shadow: rgba(0, 0, 0, 0.0078125) 0px 0px 0px; }
+.archive-meta{ font-size:1.3em; text-shadow: rgba(0, 0, 0, 0.01) 0px 0px 0px; }
 
 #leavecomment, .comments #loading, #comments-closed-msg{font-family: Georgia, Helvetica, sans-serif; font-size:3em; text-shadow: #fff 1px 1px 0.1em; }
 
