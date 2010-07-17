@@ -51,15 +51,15 @@ body.single ul.menu li.blogtab>a:hover {
 	
 #linkcat-118 ul li{
   padding: 5px 15px;
-  font-size: 11px;
+  /*font-size: 11px;*/
   line-height: 16px;
 }
 #linkcat-118 ul li a{ 
   display:block;
-  font-size: 12px;
-  font-weight: bold;
+  /*font-size: 12px;
+  font-weight: bold;*/
 /* height: 26px; */
-  overflow: hidden;
+  /*overflow: hidden;
   -webkit-user-select: none;
   background: #DFDFDF url(http://shailan.com/wp-admin/images/gray-grad.png) repeat-x 0% 0%;
   text-shadow: white 0px 1px 0px;
@@ -74,9 +74,9 @@ body.single ul.menu li.blogtab>a:hover {
   color:#444;
   width:232px;
   margin-bottom:4px;
-  margin-left:-8px;
+  margin-left:-8px;*/
 }
 
-#header ul.menu li.page-item-744 a{background:#99FF33;color:#000;}
+#header ul.menu li.page-item-744 a{/*background:#99FF33;color:#000;*/}
 
 	
