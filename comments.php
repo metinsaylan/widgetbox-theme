@@ -55,7 +55,7 @@ foreach ( $comments as $comment )
 <?php //endif; /* if ( $comment_count ) */ ?>
  
 <?php /* If there are trackbacks(pings), show the trackbacks  */ ?>
-<?php if ( ! empty($comments_by_type['pings']) ) : ?>
+<?php /*if ( ! empty($comments_by_type['pings']) ) : */?>
  
     <div id="trackbacks-list" class="comments">
      <h3><?php printf($ping_count > 1 ? __('<span>%d</span> Trackbacks', 'widgetbox') : __('<span>One</span> Trackback', 'widgetbox'), $ping_count) ?></h3>
@@ -68,7 +68,7 @@ foreach ( $comments as $comment )
     </div><!-- #trackbacks-list .comments -->  
  
  
-<?php endif /* if ( $ping_count ) */ ?>
+<?php/* endif*/ /* if ( $ping_count ) */ ?>
 <?php endif /* if ( $comments ) */ ?>
  
 <?php /* If comments are open, build the respond form */ ?>

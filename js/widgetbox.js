@@ -23,7 +23,7 @@ jQuery(document).ready(function() {
 			var box_width = 60;
 			var box_margin = 5; 
 			
-			var margin_left = -1*((wrapper_width /2) + (box_width - box_margin));
+			var margin_left = Math.round(-1*((wrapper_width /2) + (box_width - box_margin)))-1;
 			
             if ( scrollY > descripY && !fixedShare ) {
                 $postShare.stop().css({
