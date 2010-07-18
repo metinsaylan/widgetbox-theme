@@ -29,7 +29,7 @@ body{ text-align: center; }
 .wb_blog_title .title{ padding:10px; }
 .wb_blog_title .description{ padding:10px 0px 0px 20px; }
 a[rel="home"]{padding-right:24px; background:none;}
-a[rel="home"]:hover{padding-right:24px; background:url('css/schemes/images/home.png') right 50% no-repeat;}
+a[rel="home"]:hover{padding-right:24px; background:url('images/home.png') right 50% no-repeat;}
 
 div.navigation { height:1.25em; margin:10px 0px; } 
 div.navigation div { width:50%; } 
@@ -345,7 +345,7 @@ li.admintab a{ position:fixed; top: 10px; left:10px; z-index:100; zoom:1; }
 /*.return_to_top:hover{background-position: 0px -35px;}*/
 
 #return_to_top{ }
-#return_to_top div{ background: url('css/schemes/images/return_to_top.png') no-repeat 0px 0px; width:64px;height:64px;position:fixed;z-index:10;bottom:100px;right:10px; text-indent:-9999px; overflow:hidden; opacity:0.8; filter:alpha(opacity=80);-moz-opacity:0.8;cursor:pointer;}
+#return_to_top div{ background: url('images/return_to_top.png') no-repeat 0px 0px; width:64px;height:64px;position:fixed;z-index:10;bottom:100px;right:10px; text-indent:-9999px; overflow:hidden; opacity:0.8; filter:alpha(opacity=80);-moz-opacity:0.8;cursor:pointer;}
 #return_to_top:hover div{opacity:1;filter:alpha(opacity=100);-moz-opacity:1;cursor:pointer;}
 
 .m2-adsense{width:auto;}
@@ -455,14 +455,17 @@ span#prev{position:absolute; bottom:0px; left:0px; padding:2px 5px; margin-left:
 	-khtml-border-radius: 7px; }
 
 ul#nav a{padding:2px 5px;}
+ul#nav a.activeSlide{ background-color:#09c ; color:#fff; } ul#nav a.activeSlide:hover{color:#fff;}
 
 #featured .slides .thumb{ float:left; margin-right:15px; }
 #featured .slides .postsnip{ margin:15px; }
+.postsnip p { margin-left: 215px; }
 
 .slides ul{ list-style-type:none; }
 .slides ul li{width:100%;}
 
-.featured-slide h2 a{background-color:#c03; color:#fff;}
-#featured .featured-slide .entry-title a{color:#fff; padding:3px 4px;}
+.featured-slide h2 a{background-color:transparent; color:#333;}
+#featured .featured-slide .entry-title a{color:#333; padding:3px 4px;}
+#featured .featured-slide .entry-title a:hover{color:#fff; padding:3px 4px;}
 
 

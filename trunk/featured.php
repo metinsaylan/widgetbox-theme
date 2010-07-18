@@ -12,7 +12,7 @@
 	<div class="slides">
 		<ul>
 			<?php
-			$featuredPosts = new WP_Query('showposts=5&cat=1');
+			$featuredPosts = new WP_Query('showposts=5&cat=158');
 			
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); // loop for posts
 			?>
@@ -23,17 +23,13 @@
 					<div class="thumb">
 						<a href="<?php the_permalink(); ?>" rel="bookmark" >
 							<?php // the current post has a thumbnail
-								the_post_thumbnail(array(200,200)); ?>
+								the_post_thumbnail(); ?>
 						</a>
 					</div>
 					
-						<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php echo substr($post->post_title,0,30); // short title ?>...</a></h2>
-						<?php the_excerpt(); // show shortened excerpt ?>...
+						<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+						<?php the_excerpt(); // show shortened excerpt ?>
 					</div>
-				
-					
-
-					<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><img src="<?php bloginfo('template_directory'); ?>/images/read-more.png" alt="<?php the_title(); ?>" title="Read more: <?php the_title(); ?>" id="readmore" /></a>
 
 				</li>
 

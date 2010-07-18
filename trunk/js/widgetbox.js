@@ -11,7 +11,7 @@ jQuery(document).ready(function() {
 	jQuery('.slides').cycle({
         fx:     'scrollHorz',
         speed:  'fast',
-        timeout: 6000,
+        timeout: 0,
         pager:  '#nav',
 		prev:    '#prev',
         next:    '#next',

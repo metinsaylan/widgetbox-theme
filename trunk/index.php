@@ -3,7 +3,7 @@
 	<div id="container">
 		<div id="content">
 		
-		<?php include('featured.php'); ?>
+		<?php include_once('featured.php'); ?>
 		
 		<?php if(!dynamic_sidebar('widgets-content')){
 			// No widget here.. Let's put some blog posts..
