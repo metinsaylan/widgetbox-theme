@@ -3,6 +3,8 @@
 	<div id="container">
 		<div id="content">
 		
+		<?php include('featured.php'); ?>
+		
 		<?php if(!dynamic_sidebar('widgets-content')){
 			// No widget here.. Let's put some blog posts..
 			the_widget('wb_posts_widget');
