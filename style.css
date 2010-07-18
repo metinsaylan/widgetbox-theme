@@ -396,7 +396,7 @@ body{background:#666;}
 
 .widgettittle, .widget-title{color:#aaa;}
 
-#footer .widget-title{color:#ccc; text-shadow: #333 0px 1px 1px; }
+#footer .widget-title{color:#ccc; text-shadow: #222 0px 1px 3px; }
 #footer a{color:#9c0;}
 #footer a:hover{color:#cf3; /*font-style:italic;*/}
 
