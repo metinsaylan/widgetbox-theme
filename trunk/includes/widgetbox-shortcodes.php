@@ -70,10 +70,9 @@ function shailan_the_category($args){
 	$args = wp_parse_args( $args, $defaults );
 	extract( $args );
 	
-	$cats = get_the_category($post->ID);
-	
 	if($post->post_type == 'post'){
-	
+		
+		$cats = get_the_category($post->ID);
 		$single_cat = $cats[0]->cat_name;
 		$single_link = '<a href="'.get_category_link( $cats[0]->cat_ID ) .'" title="'.$single_cat.'">'.$single_cat.'</a>';	
 	
@@ -106,20 +105,27 @@ function shailan_categories($args){
 	$args = wp_parse_args( $args, $defaults );
 	extract( $args );
 	
-	$cats = get_the_category($post->ID);
+	if($post->post_type == 'post'){
 	
-	$categories = '<span class="meta_category">';
-	$last = count($cats);
-	$current = 0;
+		$cats = get_the_category($post->ID);
+		
+		$categories = '<span class="meta_category">';
+		$last = count($cats);
+		$current = 0;
+		
+		foreach($cats as $category) { 
+			$current += 1; 
+			$cat_link = '<a href="'.get_category_link( $category->cat_ID ) .'" title="'.$category->cat_name.'">'.$category->cat_name.'</a>';
+			$categories .= ( $current==$last ? $cat_link : ( $current==$last-1 ? $cat_link . $lastseparator : $cat_link . $separator) );
+		} 
+		
+		$categories .= '</span>';
+		return $categories;
 	
-	foreach($cats as $category) { 
-		$current += 1; 
-		$cat_link = '<a href="'.get_category_link( $category->cat_ID ) .'" title="'.$category->cat_name.'">'.$category->cat_name.'</a>';
-		$categories .= ( $current==$last ? $cat_link : ( $current==$last-1 ? $cat_link . $lastseparator : $cat_link . $separator) );
-	} 
+	} else {
+		return __('No categories.');
+	}
 	
-	$categories .= '</span>';
-	return $categories;
 } add_shortcode('the_categories', 'shailan_categories'); add_shortcode('categories', 'shailan_categories');
 
 function shailan_tags($args){ 
