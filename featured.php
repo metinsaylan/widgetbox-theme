@@ -20,7 +20,7 @@
 	<div class="slides">
 		<ul>
 			<?php
-			$featuredPosts = new WP_Query('showposts=5&cat_name='.$featured_category);
+			$featuredPosts = new WP_Query('showposts=5&category_name='.$featured_category);
 			
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); // loop for posts
 			?>
