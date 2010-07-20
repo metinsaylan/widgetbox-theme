@@ -37,6 +37,19 @@ $options = array (
  
 array( "name" => $themename." Options",
 	"type" => "title"),
+	
+array( "name" => "General Options",
+	"type" => "section"),
+array( "type" => "open"),
+
+	array(  "name" => "Featured Posts Category",
+		"desc" => "Will be displayed on homepage.",
+		"id" => $shortname."_featured_cat",
+		"std" => "",
+		"options" => $wp_cats,
+		"type" => "select"),
+
+array( "type" => "close"),
  
 array( "name" => "Layout & Color Scheme",
 	"type" => "section"),

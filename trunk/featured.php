@@ -1,4 +1,12 @@
-<?php if (is_home()) { // show the popular posts and slider if(is_home() ?>
+<?php
+
+/** W I D G E T B O X  F E A T U R E D  P O S T S */
+
+  $featured_category = get_option('widgetbox_featured_cat');
+  
+  //echo $featured_category;
+
+  if (is_home() && !empty($featured_category)) { // show the popular posts and slider if(is_home() ?>
 
 <!-- Begin Home page Slider -->
 <div id="slider_wrap">
@@ -12,7 +20,7 @@
 	<div class="slides">
 		<ul>
 			<?php
-			$featuredPosts = new WP_Query('showposts=5&cat=158');
+			$featuredPosts = new WP_Query('showposts=5&cat_name='.$featured_category);
 			
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); // loop for posts
 			?>

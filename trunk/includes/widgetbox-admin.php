@@ -3,12 +3,12 @@
 /* Use child name if using child themes */
 if(TEMPLATEPATH !== STYLESHEETPATH){
 	$themename = ucfirst(get_stylesheet()); 
-	$shortname = strtolower(get_stylesheet());
+	//$shortname = strtolower(get_stylesheet());
 } else { 
 	$themename = "Widgetbox"; 
-	$shortname = "widgetbox"; /* This is for options. Dont change it! */	
 }
 
+$shortname = "widgetbox"; /* This is for options. Dont change it! */	
 
 // Load options 
 if(TEMPLATEPATH !== STYLESHEETPATH && file_exists(trailingslashit(get_stylesheet_directory()) . 'options.php')){
