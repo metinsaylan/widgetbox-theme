@@ -182,7 +182,31 @@ function shailan_comment_count($args){
 } add_shortcode('comment_count', 'shailan_comment_count');
 
 
-// TODO : [shortlink]
+// [shortlink text="shortlink" title="twit this" before="Get the " after="!"]
+function shailan_the_shortlink($args){ 
+	global $post;
+
+	$defaults = array(
+		'text' => _e('Shortlink'),
+		'title' => '',
+		'before' => '',
+		'after' => ''
+	);	
+	$args = wp_parse_args( $args, $defaults );
+	extract( $args );	
+	
+	$shortlink = wp_get_shortlink( $post->ID );
+	
+	if ( !empty( $shortlink ) ) {
+		$link = '<a rel="shortlink" href="' . esc_url( $shortlink ) . '" title="' . $title . '">' . $text . '</a>';
+		$link = apply_filters( 'the_shortlink', $link, $shortlink, $text, $title );
+		
+		return $before . $link . $after;
+	} 
+
+} add_shortcode('the_shortlink', 'shailan_the_shortlink'); add_shortcode('shortlink', 'shailan_the_shortlink');
+
+
 // TODO : [permalink]
 // TODO : [title]
 

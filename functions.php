@@ -258,7 +258,5 @@ add_action('template_entry_foot', 'entry_footer_widgets');
 include_once('includes/widgetbox-sidebars.php'); // SIDEBARS
 include_once('includes/widgetbox-widgets.php'); // WIDGETS
 include_once('includes/widgetbox-admin.php'); // ADMIN 
-include_once('includes/widgetbox-shortcodes.php'); // SHORTCODES
-include_once('includes/shailan-utilities.php'); // GENERIC FUNCTIONS
-
+include_once('framework/shailan-loader.php'); // FRAMEWORK
 ?>
