@@ -19,6 +19,7 @@
 	
 	<!-- Widget specific styles -->
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/aktt.css" />
+	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/slider.css" />
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/social.css" />
 	<!-- End of widget specific styles -->
 	

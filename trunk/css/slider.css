@@ -1,0 +1,87 @@
+/** S L I D E R */
+#slider_wrap {
+	position:relative;
+	margin:0 auto;
+	padding:0px;
+	background: #efefef;
+	border:1px solid #aaa;
+	
+	-webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	
+	zoom:1;
+	z-index:1;
+	
+	/*box-shadow:0px 0px 2px rgba(3,3,3,0.5);
+	-moz-box-shadow:0px 0px 2px rgba(3,3,3,0.5);
+	-webkit-box-shadow:0px 0px 2px rgba(3,3,3,0.5);*/
+	
+	margin: 0 330px 15px 15px;
+	height:248px !important;
+}
+
+#featured .slides .thumb{ float:left; margin-right:15px; -webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	border-radius: 7px; border:1px solid #ccc; }
+	
+#featured .slides .thumb img{ -webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;}
+	
+	
+#featured .slides .postsnip{ margin:15px; }
+.postsnip p { margin-left: 215px; }
+
+.slides ul{ list-style-type:none; }
+.slides ul li{ width:100%; }
+
+.featured-slide h2 a{ background-color:transparent; color:#333;}
+#featured .featured-slide .entry-title a{color:#333; padding:3px 4px;}
+#featured .featured-slide .entry-title a:hover{color:#fff; padding:3px 4px;}
+
+#controls{ }
+
+span#next{position:absolute; zoom:1; bottom:30%; right:30px; padding:0px; margin-right:-20px;background:#ddd; z-index:50;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-khtml-border-radius: 7px;
+	background:transparent url('images/featured_slider.png') 0px 0px no-repeat;
+	background-position:0px 0px;
+	width:60px !important; height:60px !important;
+	text-indent:-9999px;/*overflow:hidden;*/
+	}
+span#prev{position:absolute; zoom:1; bottom:30%; left:30px; padding:0px; margin-left:-20px; background:#ddd; z-index:50;
+	border-radius: 7px;
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	-khtml-border-radius: 7px;
+	background:transparent url('images/featured_slider.png') 0px 0px no-repeat;
+	background-position:-60px 0px;
+	width:60px !important; height:60px !important;
+	text-indent:-9999px; /*overflow:hidden;*/
+	
+	}
+
+ul#nav { position:absolute; zoom:1; bottom:10px; left:220px; width:120px;  margin:0px; }
+ul#nav a{ padding:0px; display:block; float:left; 
+	background:transparent url('images/featured_slider.png') 0px 0px no-repeat;
+	background-position:-120px 0px;
+	width:20px !important; height:20px !important;
+	text-indent:-9999px; overflow:hidden; zoom:1;
+	margin:2px; position:relative; zoom:1; z-index:50;
+}
+ul#nav a.activeSlide{ background-position:-120px -21px; } ul#nav a.activeSlide:hover{color:#fff;}
+
+
+/* IE6 css fixer v0.8: Tue, 03 Aug 2010 12:05:08 +0200 */
+
+ul#nav a {display:inline;}
+ul#nav a {zoom:1;}
+#slider_wrap {zoom:1;}
+#slider_wrap,
+#featured .slides .post-excerpt,
+span#next,
+span#prev,
+ul#nav a {zoom:1;}

@@ -27,11 +27,11 @@ class m2_adsense extends WP_Widget {
 			echo $before_title . apply_filters('widget_title', $instance['title']) . $after_title;
 			
 		if(empty($ads_color_scheme)){
-			$ads_color_scheme = 'google_color_border = ["ffffff","dddddd","C3D9FF"];
-			google_color_link = ["1111CC","2277DD"];
-			google_color_url = ["444444","555555","dddddd"];
-			google_color_text = ["000000","333333","444444"];
-			google_color_background = ["ffffff","eeeeee","efefef", "C3D9FF"];';
+			$ads_color_scheme = 'google_color_border = ["CDCDCD","CCCCCC"];
+			google_color_link = ["0099CC","0099CC","0099CC", "CC0033"];
+			google_color_url = ["444444","555555","666666"];
+			google_color_text = ["222222","333333","444444"];
+			google_color_bg = ["DDDDDD","EFEFEF","EEEEEE"];';
 		} 
 			
 		switch($type){

@@ -1,9 +1,10 @@
 <?php get_header() ?>
 
 	<div id="container">
-		<div id="content">
-		
+	
 		<?php include_once('featured.php'); ?>
+	
+		<div id="content">
 		
 		<?php if(!dynamic_sidebar('widgets-content')){
 			// No widget here.. Let's put some blog posts..

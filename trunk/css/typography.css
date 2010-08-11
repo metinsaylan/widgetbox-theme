@@ -41,11 +41,16 @@ pre {
 code {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
-
+#featured,
+.entry-content,
+h1.blog-title, 
+h2.blog-title{
+	font-family: Georgia, Palatino Linotype, Times, Times New Roman, serif;
+}
 
 /** Blog title */
 h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500; 
-		font-family: Georgia, Helvetica, sans-serif; text-shadow: #333 1px 1px 3px; }
+		text-shadow: #333 1px 1px 3px; }
 
 #header .description{ text-shadow: #000 0px 1px 3px; font-size:1.2em; font-style:oblique; }
 
