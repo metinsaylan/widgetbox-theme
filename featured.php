@@ -45,7 +45,7 @@
 	  </ul>
 	</div>
 	
-	<div id="controls" style="text-align:center;margin:auto;width:300px"> 
+	<div id="controls"> 
         <a href="#"><span id="prev">Prev</span></a> <ul id="nav"></ul> <a href="#"><span id="next">Next</span></a> 
     </div> 
 </div>
