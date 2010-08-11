@@ -256,7 +256,35 @@ li.admintab a{ position:fixed; top: 10px; left:10px; z-index:100; zoom:1; }
 /* SIDEBAR & WIDGETS */
 
 .widget{margin:0px;}
-.widget_search {text-align:center; width:300px; padding:5px; border:1px solid #6f8d97; margin:15px auto !important; color:#fff; font-size:90%}
+.widget_search {width:200px; padding:5px; border:0; margin:10px auto !important; font-size:90%}
+
+#search{
+	background:#333;
+	width:200px !important;
+	height:30px !important;
+}
+div#header #search{ }
+div#search .lef {
+	padding:0;
+	height:23px;
+	position:relative;
+	display:block;
+}
+#q, #s {
+    display:inline;
+	margin:3px;
+    width:163px;
+    border:none;
+    height:16px !important;
+    padding:4px;
+    font-size:13px;
+    color: #666;
+	float:left;
+	background:#efefef url('css/images/search_btn.png') top left no-repeat;
+	padding-left:26px; 
+}
+
+#sa{ float:right; border:none; display:inline; background:transparent; margin:0; padding:0; }
 
 /* Tag Cloud Module */
 
@@ -362,7 +390,7 @@ div#fw_tabs_tabdisplay_1.first ul.tabbed_sidebar li.tab h3, #sidebar ul div#fw_t
 	background: white;
 	border: 0px;
 	float: left;
-	margin-left: -78px;
+	margin-left: -94px;
 	margin-right: 10px;
 	position: relative; }
  

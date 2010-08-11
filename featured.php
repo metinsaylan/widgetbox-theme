@@ -18,7 +18,7 @@
 <div id="featured">
 
 	<div class="slides">
-		<ul>
+		<ul style="display:none;">
 			<?php
 			$featuredPosts = new WP_Query('showposts=5&category_name='.$featured_category);
 			

@@ -8,6 +8,8 @@ console.info = console.info || function(){};
 jQuery(document).ready(function() {
     jQuery("a.scrollit").anchorAnimate()
 	
+	jQuery('.slides ul').fadeIn();
+	
 	jQuery('.slides').cycle({
         fx:     'scrollHorz',
         speed:  'fast',
@@ -39,8 +41,9 @@ jQuery(document).ready(function() {
 			var wrapper_width = jQuery('#wrapper').outerWidth();
 			var box_width = 60;
 			var box_margin = 5; 
+			var content_padding = -16;
 			
-			var margin_left = Math.round(-1*((wrapper_width /2) + (box_width - box_margin)))-1;
+			var margin_left = Math.round(-1*((wrapper_width /2) + (box_width - box_margin)))-2;
 			
             if ( scrollY > descripY && !fixedShare ) {
                 $postShare.stop().css({
