@@ -42,7 +42,7 @@
 
 #controls{ }
 
-span#next{position:absolute; zoom:1; bottom:30%; right:30px; padding:0px; margin-right:-20px;background:#ddd; z-index:50;
+span#next{position:absolute; zoom:1; bottom:100px; right:5px; padding:0px; margin-right:-20px;background:#ddd; z-index:50;
 	border-radius: 7px;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
@@ -52,7 +52,7 @@ span#next{position:absolute; zoom:1; bottom:30%; right:30px; padding:0px; margin
 	width:60px !important; height:60px !important;
 	text-indent:-9999px;/*overflow:hidden;*/
 	}
-span#prev{position:absolute; zoom:1; bottom:30%; left:30px; padding:0px; margin-left:-20px; background:#ddd; z-index:50;
+span#prev{position:absolute; zoom:1; bottom:100px; left:5px; padding:0px; margin-left:-20px; background:#ddd; z-index:50;
 	border-radius: 7px;
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
