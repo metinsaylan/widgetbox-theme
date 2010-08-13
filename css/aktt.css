@@ -36,7 +36,7 @@
 	background: #dbf9fe; 
 }
 #twitter-tools div.aktt_tweets ul li.aktt_more_updates{ width:42px; height:42px; 
-margin:0px; overflow:hidden; background:url(images/twitter-icon.png) no-repeat 50% 50%; 
+margin:0px; overflow:hidden; background:url(../images/twitter-icon.png) no-repeat 50% 50%; 
 position:absolute; top:0px; right:0px; float:right; }
 #twitter-tools div.aktt_tweets ul li.aktt_more_updates a{ text-indent: 100%;
 background-repeat: no-repeat;
