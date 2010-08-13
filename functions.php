@@ -233,7 +233,6 @@ function widgetbox_init() {
 		wp_enqueue_script('prototype');  
 		wp_enqueue_script('scriptaculous');   //Effect.ScrollTo
 		wp_enqueue_script('widgetbox', get_bloginfo('template_directory').'/js/widgetbox.js', 'jquery'); 
-
 	} else {
 		// Load admin scripts
 	}
@@ -255,8 +254,9 @@ add_action('template_entry_head', 'entry_header_widgets');
 function entry_footer_widgets(){ dynamic_sidebar('widgets-entry-bottom'); }
 add_action('template_entry_foot', 'entry_footer_widgets');
 
-include_once('includes/widgetbox-sidebars.php'); // SIDEBARS
+include_once('framework/shailan-loader.php'); // FRAMEWORK
+//include_once('includes/widgetbox-sidebars.php'); // SIDEBARS
 include_once('includes/widgetbox-widgets.php'); // WIDGETS
 include_once('includes/widgetbox-admin.php'); // ADMIN 
-include_once('framework/shailan-loader.php'); // FRAMEWORK
+
 ?>

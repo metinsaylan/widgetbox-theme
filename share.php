@@ -1,6 +1,4 @@
-<?php 
-if(is_single() || is_page()){
-			?> 
+<?php if(is_single() || is_page()){ ?> 
 			
 			<div class="post_share" _width="380">
 	<div class="large-buttons">

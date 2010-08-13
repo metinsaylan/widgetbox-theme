@@ -21,6 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/aktt.css" />
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/slider.css" />
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/social.css" />
+	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/share.css" />
 	<!-- End of widget specific styles -->
 	
 		<?php wp_head() // For plugins ?>
@@ -36,10 +37,16 @@
 
 <?php do_action('template_body_top'); ?>
 
+<div id="top-bar">
+	<?php dynamic_sidebar('top-bar'); ?>
+	
+	<div class="clear"></div>
+</div>
+
 <div id="wrapper" class="hfeed">
 <div id="header">
-		<?php
-			if(!dynamic_sidebar('widgets-header')){
+		<?php		
+			if(!dynamic_sidebar('header-widgets')){
 				// No widget? Let's use a blog title then..
 				the_widget('wb_blog_title', ''); 
 			};
