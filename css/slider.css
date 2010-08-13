@@ -47,7 +47,7 @@ span#next{position:absolute; zoom:1; bottom:100px; right:5px; padding:0px; margi
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
 	-khtml-border-radius: 7px;
-	background:transparent url('images/featured_slider.png') 0px 0px no-repeat;
+	background:transparent url('../images/featured_slider.png') 0px 0px no-repeat;
 	background-position:0px 0px;
 	width:60px !important; height:60px !important;
 	text-indent:-9999px;/*overflow:hidden;*/
@@ -57,7 +57,7 @@ span#prev{position:absolute; zoom:1; bottom:100px; left:5px; padding:0px; margin
 	-moz-border-radius: 7px;
 	-webkit-border-radius: 7px;
 	-khtml-border-radius: 7px;
-	background:transparent url('images/featured_slider.png') 0px 0px no-repeat;
+	background:transparent url('../images/featured_slider.png') 0px 0px no-repeat;
 	background-position:-60px 0px;
 	width:60px !important; height:60px !important;
 	text-indent:-9999px; /*overflow:hidden;*/
@@ -66,7 +66,7 @@ span#prev{position:absolute; zoom:1; bottom:100px; left:5px; padding:0px; margin
 
 ul#nav { position:absolute; zoom:1; bottom:10px; left:220px; width:120px;  margin:0px; }
 ul#nav a{ padding:0px; display:block; float:left; 
-	background:transparent url('images/featured_slider.png') 0px 0px no-repeat;
+	background:transparent url('../images/featured_slider.png') 0px 0px no-repeat;
 	background-position:-120px 0px;
 	width:20px !important; height:20px !important;
 	text-indent:-9999px; overflow:hidden; zoom:1;
