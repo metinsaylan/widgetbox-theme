@@ -32,73 +32,61 @@ class wb_blog_title extends WP_Widget {
 			$the_permalink = get_permalink( $thePostID );
 			$title = apply_filters('the_title', $the_post->post_title);
 			$title = '<a href="'. $the_permalink .'">'. $title .'</a>';
-			$tagline = 'on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo('name') . '</a>'; // - <span class="tagline">' . get_bloginfo('description') . '</span>';
-			//single_post_title(); echo ' | '; bloginfo( 'name' );
+			$tagline = 'on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo('name') . '</a>'; 
 		} elseif ( is_home() || is_front_page() ) {
 			$title = '<a href="'.get_bloginfo('url').'">' . get_bloginfo( 'name' ) . '</a>';
 			$tagline = get_bloginfo('description');
-			//bloginfo( 'name' ); echo ' | '; bloginfo( 'description' ); twentyten_the_page_number();
 		} elseif ( is_page() ) {
 			$the_post = get_post($thePostID);
 			$the_permalink = get_permalink( $thePostID );
 			$title = apply_filters('the_title', $the_post->post_title);
 			$title = '<a href="'. $the_permalink .'">'. $title .'</a>';
-			$tagline = 'on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; // - ' . get_bloginfo('description') ;
-			//single_post_title( '' ); echo ' | '; bloginfo( 'name' ); 
+			$tagline = 'on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; 
 		} elseif ( is_search() ) {
 			$title = sprintf( __('Search Results for \'%s\'','k2_domain'), esc_attr( get_search_query() ) );
-			//$title = 'Search results for ' . esc_html( $s );
-			$tagline = 'on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; // - ' . get_bloginfo('description') ;
-			//printf( __( 'Search results for "%s"', 'twentyten' ), esc_html( $s ) ); twentyten_the_page_number(); echo ' | '; bloginfo( 'name' );
+			$tagline = 'on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; 
 		} elseif ( is_404() ) {
 			$titles = array('Four-O-Four = Not found', 'Oops. Not found!', 'Something is missing..', 'What is that?', 'LOST', 'It never existed!');
 			$title = $titles[rand(0, count($titles)-1)];
-			$tagline = 'Not found on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; // . get_bloginfo('description') ;
+			$tagline = 'Not found on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; 
 		} elseif (is_category()){
 			$title = wp_title('', false);
-			$tagline = 'Category archives on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; // - ' . get_bloginfo('description') ;
+			$tagline = 'Category archives on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; 
 		} elseif ( is_archive() ) {
 			if ( is_date() ) {	
 				the_post();
 				
 				if ( is_day() ) {
 					$title = get_the_time( __('F jS, Y','k2_domain') );
-					$tagline = 'Daily archives on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; // - ' . get_bloginfo('description') ;
+					$tagline = 'Daily archives on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; 
 				} elseif ( is_month() ) {
 					$title = get_the_time( __('F, Y','k2_domain') );
-					$tagline = 'Monthly archives on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; // - ' . get_bloginfo('description') ;
+					$tagline = 'Monthly archives on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; 
 				} elseif ( is_year() ) {
 					$title = get_the_time( __('Y','k2_domain') );
-					$tagline = 'Yearly archives on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; // - ' . get_bloginfo('description') ;
+					$tagline = 'Yearly archives on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; 
 				}
 				rewind_posts();			
 			} elseif ( is_tag() ) {
 				$title = '' . single_tag_title('', false) ;
-				$tagline = 'Tag archives on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; // - ' . get_bloginfo('description') ;
+				$tagline = 'Tag archives on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; 
 			} elseif ( is_author() ) {
 				$title = get_author_name( get_query_var('author') );
 				$tagline = 'Author archives on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>';
 			}
 		} else {
 			$title = wp_title('', false);
-			$tagline = 'on <a href="'.get_bloginfo('url').'"  rel="home">'. get_bloginfo( 'name' ) . '</a>'; // - ' . get_bloginfo('description') ;
+			$tagline = 'on <a href="'.get_bloginfo('url').'"  rel="home">'. get_bloginfo( 'name' ) . '</a>'; 
 		}
 		
 		} else {
 			$titles = array('I can\'t find any post matching that. <br />Let\'s search something else?');
 			$title = $titles[rand(0, count($titles)-1)];
-			$tagline = 'Not found on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; // . get_bloginfo('description') ;
+			$tagline = 'Not found on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; 
 		}
 		
 	?>
 
-	<?php
-	if(is_single() || is_page()){
-		/* Edit Link */
-		$edit_text = is_single() ? 'edit this post' : 'edit this page' ;
-		edit_post_link( __($edit_text, 'k2'), '<span class="entry-edit">', '</span>' ); 
-	} ?>
-	
 	<?php if(!empty($logo_url)){ ?>
 	<div class="logo">
 		<a href="<?php bloginfo('home') ?>"><img src="<?php echo $logo_url; ?>" title="" alt=""></a>

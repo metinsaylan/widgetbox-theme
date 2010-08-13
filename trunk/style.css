@@ -1,7 +1,7 @@
 /*
 THEME NAME: widgetbox
 THEME URI: http://shailan.com
-DESCRIPTION: Widgetbox is an all-widget theme. It is based on sandbox by <a href="http://andy.wordpress.com/">Andy Skelton</a> &amp; <a href="http://www.plaintxt.org/">Scott Allan Wallick</a>. You can get more all-widget themes from <a href="http://shailan.com">shailan.com</a>.
+DESCRIPTION: Widgetbox is an all-widget theme. You can get more all-widget themes from <a href="http://shailan.com">shailan.com</a>.
 VERSION: 1.0
 AUTHOR: Matt Say
 AUTHOR URI: http://shailan.com
@@ -18,7 +18,7 @@ body{ text-align: center; }
 	border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;
 	-moz-border-radius-bottomleft: 15px; -moz-border-radius-bottomright: 15px;
 	-webkit-border-bottom-left-radius: 15px; -webkit-border-bottom-right-radius: 15px;
-	margin:0px auto; padding:0px; border:7px solid; position:relative; z-index:0; }
+	margin:0px auto; padding:0px; border:0; position:relative; z-index:0; }
 
 .wp-pagenavi a, .wp-pagenavi span{border:none;} /* TODO : add cstm for pagenavi */
 
@@ -63,9 +63,9 @@ li.admintab a{ position:fixed; top: 10px; left:10px; z-index:100; zoom:1; }
 .entry-meta a:hover{color:#96d2e0;}*/
 
 /* ENTRY */
-	.hentry{ margin:0px; padding:0px; border-bottom-width:1px; border-bottom-style:dotted; clear:both; }
-	.entry-head{margin-top:0px; margin-bottom:10px; /*margin-left:75px;*/ }
-	.entry-edit a{ float:right; font-size:75%; font-style: normal; padding:2px 5px; }
+	.hentry{ position:relative; zoom:1; margin:0px; padding:0px; border-bottom-width:1px; border-bottom-style:dotted; clear:both; }
+	.entry-header{margin-top:0px; margin-bottom:10px; /*margin-left:75px;*/ }
+	.edit-link a{ position:absolute; top:0px; right:0px; font-size:9px; }
 	.entry-content{ line-height: 2.2em; }
 	.entry-content ul, .entry-content ol{ padding-left:25px; }
 	

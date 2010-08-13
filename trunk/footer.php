@@ -2,8 +2,8 @@
 </div><!-- #wrapper .hfeed -->
 
 <div id="footer">
-	<div class="widgets columns"> <?php if(!dynamic_sidebar('widgets-footer-columns')){ }; ?> <div class="clear"></div></div>
-	<div class="widgets"> <?php if(!dynamic_sidebar('widgets-footer')){ }; ?> <div class="clear"></div></div>
+	<div class="widgets columns"> <?php if(!dynamic_sidebar('footer-columns')){ }; ?> <div class="clear"></div></div>
+	<div class="widgets wide"> <?php if(!dynamic_sidebar('footer-wide')){ }; ?> <div class="clear"></div></div>
 	
 	<div class="clear"></div>
 	

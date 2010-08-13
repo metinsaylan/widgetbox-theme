@@ -1,12 +1,4 @@
 <?php
-/**
- * Default Loop Template
- *
- * This file is loaded by multiple files and used for generating the loop
- *
- */
-
-// Post index for semantic classes
 $post_index = 1;
 
 while ( have_posts() ): the_post(); ?>
@@ -16,12 +8,9 @@ while ( have_posts() ): the_post(); ?>
 		<div class="entry-header">
 			<div class="entry-header-top"></div>
 			<div class="entry-header-middle">
-			
-			<!-- <h3 class="entry-title">
-				<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php /*k2_permalink_title(); */ ?>"><?php the_title(); ?></a>
-			</h3> -->
-
-			<?php do_action('template_entry_head'); ?>
+				<?php edit_post_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
+				
+				<?php dynamic_sidebar(); ?>
 			</div>
 			<div class="entry-header-bottom"></div>
 		</div><!-- .entry-head -->
@@ -38,7 +27,7 @@ while ( have_posts() ): the_post(); ?>
 		<div class="entry-footer">
 			<?php wp_link_pages( array('before' => '<div class="entry-pages"><span>' . __('Pages:','k2_domain') . '</span>', 'after' => '</div>' ) ); ?>
 
-			<?php do_action('template_entry_foot'); ?>
+
 			
 			<div class="entry-footer-bottom"></div>
 		</div><!-- .entry-foot -->		
@@ -47,3 +36,5 @@ while ( have_posts() ): the_post(); ?>
 	</div><!-- #post-ID -->
 
 <?php endwhile; /* End The Loop */ ?>
+
+<?php dynamic_sidebar('single-widgets-bottom'); ?>

@@ -1,0 +1,7 @@
+div.share{}
+.share .button{float:left; display:inline; margin:2px;}
+.button a{padding:2px 5px; font-size:9px; font-family: Verdana, sans-serif;}
+.tweet{ background:#9c3; border:1px solid #80b62a; color:#fff }
+.like{ background:#637bad; border:1px solid #29447e; color:#ffffe5}
+.buzz{ background:#3366ff; border:1px solid #0033ff; color:#fff }
+.digg{ background:#fff1b3; border:1px solid #e9dc9f; color:#554e13 }
