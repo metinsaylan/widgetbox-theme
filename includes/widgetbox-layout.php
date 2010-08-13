@@ -36,7 +36,7 @@ function wb_layout_styles(){
 		echo $indent . "#respond{ padding: ".$widgetbox_padding."px; }";
 		echo $indent . "#comments-list ol{ margin: ".$widgetbox_padding."px; }";
 		echo $indent . "div#content{ margin:0px ".$content_margin."px 0px ".$widgetbox_padding."px; padding:".$widgetbox_padding."px; }";
-		echo $indent . "img.size-full{max-width: ".$post_width."px; border:none; padding:0; margin:0px auto ".$widgetbox_padding."px auto; } * html img.size-full{width: ".$post_width."px}";
+		echo $indent . "img.size-full{max-width: ".$post_width."px; border:none; padding:0; margin-bottom:".$widgetbox_padding."px; } * html img.size-full{width: ".$post_width."px}";
 		echo $indent . ".hentry{ margin-bottom:".$widgetbox_padding."px; padding-bottom:".$widgetbox_padding."px }";
 		echo $indent . ".entry-thumb{ float:left; padding:0px; margin-left:".$thumbnail_margin."px; }";
 		
