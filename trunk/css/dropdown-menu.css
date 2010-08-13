@@ -1,5 +1,5 @@
 /* DROPDOWN */
-#header .widget_nav_menu{ padding:2px 3px; background: url(images/opacity.png);}
+#header .widget_nav_menu{ padding:2px 3px; background: url(../images/opacity.png);}
 #header ul.menu {
 	white-space: nowrap;
 	z-index: auto;
@@ -7,7 +7,7 @@
 #header ul.menu li{
 	margin:1px 1px;
 }
-#header ul.menu  li ul{ width:auto; background: #333; background: url(images/opacity.png); 		
+#header ul.menu  li ul{ width:auto; background: #333; background: url(../images/opacity.png); 		
 	border-radius: 4px;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
@@ -23,7 +23,7 @@
 	-khtml-border-radius: 4px; }
 
 #header ul.menu li a:hover {
-	background: #333; background: url(images/opacity.png); 	
+	background: #333; background: url(../images/opacity.png); 	
 	color: #eee;
 	text-decoration: none;
 }
@@ -44,7 +44,7 @@ body.single ul.menu li.blogtab>a:hover {
 	text-decoration:underline;
 }
 
-#header ul.menu li.cat-item-57 {background-image:url(images/icons/wpmini-grey.png); background-position: 5px 50%; background-repeat:no-repeat; }
+#header ul.menu li.cat-item-57 {background-image:url(../images/icons/wpmini-grey.png); background-position: 5px 50%; background-repeat:no-repeat; }
 
 #header ul.menu li.cat-item-57 a{padding-left:25px;}
  
