@@ -241,21 +241,7 @@ add_action('init', 'widgetbox_init');
 
 function get_post_link(){ return "<a href=\"".get_permalink()."\" class=\"post-link\">".get_the_title()."</a>"; }
 
-/* Entry header widgets */
-function entry_header_widgets(){ if(!dynamic_sidebar('widgets-entry-top')){ 
-	global $authordata; 
-	$posts_link = get_author_posts_url( $authordata->ID, $authordata->user_nicename );
-	echo "<div class=\"entry-meta\"><span>by</span> <a href=\"http://twitter.com/". get_the_author_meta('twitter') . "\" rel=\"nofollow\" class=\"twitter-link\">@ " . get_the_author_meta('twitter') ."</a> (<a href=\"";
-	echo $posts_link . "\" title=\"\">" . __('see all posts') . "</a>) <span>|</span> <span class=\"date\">" . get_the_date() . "</span></div>";
-}; }
-add_action('template_entry_head', 'entry_header_widgets');
-
-/* Entry footer widgets */
-function entry_footer_widgets(){ dynamic_sidebar('widgets-entry-bottom'); }
-add_action('template_entry_foot', 'entry_footer_widgets');
-
 include_once('framework/shailan-loader.php'); // FRAMEWORK
-//include_once('includes/widgetbox-sidebars.php'); // SIDEBARS
 include_once('includes/widgetbox-widgets.php'); // WIDGETS
 include_once('includes/widgetbox-admin.php'); // ADMIN 
 
