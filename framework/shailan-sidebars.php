@@ -57,7 +57,7 @@ function shailan_widgets_init() {
 
 	register_sidebar( array(
 		'name' => __( 'Primary Sidebar', 'shailan' ),
-		'id' => 'primary-widget-area',
+		'id' => 'primary-sidebar',
 		'description' => __( 'Your primary sidebar.', 'shailan' ),
 		'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</div>',
@@ -67,7 +67,7 @@ function shailan_widgets_init() {
 
 	register_sidebar( array(
 		'name' => __( 'Secondary Sidebar', 'shailan' ),
-		'id' => 'secondary-widget-area',
+		'id' => 'secondary-sidebar',
 		'description' => __( 'Secondary sidebar.', 'shailan' ),
 		'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</div>',
