@@ -31,7 +31,7 @@ function wb_layout_styles(){
 		echo "\n\t<style type=\"text/css\" media=\"all\">";
 		
 		echo $indent . "div#wrapper{ width: ".$widgetbox_page_width."px; margin:".$widgetbox_padding."px auto; padding-bottom:".$widgetbox_padding."px }";
-		echo $indent . "div#primary .widget, .entry-content, .entry-header{ margin-bottom: ".$widgetbox_padding."px; }";
+		echo $indent . "div#primary .widget, .entry-content{ margin-bottom: ".$widgetbox_padding."px; }";
 		echo $indent . "div#container{ padding-top: ".$widgetbox_padding."px; margin:0px -".$content_margin."px 0px 0px; }";
 		echo $indent . "#respond{ padding: ".$widgetbox_padding."px; }";
 		echo $indent . "#comments-list ol{ margin: ".$widgetbox_padding."px; }";

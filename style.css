@@ -25,7 +25,7 @@ body{ text-align: center; }
 /* BLOG TITLE */ 
 #header .wb_blog_title{ padding:10px 0px 0px 50px; }
 .wb_blog_title .logo{ float:left; }
-.wb_blog_title .logo img{ width:80px;height: 80px; margin:0px; }
+.wb_blog_title .logo img{ width:80px; height: 80px; margin-right:10px; }
 .wb_blog_title .title{ padding:10px; }
 .wb_blog_title .description{ padding:10px 0px 0px 20px; }
 a[rel="home"]{padding-right:24px; background:none;}
@@ -64,7 +64,7 @@ li.admintab a{ position:fixed; top: 10px; left:10px; z-index:100; zoom:1; }
 
 /* ENTRY */
 	.hentry{ position:relative; zoom:1; margin:0px; padding:0px; border-bottom-width:1px; border-bottom-style:dotted; clear:both; }
-	.entry-header{margin-top:0px; margin-bottom:10px; /*margin-left:75px;*/ }
+	.entry-header{margin-top:0px; }
 	.edit-link a{ position:absolute; top:0px; right:0px; font-size:9px; }
 	.entry-content{ line-height: 2.2em; }
 	.entry-content ul, .entry-content ol{ padding-left:25px; }
