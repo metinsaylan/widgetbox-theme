@@ -1,11 +1,7 @@
 <?php ?>
 <div class="share wide">
 	<div class="button">
-		<a href="http://twitter.com/share?url=http://www.labnol.org/internet/twitter-links-for-wordpress-and-blogger/7995/&text=Twitter%20Tip:%20Add%20a%20%E2%80%98Tweet%20This%E2%80%99%20Link%20to%20your%20Blog%20on%20WordPress%20or%20Blogger&via=labnol_BLOG&related=labnol" class="tweet">tweet</a>
-	</div>
-				
-	<div class="button">
-
+		<a href="http://twitter.com/share?url=<?php echo get_permalink(); ?>&text=<?php echo urlencode(get_the_title()); ?>&via=shailan.com&related=shailan.com" class="tweet">tweet</a>
 	</div>
 			
 	<div class="button">
