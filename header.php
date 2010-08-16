@@ -7,16 +7,10 @@
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_directory'); ?>/css/reset.css" />
 	<?php $layout = get_option('widgetbox_active_layout'); if(!empty($layout)){ ?>
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/layouts/<?php echo $layout; ?>.css" />
+		<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/layouts/<?php echo $layout; ?>.css" />
 	<?php } ?>
 	
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url') ?>" />
-
-	<!-- <?php if(TEMPLATEPATH == STYLESHEETPATH){
-		$wb_theme = get_option('widgetbox_active_theme'); ?>
-<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/schemes/<?php echo $wb_theme; ?>.css" />
-	<?php } ?> -->
-	
+	<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url') ?>" />
 	<!-- Widget specific styles -->
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/aktt.css" />
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/slider.css" />
