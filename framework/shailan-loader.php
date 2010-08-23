@@ -8,5 +8,16 @@
 */
 
 include_once('shailan-sidebars.php'); // ALL WIDGET SIDEBARS
+
 include_once('includes/shailan-utilities.php'); // GENERIC FUNCTIONS
 include_once('includes/shailan-shortcodes.php'); // SHORTCODES
+include_once('includes/shailan-templates.php'); // CUSTOM TEMPLATES
+
+// WIDGETS
+include_once('widgets/stf-adsense.php'); // GOOGLE ADSENSE WIDGET
+
+
+
+
+
+

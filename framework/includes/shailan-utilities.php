@@ -1,6 +1,11 @@
 <?php 
-
-/* GENERIC THEME FUNCTIONS */
+/** SHAILAN THEME FRAMEWORK 
+ File 		: shailan-utilities.php
+ Author		: Matt Say
+ Author URL	: http://shailan.com
+ Version	: 1.0
+ Contact	: metinsaylan (at) gmail (dot) com
+*/
 
 /** RSS Footer Text */
 function shailan_postrss($content) {
@@ -111,7 +116,7 @@ add_filter('user_contactmethods','shailan_contactmethods',10,1);
 
 /** Google Analytics Support */
 function shailan_google_analytics(){	
-	echo stripslashes(get_option('shailan_analytics_code'));
+	echo "\n\t" . stripslashes(get_option('shailan_analytics_code')) . "\n";
 }; add_action('wp_head', 'shailan_google_analytics');
 
 /** Feed redirects */
