@@ -1,14 +1,11 @@
 <?php 
-
-/**
- *
- * Shortcodes
- *	Version		:	1.0
- * 
- *	Author		:	Matt Say (http://shailan.com)
- *	Author URI	:	http://shailan.com
- *
- */
+/** SHAILAN THEME FRAMEWORK 
+ File 		: shailan-shortcodes.php
+ Author		: Matt Say
+ Author URL	: http://shailan.com
+ Version	: 1.0
+ Contact	: metinsaylan (at) gmail (dot) com
+*/
 
 /** [tags] : outputs tag cloud */
 function shailan_tags_shortcode($args) {
@@ -181,16 +178,13 @@ function shailan_comment_count($args){
 	return '<span class="comments-count"><a href="'.$link.'" >' . $number . '</a></span>';
 } add_shortcode('comment_count', 'shailan_comment_count');
 
-
 // [shortlink text="shortlink" title="twit this" before="Get the " after="!"]
 function shailan_the_shortlink($args){ 
 	global $post;
 
 	$defaults = array(
 		'text' => _e('Shortlink'),
-		'title' => '',
-		'before' => '',
-		'after' => ''
+		'title' => ''
 	);	
 	$args = wp_parse_args( $args, $defaults );
 	extract( $args );	
@@ -201,16 +195,15 @@ function shailan_the_shortlink($args){
 		$link = '<a rel="shortlink" href="' . esc_url( $shortlink ) . '" title="' . $title . '">' . $text . '</a>';
 		$link = apply_filters( 'the_shortlink', $link, $shortlink, $text, $title );
 		
-		return $before . $link . $after;
+		return $link;
 	} 
 
 } add_shortcode('the_shortlink', 'shailan_the_shortlink'); add_shortcode('shortlink', 'shailan_the_shortlink');
 
-
 // TODO : [permalink]
 // TODO : [title]
 
-function widgetbox_queryposts($atts){
+function shailan_queryposts($atts){
   extract(shortcode_atts( array(
    'category_id' => '',
    'category_name' => '',
@@ -268,7 +261,7 @@ function widgetbox_queryposts($atts){
   //ob_end_clean();
 
   return $output;
-}; add_shortcode('query_posts', 'widgetbox_queryposts');
+}; add_shortcode('query_posts', 'shailan_queryposts');
 
 
 ?>
