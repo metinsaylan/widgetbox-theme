@@ -15,6 +15,7 @@ include_once('includes/shailan-templates.php'); // CUSTOM TEMPLATES
 
 // WIDGETS
 include_once('widgets/stf-adsense.php'); // GOOGLE ADSENSE WIDGET
+include_once('widgets/stf-navigation.php'); // POSTS NAVIGATION
 
 
 
