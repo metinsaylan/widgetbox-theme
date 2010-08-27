@@ -8,7 +8,7 @@
  Contact	: metinsaylan (at) gmail (dot) com
 */
 
-define('THEME_IMAGES_DIRECTORY', trailingslashit(get_bloginfo('stylesheet_directory')) . 'images');
+define('THEME_IMAGES_DIRECTORY', trailingslashit(get_bloginfo('template_directory')) . 'images');
 
 function get_theme_image($filename, $dimensions=NULL, $classname='', $alt='' ){
 	$img = '<img src="' . THEME_IMAGES_DIRECTORY . '/' . $filename . '"';
