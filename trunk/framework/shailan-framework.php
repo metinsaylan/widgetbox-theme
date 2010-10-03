@@ -23,6 +23,7 @@ class Shailan_Framework{
 			"post_thumbnails" => true,
 			"automatic_feed_links" => true,
 			"thumbnail_size" => "200x200",
+			"custom_image_sizes" => "",
 			"localization_directory" => TEMPLATEPATH
 		);
 		
@@ -33,8 +34,16 @@ class Shailan_Framework{
 	if ( function_exists( 'add_theme_support' )) {	
 		if($post_thumbnails){
 			add_theme_support( 'post-thumbnails' );
-			// TODO: split size & set it here
-			set_post_thumbnail_size( 200, 200, true ); }
+			$size = explode("x", $thumbnail_size);
+			set_post_thumbnail_size( $size[0], $size[1], true ); 
+			
+			if(is_array($custom_image_sizes)){
+				foreach($custom_image_sizes as $tag=>$size){
+					$size = explode( "x" , $size );
+					add_image_size( $tag, $size[0], $size[1] );
+				}
+			}
+		}
 		if( $nav_menus ){ add_theme_support( 'nav-menus' ); }
 		if( $automatic_feed_links ){ add_theme_support( 'automatic-feed-links' ); }
 	}
