@@ -127,6 +127,8 @@ function stf_get_tweet($id = 0){
 	}			
 }
 
+function the_tweet($id = 0){ if($id!=0){ return stf_get_tweet($id); } }
+
 require_once(ABSPATH . 'wp-includes/http.php');
 
 // TWITTER
