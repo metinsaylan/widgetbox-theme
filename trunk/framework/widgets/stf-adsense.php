@@ -135,10 +135,10 @@ class stf_adsense extends WP_Widget {
 			echo $before_title . apply_filters('widget_title', $instance['title']) . $after_title;
 		
 		
-		if(!empty($slot)){
+		if(!empty($slot) && $slot != ""){
 			$ad_slot = ' google_ad_slot = "'.$slot.'"; ';
 		} else {
-			$ad_slot = "";
+			$ad_slot = "\n\t /* ad slot is empty */ ";
 			// If slot is empty use template colors
 			$ad_colors = get_option('shailan_adsense_colors');
 			if(empty($ad_colors)){
@@ -158,10 +158,10 @@ class stf_adsense extends WP_Widget {
 		echo "<div class=\"adsense ".$ad_class."\"><script type=\"text/javascript\"><!--
 google_ad_client = \"".$ads_id."\";";
 		echo "\n\t" . $ad_size;
+		echo "\n\t" . $ad_slot;
 		echo "\n\t" . $ad_channel;
 		echo "\n\t" . $ad_colors;
-
-		echo "//-->
+		echo "\n\t //-->
 </script>
 <script type=\"text/javascript\"
 src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">
