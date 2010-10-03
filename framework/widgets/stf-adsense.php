@@ -13,11 +13,27 @@ class stf_adsense extends WP_Widget {
 		$widget_ops = array('classname' => 'stf-adsense', 'description' => __( 'Google adsense widget' ) );
 		$this->WP_Widget('stf-adsense', __('Adsense'), $widget_ops);
 		$this->alt_option_name = 'stf_adsense';	
+		
+		$this->widget_defaults = array(
+			'title' => '',
+			'channel'	=> '',
+			'type' => 'banner'
+		);
+		
+		$this->ad_types = array(
+			'Banner' => '468x60',
+			'Horizontal Text Links' => '468x15',
+			'Vertical Text Links' => '',
+			'Square 200x200' => '200x200',
+			'Square 300x250' => '300x250'
+		);
     }
 
     function widget($args, $instance) {		
-        extract( $args );
-		$type = $instance['type'];
+		extract( $args );
+		$widget_options = wp_parse_args( $instance, $this->widget_defaults );
+		extract( $widget_options, EXTR_SKIP );
+		
 		$msg = '';
 		
 		$ads_id = get_option('shailan_adsense_id');
@@ -30,124 +46,57 @@ class stf_adsense extends WP_Widget {
 		if (!empty($instance['title']))
 			echo $before_title . apply_filters('widget_title', $instance['title']) . $after_title;
 		
-		$ads_color_scheme = get_option('shailan_adsense_colors');
+		$ad_colors = get_option('shailan_adsense_colors');
 		
-		if(empty($ads_color_scheme)){
-			$ads_color_scheme = 'google_color_border = ["222222","333333"];
+		if(empty($ad_colors)){
+			$ad_colors = 'google_color_border = ["222222","333333"];
 			google_color_link = ["3399CC"];
 			google_color_url = ["999999","888888","555555"];
 			google_color_text = ["999999", "888888"];
 			google_color_bg = ["222222", "333333", "272727", "2D2D2D"];';
 		} 
+		
+		if(!empty($channel)){
+			$ad_channel = 'google_ad_channel = "'.$channel.'"';
+		} else {
+			$ad_channel = "";
+		}
 			
+		// setup class & sizes
 		switch($type){
-						case 'textlinks':
-							echo '<div class="adsense textlinks"><script type="text/javascript"><!--
-google_ad_client = "'.$ads_id.'";
-/* m2-entry-top */
-google_ad_slot = "6472652245";
-google_ad_width = 468;
-google_ad_height = 15;
+			case 'textlinks':
+				$ad_class = "textlinks";
+				$ad_size = " google_ad_width = 468; google_ad_height = 15; ";
+			break;						
+			case 'square_200':
+			case '200x200':
+				$ad_class = "square-200";
+				$ad_size = " google_ad_width = 200; google_ad_height = 200; ";
+			break;
+			case 'square_300':
+			case '300x250':
+				$ad_class = "square-300";
+				$ad_size = " google_ad_width = 300; google_ad_height = 250; ";
+			break;
+			case 'banner':
+			case '468x60':
+			default:		
+				$ad_class = "banner";
+				$ad_size = " google_ad_width = 468; google_ad_height = 60; ";
+		}
 
-'.$ads_color_scheme.'
+		// Echo adsense code
+		echo "<div class=\"adsense ".$ad_class."\"><script type=\"text/javascript\"><!--
+google_ad_client = \"".$ads_id."\";";
+		echo "\n\t" . $ad_size;
+		echo "\n\t" . $ad_channel;
+		echo "\n\t" . $ad_colors;
 
-//-->
+		echo "//-->
 </script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script></div>' . $msg;
-						break;						
-						
-						case 'square_200':
-							echo '<div class="adsense square-200"><script type="text/javascript"><!--
-google_ad_client = "'.$ads_id.'";
-/* metinsaylan-sidebar */
-google_ad_slot = "5557396930";
-google_ad_width = 200;
-google_ad_height = 200;
-
-'.$ads_color_scheme.'
-
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script></div>' . $msg;
-						break;
-						
-						case 'square_300':
-						
-						echo '<div class="adsense square-300"><script type="text/javascript"><!--
-google_ad_client = "'.$ads_id.'";
-/* m2-sidebar-300 */
-google_ad_slot = "2490814497";
-google_ad_width = 300;
-google_ad_height = 250;
-
-'.$ads_color_scheme.'
-
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script></div>' . $msg;
-						break;
-					
-						case 'square_300x2':
-						
-						echo '<div class="adsense square-300">
-							<div class="alignleft adunit">
-						<script type="text/javascript"><!--
-google_ad_client = "'.$ads_id.'";
-/* m2-sidebar-300 */
-google_ad_slot = "2490814497";
-google_ad_width = 300;
-google_ad_height = 250;
-
-'.$ads_color_scheme.'
-
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-							</div><div class="alignright adunit">
-							<script type="text/javascript"><!--
-google_ad_client = "'.$ads_id.'";
-/* m2-sidebar-300 */
-google_ad_slot = "2490814497";
-google_ad_width = 300;
-google_ad_height = 250;
-
-'.$ads_color_scheme.'
-
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script>
-							</div>
-</div>' . $msg;
-						break;
-						
-						case 'banner':
-						default:		
-							echo '<div class="adsense banner"><script type="text/javascript"><!--
-google_ad_client = "'.$ads_id.'";
-/* metinsaylan-banner */
-google_ad_slot = "2979957530";
-google_ad_width = 468;
-google_ad_height = 60;
-
-'.$ads_color_scheme.'
-
-//-->
-</script>
-<script type="text/javascript"
-src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-</script></div>' . $msg;
-					
-					}		
+<script type=\"text/javascript\"
+src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">
+</script></div>" . $msg;					
 				
 			echo $after_widget; 
     }
@@ -157,6 +106,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
     }
 
     function form($instance) {  
+		$widget_options = wp_parse_args( $instance, $this->widget_defaults );
+		extract( $widget_options, EXTR_SKIP );
 		if (!empty($instance['title'])) 
 			$title = esc_attr($instance['title']);
 		if (!empty($instance['type'])):
@@ -187,8 +138,11 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 				<input type="radio" id="square_300x2" name="<?php echo $this->get_field_name('type'); ?>" value="square_300x2" <?php if($type=='square_300x2'){ echo 'checked="checked"'; } ?> /> <?php _e('2ads x 300x250px'); ?>
 			</label>
 			
+			
+		<p><label for="<?php echo $this->get_field_id('channel'); ?>"><?php _e('Channel :', 'stf'); ?> <input class="widefat" id="<?php echo $this->get_field_id('channel'); ?>" name="<?php echo $this->get_field_name('channel'); ?>" type="text" value="<?php echo $channel; ?>" /></label><br /> 
+			
 		<div class="widget-control-actions">
-		<p><small>Powered by <a href="http://shailan.com/wordpress/themes/exhibit">Exhibit</a></small></p>
+		<p><small>Powered by <a href="http://shailan.com/wordpress/themes/framework">Shailan Theme Framework</a></small></p>
 		</div>
 		
 		<?php
