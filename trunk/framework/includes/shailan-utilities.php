@@ -18,22 +18,6 @@ function shailan_postrss($content) {
 add_filter('the_excerpt_rss', 'shailan_postrss');
 add_filter('the_content', 'shailan_postrss');
 
-/** The Author 
-function shailan_author($authordata){
-	global $authordata;
-	
-	$author_twitter = get_the_author_meta('twitter');
-	$author_site = get_the_author_meta('url');
-		
-	if(!empty($author_twitter)){
-		return '<a href="http://twitter.com/'.$author_twitter.'" rel="nofollow" class="twitter-link">@'.$author_twitter.'</a>';
-	} elseif(!empty($author_site)) {		
-		return '<a href="'.$author_site.'" rel="nofollow" class="author-link">@'.$author_site.'</a>';
-	} else {
-		return $authordata->display_name;
-	}
-} */
-
 /** Get author link */
 function shailan_get_the_author_metalink( $meta = null , $domain = '', $title = '' ) {
 	global $authordata;
@@ -110,9 +94,8 @@ function shailan_contactmethods( $contactmethods ) {
 	$contactmethods['twitter'] = 'Twitter';
 	//add Facebook
 	$contactmethods['facebook'] = 'Facebook';
-return $contactmethods;
-}
-add_filter('user_contactmethods','shailan_contactmethods',10,1);
+	return $contactmethods;
+} ; add_filter('user_contactmethods','shailan_contactmethods',10,1);
 
 /** Google Analytics Support */
 function shailan_google_analytics(){	
