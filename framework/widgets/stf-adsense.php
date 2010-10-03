@@ -1,11 +1,11 @@
 <?php 
-
-/** SHAILAN THEME FRAMEWORK 
- File 		: stf-adsense.php
- Author		: Matt Say
- Author URL	: http://shailan.com
- Version	: 1.1
- Contact	: metinsaylan (at) gmail (dot) com
+/*
+Plugin Name: Adsense Widget
+Plugin URI: http://shailan.com/wordpress/plugins/adsense-widget
+Description: Easy to use google adsense widget. It provides a simple to control interface. You can use it as many times as you like on all sidebar areas in your theme. 
+Version: 1.0
+Author: Matt Say
+Author URI: http://shailan.com
 */
 
 if(!class_exists('stf_adsense')){
@@ -23,31 +23,97 @@ class stf_adsense extends WP_Widget {
 		);
 		
 		$this->ad_types = array(
+			'leaderboard' => array(
+				'name'=>'Leaderboard (728 x 90)',
+				'key'=>'leaderboard',
+				'classname'=>'leaderboard',
+				'script'=>' google_ad_width = 728; google_ad_height = 90; '
+			),
 			'banner' => array(
-				'name'=>'Banner',
+				'name'=>'Banner (468x60)',
 				'key'=>'banner',
 				'classname'=>'banner',
 				'script'=>' google_ad_width = 468; google_ad_height = 60; ' ),
-			'htext' => array(
-				'name'=>'Horizontal Text Links',
-				'key'=>'htext',
-				'classname'=>'horizontal-links',
+			'half-banner' => array(
+				'name'=>'Half Banner (234x60)',
+				'key'=>'half-banner',
+				'classname'=>'half_banner',
+				'script'=>' google_ad_width = 234; google_ad_height = 60; ' ),
+			'button' => array(
+				'name'=>'Button (125x125)',
+				'key'=>'button',
+				'classname'=>'button',
+				'script'=>' google_ad_width = 125; google_ad_height = 125; ' ),
+			'skyscraper' => array(
+				'name'=>'Skyscraper (120x600)',
+				'key'=>'skyscraper',
+				'classname'=>'skyscraper',
+				'script'=>' google_ad_width = 120; google_ad_height = 600; ' ),
+			'wide-skyscraper' => array(
+				'name'=>'Wide Skyscraper (160x600)',
+				'key'=>'wide-skyscraper',
+				'classname'=>'wide_skyscraper',
+				'script'=>' google_ad_width = 160; google_ad_height = 600; ' ),
+			'vertical-banner' => array(
+				'name'=>'Vertical Banner (120 x 240)',
+				'key'=>'vertical-banner',
+				'classname'=>'vertical_banner',
+				'script'=>' google_ad_width = 120; google_ad_height = 240; ' ),				
+			'small-rectangle' => array(
+				'name'=>'Small Rectangle (180x150)',
+				'key'=>'small-rectangle',
+				'classname'=>'small_rectangle',
+				'script'=>' google_ad_width = 180; google_ad_height = 150; ' ),				
+			'small-square' => array(
+				'name'=>'Small Square (200 x 200)',
+				'key'=>'small-square',
+				'classname'=>'small_square',
+				'script'=>' google_ad_width = 200; google_ad_height = 200; ' ),	
+			'square' => array(
+				'name'=>'Square (250 x 250)',
+				'key'=>'square',
+				'classname'=>'square',
+				'script'=>' google_ad_width = 250; google_ad_height = 250; ' ),
+			'medium-rectangle' => array(
+				'name'=>'Medium Rectangle (300 x 250)',
+				'key'=>'medium-rectangle',
+				'classname'=>'medium_rectangle',
+				'script'=>' google_ad_width = 300; google_ad_height = 250; ' ),
+			'large-rectangle' => array(
+				'name'=>'Large Rectangle (336 x 280)',
+				'key'=>'large-rectangle',
+				'classname'=>'large_rectangle',
+				'script'=>' google_ad_width = 336; google_ad_height = 280; ' ),
+			'links728' => array(
+				'name'=>'Link Unit 728x15',
+				'key'=>'links728',
+				'classname'=>'links_728x15',
+				'script'=>' google_ad_width = 728; google_ad_height = 15; ' ),
+			'links468' => array(
+				'name'=>'Link Unit 468x15',
+				'key'=>'links468',
+				'classname'=>'links_468x15',
 				'script'=>' google_ad_width = 468; google_ad_height = 15; ' ),
-			'vtext' => array(
-				'name'=>'Vertical Text Links',
-				'key'=>'vtext',
-				'classname'=>'vertical-links',
-				'script'=>'' ),
-			'square200' => array(
-				'name'=>'Square 200x200',
-				'key'=>'square200',
-				'classname'=>'square_200',
-				'script'=>' google_ad_width = 200; google_ad_height = 200; ' ),
-			'rectangle300' => array(
-				'name'=>'Rectangle 300x250',
-				'key'=>'rectangle300',
-				'classname'=>'rectangle_300',
-				'script'=>' google_ad_width = 300; google_ad_height = 250; ' )
+			'links200' => array(
+				'name'=>'Link Unit 200x90',
+				'key'=>'links200',
+				'classname'=>'links_200x90',
+				'script'=>' google_ad_width = 200; google_ad_height = 90; ' ),
+			'links180' => array(
+				'name'=>'Link Unit 180x90',
+				'key'=>'links180',
+				'classname'=>'links_180x90',
+				'script'=>' google_ad_width = 180; google_ad_height = 90; ' ),
+			'links160' => array(
+				'name'=>'Link Unit 160x90',
+				'key'=>'links160',
+				'classname'=>'links_160x90',
+				'script'=>' google_ad_width = 160; google_ad_height = 90; ' ),
+			'links120' => array(
+				'name'=>'Link Unit 120x90',
+				'key'=>'links120',
+				'classname'=>'links_120x90',
+				'script'=>' google_ad_width = 120; google_ad_height = 90; ' )
 		);
     }
 
@@ -139,7 +205,7 @@ src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">
 		<p><label for="<?php echo $this->get_field_id('channel'); ?>"><?php _e('Channel ID :', 'stf'); ?> <input class="widefat" id="<?php echo $this->get_field_id('channel'); ?>" name="<?php echo $this->get_field_name('channel'); ?>" type="text" value="<?php echo $channel; ?>" /></label><br /> 
 			
 		<div class="widget-control-actions">
-		<p><small>Powered by <a href="http://shailan.com/wordpress/themes/framework">Shailan Theme Framework</a></small></p>
+		<p><small>Powered by <a href="http://shailan.com/wordpress/plugins/adsense">Shailan</a></small></p>
 		</div>
 		
 		<?php
