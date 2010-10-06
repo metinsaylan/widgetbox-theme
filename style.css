@@ -31,8 +31,6 @@ body{ text-align: center; }
 a[rel="home"]{padding-right:24px; background:none;}
 a[rel="home"]:hover{padding-right:24px; background:url('images/home.png') right 50% no-repeat;}
 
-div.navigation { height:1.25em; margin:10px 0px; } 
-div.navigation div { width:50%; } 
 div.navigation div.nav-previous { float:left; } 
 div.navigation div.nav-next { float:right; text-align:right; }
 

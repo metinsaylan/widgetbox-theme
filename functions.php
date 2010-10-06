@@ -14,7 +14,7 @@ if(!defined('WB_SMARTLAYOUT') || WB_SMARTLAYOUT){ include_once(TEMPLATEPATH . "/
 /* Init framework */
 include_once('framework/shailan-framework.php'); // Load Framework
 
-// Load options 
+// Load options (automattic options page)
 if(TEMPLATEPATH !== STYLESHEETPATH && file_exists(trailingslashit(get_stylesheet_directory()) . 'options.php')){
 	include_once(trailingslashit(get_stylesheet_directory()) . 'options.php');
 } else {
@@ -22,6 +22,16 @@ if(TEMPLATEPATH !== STYLESHEETPATH && file_exists(trailingslashit(get_stylesheet
 }
 $stf->extend_options($options);
 
+// Add sidebars (automatically register)
+$stf->add_widget_area('Topbar', 'topbar', '', '');
+$stf->add_widget_area('Header', 'header', '', '');
+$stf->add_widget_area('Content', 'content', '', '');
+$stf->add_widget_area('Sidebar1', 'sidebar1', '', '');
+$stf->add_widget_area('Sidebar2', 'sidebar2', '', '');
+$stf->add_widget_area('Footer Columns', 'footer-columns', '', '');
+$stf->add_widget_area('Footer', 'footer', '', '');
+
+// Define image sizes
 $image_sizes = array(
 	'featured_post_thumbnail' => '125x125',
 	'index_thumbnail' => '200x200',
@@ -94,20 +104,6 @@ function widgetbox_comment( $comment, $args, $depth ) {
 			break;
 	endswitch;
 }
-
-function widgetbox_init() {
-    if(!is_admin()){
-		// Load theme scripts
-		wp_enqueue_script('jquery'); 
-		wp_enqueue_script('cycle', get_bloginfo('template_directory').'/js/jquery.cycle.all.min.js', 'jquery'); 		
-		wp_enqueue_script('prototype');  
-		wp_enqueue_script('scriptaculous');   //Effect.ScrollTo
-		wp_enqueue_script('widgetbox', get_bloginfo('template_directory').'/js/widgetbox.js', 'jquery'); 
-	} else {
-		// Load admin scripts
-	}
-}    
-add_action('init', 'widgetbox_init');
 
 function get_post_link(){ return "<a href=\"".get_permalink()."\" class=\"post-link\">".get_the_title()."</a>"; }
 

@@ -1,6 +1,6 @@
 <?php 
 
-// SHAILAN ALL WIDGET SIDEBARS
+// SHAILAN ALL WIDGET SIDEBARS & TEMPLATE TAGS
 
 if ( function_exists('register_sidebar') ) {
 
@@ -8,7 +8,7 @@ function shailan_widgets_init() {
 	register_sidebar( array(
 		'name' => __( 'Top widget area', 'shailan' ),
 		'id' => 'top-bar',
-		'description' => __( 'Will be displayed on top of everything.', 'shailan' ),
+		'description' => '',
 		'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3 class="widget-title">',
@@ -96,9 +96,10 @@ function shailan_widgets_init() {
 	) );
 	
 }
-add_action( 'widgets_init', 'shailan_widgets_init' );
+//add_action( 'widgets_init', 'shailan_widgets_init' );
 
 }
+
 
 
 
