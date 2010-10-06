@@ -8,115 +8,39 @@ if(!WP_DEBUG){  define ('WP_DEBUG', true); }
 /** Load Smart layout generator if enabled */
 if(!defined('WB_SMARTLAYOUT') || WB_SMARTLAYOUT){ include_once(TEMPLATEPATH . "/app/widgetbox-layout.php"); };
 
-// THEME SETUP (Pluggable)
-/*add_action( 'after_setup_theme', 'widgetbox_setup' );
-function widgetbox_setup(){*/
+// FRAMEWORK
+include_once('framework/shailan-framework.php'); // Load Framework
 
-	if ( function_exists( 'add_editor_style' ) ) { add_editor_style(); }
-	
-	if ( function_exists( 'add_theme_support' ) ) {
-		add_theme_support( 'post-thumbnails' );
-		set_post_thumbnail_size( 200, 200, true );
-		add_theme_support( 'nav-menus' );
-		add_theme_support( 'automatic-feed-links' );
-	}
-	
-	// Localization
-	load_theme_textdomain( 'widgetbox', TEMPLATEPATH . '/languages' );
-	$locale = get_locale();
-	$locale_file = TEMPLATEPATH . "/languages/$locale.php";
-	if ( is_readable( $locale_file ) )
-		require_once( $locale_file );
+$image_sizes = array(
+	'featured_post_thumbnail' => '125x125',
+	'index_thumbnail' => '200x200',
+	'post_teaser' => '250x250'
+);
 
-	if ( function_exists( 'add_custom_background' ) ) {
-		// This theme allows users to set a custom background
-		add_custom_background();
-	}
-	
-	$widgetbox_page_width = get_option('widgetbox_page_width');
+$theme_options = array(
+	"domain" => "shailan",
+	"editor_style" => true,
+	"nav_menus" => true,
+	"custom_background" => true,
+	"post_thumbnails" => true,
+	"automatic_feed_links" => true,
+	"thumbnail_size" => "200x200",
+	"custom_image_sizes" => $image_sizes,
+	"localization_directory" => TEMPLATEPATH . '/languages'
+);
 
-	if ( function_exists( 'add_custom_image_header' ) ) {
-		define( 'HEADER_TEXTCOLOR', '' );
-		define( 'HEADER_IMAGE', '%s/headers/header-default.jpg' );
-		define( 'HEADER_IMAGE_WIDTH', apply_filters( 'widgetbox_header_image_width', $widgetbox_page_width ) );
-		define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'widgetbox_header_image_height', 320 ) );
-		define( 'NO_HEADER_TEXT', false );
+$framework = new Shailan_Framework();
+$framework->setupTheme($theme_options);
 
-		add_custom_image_header( '', 'widgetbox_admin_header_style' );
-
-		if(function_exists('register_default_headers')){
-		// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
-		register_default_headers( array(
-			'blue' => array(
-				'url' => '%s/headers/blue.jpg',
-				'thumbnail_url' => '%s/headers/blue-thumbnail.jpg',
-				/* translators: header image description */
-				'description' => __( 'Blue background', 'widgetbox' )
-			), 
-			'slate' => array(
-				'url' => '%s/headers/slate.jpg',
-				'thumbnail_url' => '%s/headers/slate-thumbnail.jpg',
-				/* translators: header image description */
-				'description' => __( 'Slate background', 'widgetbox' )
-			),
-			'grass' => array(
-				'url' => '%s/headers/grass.jpg',
-				'thumbnail_url' => '%s/headers/grass-thumbnail.jpg',
-				/* translators: header image description */
-				'description' => __( 'Grass background', 'widgetbox' )
-			)
-			
-		) );	}
-	}
-
-	// Theme options
-	$layout = get_option('widgetbox_active_layout');
-	
-	if(strlen($layout)<=1){
-		// Insert default options
-		update_option('widgetbox_page_width', 980);
-		update_option('widgetbox_sidebar_width', 300);
-		update_option('widgetbox_padding', 15);
-		update_option('widgetbox_active_layout', '2Columns-Right');
-		update_option('widgetbox_active_theme', 'googled');
-	}
-/*
-}*/
-
-if ( ! function_exists( 'widgetbox_admin_header_style' ) ) :
-	function widgetbox_admin_header_style() {
-	?>
-	<style type="text/css">
-	#headimg {
-		height: <?php echo HEADER_IMAGE_HEIGHT; ?>px;
-		width: <?php echo HEADER_IMAGE_WIDTH; ?>px;
-	}
-	#headimg h1, #headimg #desc {
-		/*display: none;*/
-	}
-	</style>
-	<?php
-	}
-endif;
-
-if ( ! function_exists( 'widgetbox_page_menu_args' ) ) :
-	function widgetbox_page_menu_args($args) {
-		$args['show_home'] = true; // Display home link?
-		return $args;
-	}
-	add_filter('wp_page_menu_args', 'widgetbox_page_menu_args');
-endif;
+// Custom header support
+include_once('app/wb_custom_header.php');
 
 function widgetbox_body_class($classes){
 	global $wp_query, $wpdb;
-
 	$layout = get_option('widgetbox_active_layout');
-
 	$classes[] = strtolower($layout);
-	
 	return $classes;
 }; add_filter( 'body_class', 'widgetbox_body_class');
-
 
 function widgetbox_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
@@ -217,8 +141,6 @@ add_action('init', 'widgetbox_init');
 
 function get_post_link(){ return "<a href=\"".get_permalink()."\" class=\"post-link\">".get_the_title()."</a>"; }
 
-include_once('framework/shailan-loader.php'); // FRAMEWORK
-//include_once('includes/widgetbox-widgets.php'); // WIDGETS
 include_once('includes/widgetbox-admin.php'); // ADMIN 
 
 ?>
