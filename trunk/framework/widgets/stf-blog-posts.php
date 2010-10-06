@@ -1,10 +1,10 @@
 <?php 
-class stf_blogposts extends WP_Widget {
+class stf_blog_posts extends WP_Widget {
     /** constructor */
-    function stf_blogposts() {
+    function stf_blog_posts() {
 		$widget_ops = array('classname' => 'blog-posts', 'description' => __( 'Posts on your blog' ) );
-		$this->WP_Widget('stf-blogposts', __('Blog Posts'), $widget_ops);
-		$this->alt_option_name = 'stf_blogposts';	
+		$this->WP_Widget('stf-blog-posts', __('Blog Posts'), $widget_ops);
+		$this->alt_option_name = 'stf_blog_posts';	
     }
 
     /** @see WP_Widget::widget */
@@ -86,15 +86,13 @@ class stf_blogposts extends WP_Widget {
 		<p><label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'widgetbox'); ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label><br /> 
 		<small>Title of the widget.</small></p>
 		
-		<div class="widget-control-actions alignright">
-		<p><small>Developed by <a href="http://shailan.com">Shailan</a></small></p>
-		</div>
-		
 		<?php 
+		
+		stf_widget_footer();
 		
     }
 
 } 
 
 // register widget
-add_action('widgets_init', create_function('', 'return register_widget("stf_blogposts");'));
+add_action('widgets_init', create_function('', 'return register_widget("stf_blog_posts");'));

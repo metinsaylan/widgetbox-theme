@@ -16,6 +16,7 @@ class stf_navigation extends WP_Widget {
     }
 
     function widget($args, $instance) {		
+		global $wp_query;
         extract( $args );
 		
 		if ( $wp_query->max_num_pages > 1 ) :
@@ -47,11 +48,9 @@ class stf_navigation extends WP_Widget {
 		
 		<p>Displays simple post navigation. This widget has no options. Yet.</p>
 		
-		<div class="widget-control-actions">
-		<p><small>Powered by <a href="http://shailan.com/wordpress/theme-framework">Shailan Theme Framework</a></small></p>
-		</div>
-		
 		<?php
+		stf_widget_footer();
+		
     }
 
 } 

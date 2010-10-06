@@ -17,6 +17,11 @@ class Shailan_Framework{
 		
 		// TODO : Set default options set here
 		$this->options = array();
+		$this->widget_areas = array();
+		
+		add_action( 'admin_init', array(&$this, 'theme_admin_init'));
+		add_action( 'admin_menu', array(&$this, 'theme_admin_header'));
+		add_action( 'widgets_init', array(&$this, 'theme_register_sidebars') );
 	}
 	
 	/** Setup theme */
@@ -67,9 +72,6 @@ class Shailan_Framework{
 			require_once( $locale_file );
 
 		if ( function_exists( 'add_custom_background' ) && $custom_background ) { add_custom_background(); }
-		
-		add_action('admin_init', array(&$this, 'theme_admin_init'));
-		add_action('admin_menu', array(&$this, 'theme_admin_header'));
 	
 	}
 	
@@ -83,16 +85,17 @@ class Shailan_Framework{
 	
 	function theme_admin_init(){
 		$file_dir=get_bloginfo('template_directory');
-		wp_enqueue_style("functions", $file_dir . "/framework/options.css", false, "1.0", "all");
+		wp_enqueue_style("options-page", $file_dir . "/framework/css/options.css", false, "1.0", "all");
+		wp_enqueue_style("widgets-mod", $file_dir . "/framework/css/widgets.css", false, "1.0", "all");
 	}
 	
 	function theme_admin_header(){
 		if ( @$_GET['page'] == "theme-options" ) {
 			if ( @$_REQUEST['action'] && 'save' == $_REQUEST['action'] ) {
-				foreach ($options as $value) {
+				foreach ($this->options as $value) {
 				update_option( $value['id'], $_REQUEST[ $value['id'] ] ); }
 		 
-			foreach ($options as $value) {
+			foreach ($this->options as $value) {
 				if( isset( $_REQUEST[ $value['id'] ] ) ) 
 					{ update_option( $value['id'], $_REQUEST[ $value['id'] ]  ); }
 				else 
@@ -100,7 +103,7 @@ class Shailan_Framework{
 				header("Location: admin.php?page=theme-options&saved=true");
 				die;
 			} else if( @$_REQUEST['action'] && 'reset' == $_REQUEST['action'] ) {
-				foreach ($options as $value) {
+				foreach ($this->options as $value) {
 					delete_option( $value['id'] ); 
 				}
 				
@@ -117,12 +120,37 @@ class Shailan_Framework{
 	
 	function theme_admin_page(){
 	
-		if ( @$_REQUEST['saved'] ) echo '<div id="message" class="updated fade"><p><strong>'.$themename.' settings saved.</strong></p></div>';
-		if ( @$_REQUEST['reset'] ) echo '<div id="message" class="updated fade"><p><strong>'.$themename.' settings reset.</strong></p></div>';
+		if ( @$_REQUEST['saved'] ) echo '<div id="message" class="updated fade"><p><strong>'.$this->name.' settings saved.</strong></p></div>';
+		if ( @$_REQUEST['reset'] ) echo '<div id="message" class="updated fade"><p><strong>'.$this->name.' settings reset.</strong></p></div>';
 		
 		// Render theme options page
 		include_once("stf-page-options.php");
 	
+	}
+	
+	function add_widget_area( $name, $id, $description, $default_widgets ){
+		$widget_area = array(
+			'name'=>$name,
+			'id'=>$id,
+			'description'=>$description,
+			'default_widgets'=>$default_widgets
+		);
+		
+		array_push($this->widget_areas, $widget_area);		
+	}
+	
+	function theme_register_sidebars(){
+		foreach($this->widget_areas as $widget_area){	
+			register_sidebar( array(
+			'name' => $widget_area['name'],
+			'id' => $widget_area['id'],
+			'description' => $widget_area['description'],
+			'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+			'after_widget' => '</div>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>',
+			) );
+		}
 	}
 
 };
@@ -133,4 +161,13 @@ $stf = new Shailan_Framework();
 function get_theme_name(){
 	global $stf;
 	return $stf->name;
+}
+
+function stf_widgets( $id, $default_widgets = array() ){
+	if(!dynamic_sidebar($id) && is_array($default_widgets)){
+		foreach($default_widgets as $widget_callback)
+			the_widget($widget_callback);
+	} elseif (!empty($default_widgets)){
+		the_widget($default_widgets);
+	}
 }
