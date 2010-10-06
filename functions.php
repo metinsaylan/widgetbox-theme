@@ -141,6 +141,6 @@ add_action('init', 'widgetbox_init');
 
 function get_post_link(){ return "<a href=\"".get_permalink()."\" class=\"post-link\">".get_the_title()."</a>"; }
 
-include_once('includes/widgetbox-admin.php'); // ADMIN 
+include_once('app/wb_admin.php'); // ADMIN 
 
 ?>
