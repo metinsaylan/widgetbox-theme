@@ -2,7 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes() ?>>
 <head profile="http://gmpg.org/xfn/11">
 	<title><?php wp_title( '@', true, 'right' ); echo esc_html( get_bloginfo('name'), 1 ) ?></title>
-	
 	<meta http-equiv="content-type" content="<?php bloginfo('html_type') ?>; charset=<?php bloginfo('charset') ?>" />
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="<?php bloginfo('template_directory'); ?>/css/reset.css" />
@@ -11,12 +10,6 @@
 	<?php } ?>
 	
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url') ?>" />
-	<!-- Widget specific styles -->
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/aktt.css" />
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/slider.css" />
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/social.css" />
-	<link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory') ?>/css/share.css" />
-	<!-- End of widget specific styles -->
 	
 		<?php wp_head() // For plugins ?>
 

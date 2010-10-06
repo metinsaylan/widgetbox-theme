@@ -263,59 +263,6 @@ function shailan_queryposts($atts){
   return $output;
 }; add_shortcode('query_posts', 'shailan_queryposts');
 
-function stf_adsense_shortcode($atts, $content = null ){
-	extract(shortcode_atts( array(
-		'align' => 'none',
-		'type' => '468x60',
-		'slot' => '',
-		'channel' => ''
-	), $atts));
-	
-	$ads_id = get_option('shailan_adsense_id');
-	
-	if(!empty($channel)){
-		$ad_channel = 'google_ad_channel = "'.$channel.'"';
-	} else { $ad_channel = ""; }
-	
-	// Open adsense layer
-	$adcode = "\n<div class=\"stf-adsense align".$align."\">";
-	// Start adsense script
-	$adcode .= "\n<script type=\"text/javascript\"><!-- ";
-	$adcode .= "\n\t google_ad_client = '".$ads_id."'; ";
-	$adcode .= "\n\t" . $ad_channel;
-
-	switch($type){
-		case 'textlinks':
-		case '468x15':
-		// Text links
-			$adcode .= "\n\t google_ad_width = 468; google_ad_height = 15; ";	
-		break;
-		case '300x250':
-		case 'square300':
-			$adcode .= "\n\t google_ad_width = 300; google_ad_height = 250; ";	
-		break;	
-		case '728x90':
-		case 'wide-banner':
-			$adcode .= "\n\t google_ad_width = 728; google_ad_height = 90; ";
-		break;
-		case 'banner':
-		case '468x60':
-		default:
-		// Default to banner
-			$adcode .= "\n\t google_ad_width = 468; google_ad_height = 60; ";
-	}
-	
-	$adcode .= "\n//-->";
-	$adcode .= "\n</script>";
-	$adcode .= "\n<script type=\"text/javascript\"
-src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\"></script>";
-	
-	// Close the layer
-	$adcode .= "</div>\n";
-	return $adcode;	
-}; add_shortcode('adsense', 'stf_adsense_shortcode'); 
-
-
 function stf_wrap_tag($atts, $content = null ){
 $permalink_structure = get_option('permalink_structure');
 $tag_base = get_option( 'tag_base' );

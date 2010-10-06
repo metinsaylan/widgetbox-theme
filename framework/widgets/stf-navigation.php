@@ -9,7 +9,7 @@
 */
 
 class stf_navigation extends WP_Widget {
-    function stf_adsense() {
+    function stf_navigation() {
 		$widget_ops = array('classname' => 'stf-navigation', 'description' => __( 'Older/Newer posts navigation', 'stf' ) );
 		$this->WP_Widget('stf-navigation', __('Posts Navigation'), $widget_ops);
 		$this->alt_option_name = 'stf_navigation';	
@@ -55,4 +55,4 @@ class stf_navigation extends WP_Widget {
     }
 
 } 
-add_action('widgets_init', create_function('', 'return register_widget("stf_adsense");'));
+add_action('widgets_init', create_function('', 'return register_widget("stf_navigation");'));
