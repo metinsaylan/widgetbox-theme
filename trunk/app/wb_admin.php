@@ -14,7 +14,7 @@ $shortname = "widgetbox"; /* This is for options. Dont change it! */
 if(TEMPLATEPATH !== STYLESHEETPATH && file_exists(trailingslashit(get_stylesheet_directory()) . 'options.php')){
 	include_once(trailingslashit(get_stylesheet_directory()) . 'options.php');
 } else {
-	include_once('widgetbox-options.php');
+	include_once('wb_options.php');
 }
 
 function widgetbox_add_admin() {
