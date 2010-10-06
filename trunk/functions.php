@@ -1,15 +1,26 @@
 <?php
-
 // ENABLE DEBUG
 if(!WP_DEBUG){  define ('WP_DEBUG', true); }
 @ini_set('log_errors','On');
 @ini_set('display_errors','On');
 
-/** Load Smart layout generator if enabled */
+/* Theme name */
+if(TEMPLATEPATH !== STYLESHEETPATH){ $themename = ucfirst(get_stylesheet()); } 
+	else { $themename = "Widgetbox"; }
+
+/* Load Smart layout generator if enabled */
 if(!defined('WB_SMARTLAYOUT') || WB_SMARTLAYOUT){ include_once(TEMPLATEPATH . "/app/wb_layout.php"); };
 
-// FRAMEWORK
+/* Init framework */
 include_once('framework/shailan-framework.php'); // Load Framework
+
+// Load options 
+if(TEMPLATEPATH !== STYLESHEETPATH && file_exists(trailingslashit(get_stylesheet_directory()) . 'options.php')){
+	include_once(trailingslashit(get_stylesheet_directory()) . 'options.php');
+} else {
+	include_once(trailingslashit(get_template_directory()) . 'options.php');
+}
+$stf->extend_options($options);
 
 $image_sizes = array(
 	'featured_post_thumbnail' => '125x125',
@@ -18,6 +29,8 @@ $image_sizes = array(
 );
 
 $theme_options = array(
+	"name" => $themename,
+	"shortname" => "widgetbox", 
 	"domain" => "shailan",
 	"editor_style" => true,
 	"nav_menus" => true,
@@ -28,9 +41,7 @@ $theme_options = array(
 	"custom_image_sizes" => $image_sizes,
 	"localization_directory" => TEMPLATEPATH . '/languages'
 );
-
-$framework = new Shailan_Framework();
-$framework->setupTheme($theme_options);
+$stf->setupTheme($theme_options);
 
 // Custom header support
 include_once('app/wb_custom_header.php');
@@ -100,6 +111,5 @@ add_action('init', 'widgetbox_init');
 
 function get_post_link(){ return "<a href=\"".get_permalink()."\" class=\"post-link\">".get_the_title()."</a>"; }
 
-include_once('app/wb_admin.php'); // ADMIN 
 
 ?>
