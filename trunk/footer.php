@@ -8,7 +8,7 @@
 	<div class="clear"></div>
 	
 	<div id="powered-by">
-		Powered by <span id="generator-link"><a href="http://wordpress.org/" title="<?php _e( 'WordPress', 'widgetbox' ) ?>" rel="generator"><?php _e( 'WordPress', 'widgetbox' ) ?></a></span> <span class="amp"> &amp; </span> <span id="theme-link"><a href="http://shailan.com/wordpress/themes/widgetbox" title="<?php _e( 'Excellent all-widget theme for wordpress', 'widgetbox' ) ?>" rel="designer"><?php _e( 'Widgetbox Theme', 'widgetbox' ) ?></a></span>
+		Powered by <span id="generator-link"><a href="http://wordpress.org/" title="<?php _e( 'WordPress', 'widgetbox' ) ?>" rel="generator external nofollow"><?php _e( 'WordPress', 'widgetbox' ) ?></a></span> <span class="amp"> &amp; </span> <span id="theme-link"><a href="http://shailan.com/wordpress/themes/widgetbox" title="<?php _e( 'Excellent all-widget theme for wordpress', 'widgetbox' ) ?>" rel="designer external"><?php _e( 'Widgetbox Theme', 'widgetbox' ) ?></a></span>
 	</div>
 
 		<div class="alignright">
