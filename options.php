@@ -1,5 +1,7 @@
 <?php 
 
+$shortname = "widgetbox";
+
 $categories = get_categories('hide_empty=0&orderby=name');
 $wp_cats = array();
 foreach ($categories as $category_list ) {
@@ -35,16 +37,13 @@ while (false !== ($file = readdir($dh))) {
 
 $options = array (
  
-array( "name" => $themename." Options",
-	"type" => "title"),
-	
 array( "name" => "General Options",
 	"type" => "section"),
 array( "type" => "open"),
 
 	array(  "name" => "Featured Posts Category",
 		"desc" => "Will be displayed on homepage.",
-		"id" => $shortname."_featured_cat",
+		"id" => $shortname . "_featured_cat",
 		"std" => "",
 		"options" => $wp_cats,
 		"type" => "select"),

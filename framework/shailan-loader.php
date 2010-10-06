@@ -8,7 +8,6 @@
 */
 
 include_once('shailan-sidebars.php'); // ALL WIDGET SIDEBARS
-
 include_once('shailan-utilities.php'); // GENERIC FUNCTIONS
 include_once('shailan-shortcodes.php'); // SHORTCODES
 include_once('shailan-templates.php'); // CUSTOM TEMPLATES

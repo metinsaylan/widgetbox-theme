@@ -1,0 +1,59 @@
+.ex_wrap{
+	width:740px;
+}
+
+.ex_section{
+
+}
+
+.ex_opts label{
+	font-size:12px;
+	font-weight:700;
+	width:200px;
+	display:block;
+	float:left;	
+}
+.ex_input {
+	padding:10px 10px;
+	border-bottom:1px solid #eee;
+}
+.ex_opts small{
+	display:block;
+	float:right;
+	width:200px;
+	color:#999;
+}
+.ex_opts input[type="text"], .ex_opts select{
+	width:280px;
+	font-size:12px;
+	padding:4px;
+	color:#333;
+	line-height:1em;
+	background:#f3f3f3;
+}
+.ex_input input:focus, .ex_input textarea:focus{
+		background:#fff;
+}
+.ex_input textarea{
+	width:280px;
+	height:175px;
+	font-size:12px;
+	padding:4px;
+	color:#333;
+	line-height:1.5em;
+	background:#f3f3f3;
+}
+
+.clearfix{
+	clear:both;
+}
+
+.ex_table th, .ex_table td{
+	border:1px solid #bbb;
+	padding:10px;
+	text-align:center;
+}
+
+.ex_table th, .ex_table td.feature{
+	border-color:#888;
+	}
