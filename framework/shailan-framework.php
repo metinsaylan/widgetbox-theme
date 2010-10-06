@@ -10,7 +10,7 @@ class Shailan_Framework{
 
 	/** Constructor */
 	function Shailan_Framework(){
-	
+		require_once("shailan-loader.php");
 	}
 	
 	/** Setup theme */
@@ -60,5 +60,3 @@ class Shailan_Framework{
 	}
 
 };
-
-require_once("shailan-loader.php");
