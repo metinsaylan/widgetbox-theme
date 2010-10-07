@@ -23,7 +23,7 @@ while (false !== ($file = readdir($dh))) {
 }*/
 
 // LOAD LAYOUTS
-$wb_layouts = array();
+/*$wb_layouts = array();
 $dirpath =  TEMPLATEPATH.'/css/layouts/';
 $dh = opendir($dirpath);
 
@@ -33,7 +33,7 @@ while (false !== ($file = readdir($dh))) {
 		//Truncate the file extension and capitalize the first letter
 		$wb_layouts[] = htmlspecialchars(preg_replace('/\..*$/', '', $file));
 	}
-}
+}*/
 
 $options = array (
  
@@ -54,12 +54,12 @@ array( "name" => "Layout & Color Scheme",
 	"type" => "section"),
 array( "type" => "open"),
 
-	array(  "name" => "Page layout",
+	/*array(  "name" => "Page layout",
 		"desc" => "Layout of the containers.",
 		"id" => $shortname."_active_layout",
 		"std" => "2c-r",
 		"options" => $wb_layouts,
-		"type" => "select"),
+		"type" => "select"),*/
 		
 	/*array(  "name" => "Color scheme",
 		"desc" => " Color scheme for widgetbox.",
@@ -92,37 +92,6 @@ array( "type" => "open"),
 		"type" => "textarea",
 		"std" => ""),		
 
-array( "type" => "close"),
-
-array( "name" => "Ads & Customization",
-	"type" => "section"),
-array( "type" => "open"),
-	
-	array(  "name" => "Google Ads Unique ID",
-		"desc" => " Your unique ads ID.",
-		"id" => "shailan_ads_id",
-		"std" => "",
-		"type" => "text"),
-	
-	array(  "name" => "Google Analytics Code",
-		"desc" => " Google Analytics Code. Will be automatically put in your <strong><em>header</em></strong>.<br /> Please update your code to use latest google analytics code that is used in header.",
-		"id" => "shailan_analytics_code",
-		"std" => "",
-		"type" => "textarea"),
-	
-array( "name" => "Custom Favicon",
-	"desc" => "A favicon is a 16x16 pixel icon that represents your site; paste the URL to a .ico image that you want to use as the image",
-	"id" => "shailan_favicon",
-	"type" => "text",
-	"std" => get_bloginfo('url') ."/favicon.ico"),	
-	
-array( "name" => "Feedburner URL",
-	"desc" => "Feedburner is a Google service that takes care of your RSS feed. Paste your Feedburner URL here to let readers see it in your website",
-	"id" => "shailan_feedburner",
-	"type" => "text",
-	"std" => get_bloginfo('rss2_url')),
-
- 
 array( "type" => "close"),
 
 array( "name" => "Advanced Features",
