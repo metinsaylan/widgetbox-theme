@@ -20,8 +20,8 @@ class stf_blog_title extends WP_Widget {
 		}
 				
         echo $before_widget;		
-		/*if ( $title )
-			echo $before_title . $title . $after_title;*/
+		
+		$sep = "@ ";
 
 		// Returns the title based on the type of page being viewed
 		if( have_posts()){
@@ -32,7 +32,7 @@ class stf_blog_title extends WP_Widget {
 			$the_permalink = get_permalink( $thePostID );
 			$title = apply_filters('the_title', $the_post->post_title);
 			$title = '<a href="'. $the_permalink .'">'. $title .'</a>';
-			$tagline = 'on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo('name') . '</a>'; 
+			$tagline = $sep . '<a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo('name') . '</a>'; 
 		} elseif ( is_home() || is_front_page() ) {
 			$title = '<a href="'.get_bloginfo('url').'">' . get_bloginfo( 'name' ) . '</a>';
 			$tagline = get_bloginfo('description');

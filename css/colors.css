@@ -8,9 +8,10 @@ a[rel="home"]:hover { background: url('images/home.png') right 50% no-repeat; }
 strong, em {  }
 
 /* HEADER */
+#header { background-color: #62c7e5; border:1px solid #c9e5ed; }
 #header .description { color: #fff; }
 #header .description a { color: #fff; }
-#header .blog-title, #header .blog-title a, #header .blog-title a:link { color: #fff; }
+#header .stf_blog_title, #header .stf_blog_title a, #header .stf_blog_title a:link { color: #fff; }
 
 /* SEARCH */
 #sa { background: transparent; }
@@ -45,6 +46,7 @@ strong, em {  }
 #cancel-comment-reply-link:hover { background: transparent; color: #fff; }
 #commentform textarea { background: #eee; border-style: solid; }
 #comments h3 { color: #909; }
+li.even {background:#dedede;}
 
 /* FOOTER */
 #footer { color: #ddd; }
