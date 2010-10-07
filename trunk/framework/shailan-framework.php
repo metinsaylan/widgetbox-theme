@@ -120,8 +120,11 @@ class Shailan_Framework{
 	
 	function theme_admin_page(){
 	
-		if ( @$_REQUEST['saved'] ) echo '<div id="message" class="updated fade"><p><strong>'.$this->name.' settings saved.</strong></p></div>';
-		if ( @$_REQUEST['reset'] ) echo '<div id="message" class="updated fade"><p><strong>'.$this->name.' settings reset.</strong></p></div>';
+		$options = $this->options;
+		$title = $this->name . ' Theme Settings';		
+		
+		$navigation = "";
+		$footer_text = "<p><small>Powered by <a href=\"http://shailan.com/wordpress/themes/framework\">Shailan Theme Framework</a></small></p>";
 		
 		// Render theme options page
 		include_once("stf-page-options.php");

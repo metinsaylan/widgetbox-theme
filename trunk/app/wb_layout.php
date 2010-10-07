@@ -17,7 +17,7 @@ function wb_layout_styles(){
 		$widgetbox_sidebar_width = get_option('widgetbox_sidebar_width');
 		$widgetbox_padding = get_option('widgetbox_padding');
 		
-		$content_width = $widgetbox_page_width - $widgetbox_sidebar_width - $widgetbox_padding * 2;
+		$content_width = $widgetbox_page_width - $widgetbox_sidebar_width - $widgetbox_padding * 3 - 2; // 2px border
 		$post_width = $content_width - 2*$widgetbox_padding;
 		
 		$content_margin = $widgetbox_sidebar_width + 2*$widgetbox_padding;
@@ -36,7 +36,7 @@ function wb_layout_styles(){
 		echo $indent . "#respond{ padding: ".$widgetbox_padding."px; }";
 		echo $indent . "#comments-list ol{ margin: ".$widgetbox_padding."px; }";
 		echo $indent . "div#content{ margin:0px ".$content_margin."px 0px ".$widgetbox_padding."px; padding:".$widgetbox_padding."px; }";
-		echo $indent . "img.size-full{max-width: ".$post_width."px; border:none; padding:0; margin-bottom:".$widgetbox_padding."px; } * html img.size-full{width: ".$post_width."px}";
+		echo $indent . ".hentry img{max-width: ".$post_width."px; border:none; padding:0; margin-bottom:".$widgetbox_padding."px; } * html .hentry img{width: ".$post_width."px}";
 		echo $indent . ".hentry{ margin-bottom:".$widgetbox_padding."px; padding-bottom:".$widgetbox_padding."px }";
 		echo $indent . ".entry-thumb{ float:left; padding:0px; margin-left:".$thumbnail_margin."px; }";
 		
