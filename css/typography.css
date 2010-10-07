@@ -1,5 +1,9 @@
 /* FONT FAMILY */
-body, .page-title span, .pingback a.url { font: normal normal normal 75%/normal "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif; }
+body, .page-title span, .pingback a.url, .entry-title, .entry-title a { 
+	/*font: normal normal normal 75%/normal "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif; */
+	/* font: normal normal normal 75%/normal Futura, Century Gothic, AppleGothic, sans-serif; */
+	font-family: DejaVu Sans, Bitstream Vera Sans, Segoe UI, Lucida Grande, Verdana, Tahoma, Arial, sans-serif;
+	}
 
 h3#comments-title, h3#reply-title, #access .menu, #access div.menu ul, #cancel-comment-reply-link, .form-allowed-tags,
 #site-info, #site-title, #wp-calendar, .comment-meta, .comment-body tr th, .comment-body thead th, .entry-content label, .entry-content tr th,
@@ -15,10 +19,10 @@ small, .edit-link a, #comments-list li .comment-meta{
 	font-family: Verdana, sans-serif;
 }
 
-.entry-title {
-	text-shadow: #666 0px 1px 1px; font-weight:500; line-height:24px; letter-spacing:2px;
-	font-family: Georgia, Helvetica, sans-serif; line-height:24px;
-	font-style:italic;
+.entry-title, .entry-title a {
+	font-weight:500; line-height:24px; letter-spacing:2px;
+	font-size: 13px;
+	line-height:24px;
 }
 
 /** Blog title */

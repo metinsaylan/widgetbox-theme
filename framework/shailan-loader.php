@@ -25,6 +25,9 @@ include_once('widgets/stf-featuredposts.php'); // POSTS NAVIGATION
 include_once('widgets/stf-navigation.php'); // POSTS NAVIGATION
 include_once('widgets/stf-pagenavi.php'); // POSTS NAVIGATION
 
+// Other interfaces
+include_once('stf-typography.php'); // TYPOGRAPHY
+
 
 
 

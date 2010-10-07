@@ -8,7 +8,7 @@ a[rel="home"]:hover { background: url('images/home.png') right 50% no-repeat; }
 strong, em {  }
 
 /* HEADER */
-#header { background-color: #62c7e5; border:1px solid #c9e5ed; }
+#header { background-color: #62c7e5; border:1px solid #90c4dc; }
 #header .description { color: #fff; }
 #header .description a { color: #fff; }
 #header .stf_blog_title, #header .stf_blog_title a, #header .stf_blog_title a:link { color: #fff; }
@@ -27,6 +27,7 @@ strong, em {  }
 .entry-foot .m2-esubscribe p { background: #fbf8ca; color: #444; }
 .entry-foot .m2-esubscribe input[type~="text"] { background: #fbf8ca; }
 .archive-meta { background: #eee; }
+.entry-title, .entry-title a{ color:#333; text-shadow: #fff 0px 1px 0px; }
 
 /* SIDEBAR & WIDGETS */
 .widgettittle, .widget-title { color: #aaa; }

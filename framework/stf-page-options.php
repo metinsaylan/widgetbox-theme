@@ -1,26 +1,26 @@
-<?php 
-
-$themename = $this->name;
-$options = $this->options;
-$shortname = $this->shortname;
-
-?>
+<?php ?>
 
 <div class="wrap ex_wrap">
-<h2><?php echo $this->name; ?> Theme Settings</h2>
+	<?php screen_icon(); ?>
+	<h2><?php echo esc_html( $title ); ?></h2>
+	
+<?php if ( isset($_GET['message']) && isset($messages[$_GET['message']]) ) { ?>
+<div id="message" class="updated"><p><?php echo $messages[$_GET['message']]; ?></p></div>
+<?php } ?>
+<?php if ( isset($_GET['error']) && isset($errors[$_GET['error']]) ) { ?>
+<div id="message" class="error"><p><?php echo $errors[$_GET['error']]; ?></p></div>
+<?php } ?>
  
 <div class="ex_opts">
 <form method="post">
 <?php foreach ($options as $value) {
 switch ( $value['type'] ) {
  
-case "open":
-?>
+	case 'open': ?>
  
 <?php break;
- 
-case "close":
-?>
+	
+	case 'close': ?>
  
 </div>
 </div>
@@ -28,16 +28,8 @@ case "close":
 
  
 <?php break;
- 
-case "title":
-?>
-<p>To easily use the <?php echo $themename;?> theme, you can use the menu below.</p>
-
- 
-<?php break;
- 
-case 'text':
-?>
+	
+	case 'text': ?>
 
 <div class="ex_input ex_text">
 	<label for="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label>
@@ -113,8 +105,6 @@ case "section":
 
 </form>
 
-<div style="font-size:9px; margin-bottom:10px;">
-Powered by <a href="http://shailan.com/wordpress/themes/exhibit">Exhibit</a> by <a href="http://shailan.com">shailan</a>
-</div>
+<?php if(!empty($footer_text)){echo $footer_text;} ?>
 
 </div> 
