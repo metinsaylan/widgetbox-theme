@@ -127,7 +127,7 @@ class Shailan_Framework{
 		include_once("stf-page-options.php");
 	}
 	
-	function add_widget_area( $name, $id, $description, $default_widgets ){
+	function add_widget_area( $name, $id, $description='', $default_widgets='' ){
 		$widget_area = array(
 			'name'=>$name,
 			'id'=>$id,
