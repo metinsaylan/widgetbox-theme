@@ -1,15 +1,25 @@
-.entry-content blockquote { border-left: 2px solid #6f8d97; margin: 10px; padding: 20px; }
-.entry-foot .m2-esubscribe input[type~="text"] { border: 0px; border-bottom: 2px dashed #ffcc00; width: 260px; }
-ul.related_post { border-top: 1px solid #ddd; display: block; list-style-type: none; margin: 0px; margin-top: 5px; }
-#nav-images { clear: both; text-align: center; }
-a { border-radius: 5px; }
-.wp-caption , #sidebar-2 .ngg-widget img, #sidebar-1 .ngg-widget img { -khtml-border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border: 1px solid #ccc; border-radius: 5px; padding: 9px; }
+
+
+#commentform textarea { border: 2px solid #222; width: 98%; }
+#comments-list li { position: relative; }
+#comments-list li .comment-author { border: 1px double #ccc; height: 30px; width:150px; margin: 0px; margin-bottom: 15px; }
+#comments-list li .comment-meta { margin: 0px; padding: 0px; position: absolute; right: 0px; top: 0px; }
+#comments-list ol, #comments-list ul { list-style-type: none; margin: 10px; }
 #cancel-comment-reply { position: absolute; right: 5px; top: 5px; }
 #commentform input[type="text"] { border: none; border-bottom: 1px dashed #999; }
 #comments-list .avatar, #comments-list .gravatar { float: left; margin-right: 10px; }
 #comments-list li .buttons { margin-bottom: 10px; }
 #respond, #comments-list #respond { overflow: hidden; padding: 10px; position: relative; }
 #trackbacks-list { margin-bottom: 10px; }
+
+
+.entry-content blockquote { border-left: 2px solid #6f8d97; margin: 10px; padding: 20px; }
+.entry-foot .m2-esubscribe input[type~="text"] { border: 0px; border-bottom: 2px dashed #ffcc00; width: 260px; }
+ul.related_post { border-top: 1px solid #ddd; display: block; list-style-type: none; margin: 0px; margin-top: 5px; }
+#nav-images { clear: both; text-align: center; }
+a { border-radius: 5px; }
+.wp-caption , #sidebar-2 .ngg-widget img, #sidebar-1 .ngg-widget img { -khtml-border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border: 1px solid #ccc; border-radius: 5px; padding: 9px; }
+
 .entry-content div { margin: auto; }
 .entry-content div.toc { -khtml-border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; border: 2px solid #ccc; border-radius: 8px; float: right; margin-left: 10px; padding: 5px; width: auto; }
 .entry-foot .widget { margin: 0px 0px 20px; }
@@ -18,11 +28,7 @@ a { border-radius: 5px; }
 .wp-post-image { margin: 0px; padding: 0px; }
 .widget { margin: 0px; }
 .post .wp-caption:hover { border: 1px solid #09c; }
-#commentform textarea { border: 2px solid #222; width: 98%; }
-#comments-list li { position: relative; }
-#comments-list li .comment-author { border-bottom: 3px double #ccc; height: 30px; margin: 0px; margin-bottom: 15px; margin-left: -25px; }
-#comments-list li .comment-meta { margin: 0px; padding: 0px; position: absolute; right: 5px; top: 5px; }
-#comments-list ol, #comments-list ul { list-style-type: none; margin: 10px; }
+
 #footer .columns .widget { float: left; padding-left: 10px; text-align: left; width: 285px; }
 #trackbacks-list ol, #trackbacks-list ul { margin: 10px; padding-left: 30px; }
 .avatar { border: 1px solid #333; }
@@ -49,7 +55,7 @@ ul.related_post li { border-bottom: 1px solid #ddd; padding: 5px 8px; }
 .comments { clear: both; margin: 0px 0px 20px; padding-top: 20px; position: relative; text-align: left; }
 #footer { clear: both; margin: 0px auto; min-height: 30px; padding: 0px; text-align: center; }
 .widget_tag_cloud { line-height: 2em; }
-li.comment { -khtml-border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border: 1px solid #ccc; border-radius: 5px; margin: 5px; padding: 10px; }
+li.comment { border-top: 1px solid #ccc; border-radius: 5px; margin: 5px; }
 #header { height: auto; min-height: 198px; overflow: visible; position: relative; }
 .post_share { border: 0px; float: left; margin-left: -94px; margin-right: 10px; position: relative; }
 #cancel-comment-reply { -khtml-border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px; border-radius: 7px; padding: 2px 5px; position: absolute; right: 5px; top: 5px; }
@@ -104,17 +110,17 @@ li.admintab a { left: 10px; position: fixed; top: 10px; z-index: 100; zoom: 1; }
 #wrapper { -moz-border-radius-bottomleft: 15px; -moz-border-radius-bottomright: 15px; -webkit-border-bottom-left-radius: 15px; -webkit-border-bottom-right-radius: 15px; border: 0; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; clear: both; margin: 0px auto; padding: 0px; position: relative; text-align: left; z-index: 0; }
 * html #header { height: 198px; }
 .m2-adsense .square-200 { clear: right; float: right; margin-left: 10px; }
-.wb_blog_title .description { padding: 10px 0px 0px 20px; }
-.wb_blog_title .logo { float: left; }
-.wb_blog_title .logo img { height: 80px; margin-right: 10px; width: 80px; }
-.wb_blog_title .title { padding: 10px; }
+.stf_blog_title .description { padding: 10px 20px 0px 20px; }
+.stf_blog_title .logo { float: left; }
+.stf_blog_title .logo img { height: 80px; margin-right: 10px; width: 80px; }
+.stf_blog_title .title { padding: 10px; }
 .widget_search { border: 0; margin: 10px auto !important; padding: 5px; width: 200px; }
 a[rel="home"] { padding-right: 24px; }
 a[rel="home"]:hover { padding-right: 24px; }
 div#search .lef { display: block; height: 23px; padding: 0; position: relative; }
 #powered-by { clear: both; margin: 20px auto 20px; }
 .tab-content ul li, .entry-bottom-widget ul li, #secondary .widget ul li, #primary .widget ul li, #footer .widget ul li { padding: 5px 8px; }
-#header .wb_blog_title { padding: 10px 0px 0px 50px; }
+#header .stf_blog_title { padding: 10px 0px 0px 50px; }
 div.navigation div.nav-next { float: right; text-align: right; }
 #nav-images .entry-attachment img { vertical-align: middle; }
 body { text-align: center; }

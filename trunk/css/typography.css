@@ -1,67 +1,25 @@
-/** Body text */
-body,
-.page-title span,
-.pingback a.url {
-	/* font: normal normal normal 75%/normal 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Verdana, Arial, sans-serif; */
-	font: normal normal normal 75%/normal "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
-}
+/* FONT FAMILY */
+body, .page-title span, .pingback a.url { font: normal normal normal 75%/normal "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif; }
 
-h3#comments-title,
-h3#reply-title,
-#access .menu,
-#access div.menu ul,
-#cancel-comment-reply-link,
-.form-allowed-tags,
-#site-info,
-#site-title,
-#wp-calendar,
-.comment-meta,
-.comment-body tr th,
-.comment-body thead th,
-.entry-content label,
-.entry-content tr th,
-.entry-content thead th,
-.entry-meta,
-.entry-title,
-.entry-utility,
-#respond label,
-.navigation,
-.page-title,
-.pingback p,
-.reply,
-.widget-title,
-.wp-caption-text,
-input[type=submit]
-{
+h3#comments-title, h3#reply-title, #access .menu, #access div.menu ul, #cancel-comment-reply-link, .form-allowed-tags,
+#site-info, #site-title, #wp-calendar, .comment-meta, .comment-body tr th, .comment-body thead th, .entry-content label, .entry-content tr th,
+.entry-content thead th, .entry-meta, .entry-title, .entry-utility, #respond label, .navigation, .page-title, .pingback p, .reply, .widget-title,
+.wp-caption-text, input[type=submit], #comments h3  {
 	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
 }
-pre {
-	font-family: "Courier 10 Pitch", Courier, monospace;
-}
-code {
+pre, code {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
-#featured,
-.entry-content,
-h1.blog-title, 
-h2.blog-title{
-	font-family: Georgia, Palatino Linotype, Times, Times New Roman, serif;
-}
 
-.edit-link a{
+small, .edit-link a, #comments-list li .comment-meta{
 	font-family: Verdana, sans-serif;
 }
 
-
-
-
-
-
-
-
-
-
-
+.entry-title {
+	text-shadow: #666 0px 1px 1px; font-weight:500; line-height:24px; letter-spacing:2px;
+	font-family: Georgia, Helvetica, sans-serif; line-height:24px;
+	font-style:italic;
+}
 
 /** Blog title */
 h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500; 
@@ -87,11 +45,7 @@ h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500;
 
 .entry-title  a {text-decoration:none;}
 
-.entry-title, #content h2, #content h3 {
-	text-shadow: #666 0px 1px 1px; font-weight:500; line-height:24px; letter-spacing:2px;
-	font-family: Georgia, Helvetica, sans-serif; line-height:24px;
-	font-style:italic;
-}
+
 
 .widgettittle, .widget-title, .widgets h4, .widget .widgettitle{
 	font-size: 1.8em; font-weight:500; 
@@ -99,10 +53,10 @@ h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500;
 	font-style:italic; 
 }
 
-#content h2{font-size:2em}
-#content h3{font-size:1.8em}
-#content h4{font-size:1.5em; font-style:oblique; }
-#content h5{font-size:1.2em; font-style:oblique; }
+#content h2{font-size:1.6em}
+#content h3{font-size:1.3em}
+#content h4{font-size:1.2em; font-style:oblique; }
+#content h5{font-size:1.1em; font-style:oblique; }
 #content h6{font-size:1em; font-style:oblique; }
 
 .entry-content h4, .entry-meta h4, .entry-content h3 { margin:5px 0px; text-shadow: rgba(0, 0, 0, 0.0078125) }
@@ -112,11 +66,12 @@ h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500;
 #leavecomment, .comments #loading, #comments-closed-msg{font-family: Georgia, Helvetica, sans-serif; font-size:3em; text-shadow: #fff 1px 1px 0.1em; }
 
 #content{
-	font-family: Georgia, Helvetica, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 20px;
-    letter-spacing:1px;
+    /* letter-spacing:1px; */
 }
+
+#comments h3 { text-transform: uppercase;}
 
 
 .entry-content blockquote { font-style: oblique; }
@@ -142,3 +97,5 @@ div#fw_tabs_tabdisplay_1.first ul.tabbed_sidebar li.tab h3, #sidebar ul div#fw_t
 #q, #s { font-size: 13px; }
 .widget_search { font-size: 90%; }
 #powered-by { font-size: 10pt; }
+
+#comments-list li .comment-meta{font-size:10px;}
