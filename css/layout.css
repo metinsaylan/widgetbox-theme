@@ -11,6 +11,7 @@
 #comments-list li .buttons { margin-bottom: 10px; }
 #respond, #comments-list #respond { overflow: hidden; padding: 10px; position: relative; }
 #trackbacks-list { margin-bottom: 10px; }
+li.comment { margin: 5px; }
 
 
 .entry-content blockquote { border-left: 2px solid #6f8d97; margin: 10px; padding: 20px; }
@@ -55,7 +56,7 @@ ul.related_post li { border-bottom: 1px solid #ddd; padding: 5px 8px; }
 .comments { clear: both; margin: 0px 0px 20px; padding-top: 20px; position: relative; text-align: left; }
 #footer { clear: both; margin: 0px auto; min-height: 30px; padding: 0px; text-align: center; }
 .widget_tag_cloud { line-height: 2em; }
-li.comment { border-top: 1px solid #ccc; border-radius: 5px; margin: 5px; }
+
 #header { height: auto; min-height: 198px; overflow: visible; position: relative; }
 .post_share { border: 0px; float: left; margin-left: -94px; margin-right: 10px; position: relative; }
 #cancel-comment-reply { -khtml-border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px; border-radius: 7px; padding: 2px 5px; position: absolute; right: 5px; top: 5px; }
