@@ -1,8 +1,8 @@
 <?php
 // ENABLE DEBUG
-if(!WP_DEBUG){  define ('WP_DEBUG', true); }
+/* if(!WP_DEBUG){  define ('WP_DEBUG', true); }
 @ini_set('log_errors','On');
-@ini_set('display_errors','On');
+@ini_set('display_errors','On'); */
 
 /* Theme name */
 if(TEMPLATEPATH !== STYLESHEETPATH){ $themename = ucfirst(get_stylesheet()); } 

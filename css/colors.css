@@ -1,5 +1,5 @@
 body { background: #666; }
-a { color: #09c; }
+a { color: #4792cc; }
 a:hover { text-decoration:underline; }
 a[rel="home"] { background: none; }
 a[rel="home"]:hover { background: url('images/home.png') right 50% no-repeat; }
@@ -30,7 +30,7 @@ strong, em {  }
 .entry-title, .entry-title a{ color:#333; text-shadow: #fff 0px 1px 0px; }
 
 /* SIDEBAR & WIDGETS */
-.widgettittle, .widget-title { color: #aaa; }
+.widgettittle, .widget-title, .widgets h4, .widget .widgettitle { color: #aaa; }
 
 /* COMMENTS */
 #commentform textarea { background: #333; }
@@ -43,8 +43,6 @@ strong, em {  }
 #respond, #comments-list #respond { background: #ddd; color: #666; } 
 .bypostauthor { background: #fbf8ca; }
 .byuser { background: #fbf8ca; }
-#cancel-comment-reply { background: #bbb; }
-#cancel-comment-reply-link:hover { background: transparent; color: #fff; }
 #commentform textarea { background: #eee; border-style: solid; }
 #comments h3 { color: #909; }
 li.even {background:#dedede;}

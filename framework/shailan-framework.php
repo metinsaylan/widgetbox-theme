@@ -8,15 +8,13 @@
 global $stf;
 
 class Shailan_Framework{
-	var $themename, $shortname, $options;
-
 	/** Constructor */
 	function Shailan_Framework(){
 		// Load shortcodes, widgets, template tags
 		require_once("shailan-loader.php");
 		
-		// TODO : Set default options set here
-		$this->options = array();
+		require_once("stf-options.php"); // TODO : Set default options set here
+		$this->options = $options;
 		$this->widget_areas = array();
 		
 		add_action( 'admin_init', array(&$this, 'theme_admin_init'));
@@ -119,7 +117,6 @@ class Shailan_Framework{
 	}
 	
 	function theme_admin_page(){
-	
 		$options = $this->options;
 		$title = $this->name . ' Theme Settings';		
 		
@@ -128,7 +125,6 @@ class Shailan_Framework{
 		
 		// Render theme options page
 		include_once("stf-page-options.php");
-	
 	}
 	
 	function add_widget_area( $name, $id, $description, $default_widgets ){
@@ -166,11 +162,39 @@ function get_theme_name(){
 	return $stf->name;
 }
 
-function stf_widgets( $id, $default_widgets = array() ){
-	if(!dynamic_sidebar($id) && is_array($default_widgets)){
-		foreach($default_widgets as $widget_callback)
-			the_widget($widget_callback);
-	} elseif (!empty($default_widgets)){
-		the_widget($default_widgets);
+function stf_widgets( $id, $default_widgets = array(), $callback = null ){
+	if(!dynamic_sidebar($id)){ // If widget area has no widgets
+		if(is_array($default_widgets)){
+			foreach($default_widgets as $widget_callback)
+				the_widget($widget_callback);
+		} elseif (!empty($default_widgets)){
+			the_widget($default_widgets);
+		} elseif (null != $callback){
+			call_user_func($callback);
+		}
 	}
+}
+
+function stf_sidebar_defaults(){
+	// SEARCH
+	the_widget('WP_Widget_Search', 'title=&');
+	// RECENT POSTS
+	the_widget('WP_Widget_Recent_Posts', array(
+		'widget_id' => null,
+		'title' => __('Recent Posts'),
+		'number' => '7'));
+	// COMMENTS
+	the_widget('WP_Widget_Recent_Comments', array(
+		'widget_id' => null,
+		'title' => __('Recent Comments'),
+		'number' => '7'));
+	// ARCHIVES
+	the_widget('WP_Widget_Archives', array(
+		'widget_id' => null,
+		'count' => 1,
+		'dropdown' => 0));
+	// TAG CLOUD
+	the_widget('WP_Widget_Tag_Cloud');
+	// LINKS
+	the_widget('WP_Widget_Links');
 }

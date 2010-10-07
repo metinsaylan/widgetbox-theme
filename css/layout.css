@@ -4,14 +4,15 @@
 #comments-list li { position: relative; }
 #comments-list li .comment-author { border: 1px double #ccc; height: 30px; width:150px; margin: 0px; margin-bottom: 15px; }
 #comments-list li .comment-meta { margin: 0px; padding: 0px; position: absolute; right: 0px; top: 0px; }
-#comments-list ol, #comments-list ul { list-style-type: none; margin: 10px; }
+#comments-list ol, #comments-list ul { list-style-type: none; }
 #cancel-comment-reply { position: absolute; right: 5px; top: 5px; }
 #commentform input[type="text"] { border: none; border-bottom: 1px dashed #999; }
 #comments-list .avatar, #comments-list .gravatar { float: left; margin-right: 10px; }
 #comments-list li .buttons { margin-bottom: 10px; }
 #respond, #comments-list #respond { overflow: hidden; padding: 10px; position: relative; }
+
+#respond{border-width:2px; border-style:solid; }
 #trackbacks-list { margin-bottom: 10px; }
-li.comment { margin: 5px; }
 
 
 .entry-content blockquote { border-left: 2px solid #6f8d97; margin: 10px; padding: 20px; }
@@ -57,9 +58,9 @@ ul.related_post li { border-bottom: 1px solid #ddd; padding: 5px 8px; }
 #footer { clear: both; margin: 0px auto; min-height: 30px; padding: 0px; text-align: center; }
 .widget_tag_cloud { line-height: 2em; }
 
-#header { height: auto; min-height: 198px; overflow: visible; position: relative; }
+#header { height: auto; overflow: visible; position: relative; }
 .post_share { border: 0px; float: left; margin-left: -94px; margin-right: 10px; position: relative; }
-#cancel-comment-reply { -khtml-border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px; border-radius: 7px; padding: 2px 5px; position: absolute; right: 5px; top: 5px; }
+#cancel-comment-reply { padding: 0 20px 0 0; position: absolute; right: 5px; top: 5px; }
 #commentform input[type="text"] { border: none; border-bottom: 1px dashed #999; }
 #content { -khtml-border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px; border: 1px solid #cdcdcd; border-radius: 7px; }
 #content .entry-title,#content .entry-title a,
@@ -125,3 +126,21 @@ div#search .lef { display: block; height: 23px; padding: 0; position: relative; 
 div.navigation div.nav-next { float: right; text-align: right; }
 #nav-images .entry-attachment img { vertical-align: middle; }
 body { text-align: center; }
+
+.pagerank{
+  display: inline;
+}
+
+.pagerank-frame{
+  height:8px;
+  width:35px;
+  margin-left: 2px;
+  background-color:#f7f7f7;
+  border:1px #ccc solid;
+  display: inline-block;
+}
+
+.pagerank-bar{
+  background-color:#009933;
+  height:8px;
+}
