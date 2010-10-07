@@ -29,7 +29,7 @@ $stf->add_widget_area('Content', 'content', '', '');
 $stf->add_widget_area('Sidebar1', 'sidebar1', '', '');
 $stf->add_widget_area('Sidebar2', 'sidebar2', '', '');
 $stf->add_widget_area('Footer Columns', 'footer-columns', '', '');
-$stf->add_widget_area('Footer', 'footer', '', '');
+$stf->add_widget_area('Footer Wide', 'footer-wide', '', '');
 
 // Define image sizes
 $image_sizes = array(

@@ -117,3 +117,28 @@ h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500;
     line-height: 20px;
     letter-spacing:1px;
 }
+
+
+.entry-content blockquote { font-style: oblique; }
+#footer a { font-weight: normal; }
+a { text-decoration: none; }
+.entry-content div.toc { font-size: 80%; }
+.edit-link a { font-size: 9px; }
+#content .entry-title,#content .entry-title a,
+#featured .entry-title,#featured .entry-title a { font-size: 30px; }
+#footer .siteadmin a { font-weight: normal; }
+#footer .siteadmin a:hover { text-decoration: none !important; }
+#footer .widget-title { text-shadow: #222 0px 1px 3px; }
+#footer a { font-weight: bold; }
+#footer a:hover { text-decoration: none; }
+#nav-images a { text-decoration: none; }
+.entry-meta { font-size: 12px; font-style: italic; }
+.image-meta span { font-weight: bold; }
+.widget_tag_cloud a { white-space: nowrap; }
+div#fw_tabs_tabdisplay_1.first ul.tabbed_sidebar li.tab h3, #sidebar ul div#fw_tabs_tabdisplay_1.first ul.tabbed_sidebar li.tab h3 { font-size: 12px; }
+#header .description a { text-decoration: underline; }
+#header ul.menu li a { text-decoration: none; }
+#header ul.menu li a:hover { text-decoration: underline; }
+#q, #s { font-size: 13px; }
+.widget_search { font-size: 90%; }
+#powered-by { font-size: 10pt; }
