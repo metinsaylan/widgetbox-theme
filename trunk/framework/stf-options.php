@@ -9,7 +9,7 @@ $font_families = array(
 );
 
 $options = array (
-
+/*
 array( "name" => "Elements",
 	"type" => "section"),
 array( "type" => "open"),
@@ -20,8 +20,8 @@ array(  "name" => "Header height",
 	"std" => "190",
 	"type" => "text"),
 
-array( "type" => "close")
-
+array( "type" => "close"),
+*/
 array( "name" => "Framework Options",
 	"type" => "section"),
 array( "type" => "open"),
