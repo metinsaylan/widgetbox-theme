@@ -1,14 +1,16 @@
-body { background: #666; }
+/* Kuler : 1D5A73, 3B848C, 8aBfB0, c4d9bf, d91f04 */
+
+body { background: #170f0e; }
 a { color: #4792cc; }
 a:hover { text-decoration:underline; }
 a[rel="home"] { background: none; }
 a[rel="home"]:hover { background: url('images/home.png') right 50% no-repeat; }
 
-#wrapper { background-color: #ddd; border-color: #444; }
+#wrapper { background-color: #e8e8e8; border-color: #444; }
 strong, em {  }
 
 /* HEADER */
-#header { background-color: #62c7e5; border:1px solid #90c4dc; }
+#header { background-color: #8aBfB0; border:1px solid #90c4dc; -moz-border-radius-topleft: 15px; -moz-border-radius-topright: 15px; -webkit-border-top-left-radius: 15px; -webkit-border-top-right-radius: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px; }
 #header .description { color: #fff; }
 #header .description a { color: #fff; }
 #header .stf_blog_title, #header .stf_blog_title a, #header .stf_blog_title a:link { color: #fff; }
@@ -30,22 +32,22 @@ strong, em {  }
 .entry-title, .entry-title a{ color:#333; text-shadow: #fff 0px 1px 0px; }
 
 /* SIDEBAR & WIDGETS */
-.widgettittle, .widget-title, .widgets h4, .widget .widgettitle { color: #aaa; }
+.widgettittle, .widget-title, .widgets h4, .widget .widgettitle { color: #1d5a73; }
 
 /* COMMENTS */
 #commentform textarea { background: #333; }
 #comments-list #respond h4, #respond h4 { color: #999; }
-#comments-list li .comment-meta { color: #aaa; }
-#comments-list li .comment-meta a { color: #ccc; }
-#comments-list li .comment-meta a:hover { color: #666; }
+#comments-list li .comment-meta { color: #444; }
+.comment-date, .comment-date a{ color:#aaa; }
 #respond a, #respond a:hover, #comments-list #respond a { color: #888; }
 #commentform input[type="text"] { background: #dedede; }
 #respond, #comments-list #respond { background: #ddd; color: #666; } 
-.bypostauthor { background: #fbf8ca; }
-.byuser { background: #fbf8ca; }
+.bypostauthor  .comment-body { background: #fbf8ca; }
+.byuser .comment-body { background: #fbf8ca; }
 #commentform textarea { background: #eee; border-style: solid; }
 #comments h3 { color: #909; }
-li.even {background:#dedede;}
+li.even { /*background:#e1e1e1; */ }
+.comment-body{ -khtml-border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; }
 
 /* FOOTER */
 #footer { color: #ddd; }
