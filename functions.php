@@ -77,12 +77,11 @@ function widgetbox_comment( $comment, $args, $depth ) {
 			</a>
 		</div><!-- .comment-author .vcard -->
 		
-		<?php if ( $comment->comment_approved == '0' ) : ?>
-			<em><?php _e( 'Your comment is awaiting moderation.', 'widgetbox' ); ?></em>
-			<br />
-		<?php endif; ?>
-
 		<div class="comment-body">
+			<?php if ( $comment->comment_approved == '0' ) : ?>
+				<em><?php _e( 'Your comment is awaiting moderation.', 'widgetbox' ); ?></em>
+			<br />
+			<?php endif; ?>
 			<div class="comment-meta commentmetadata">
 			  <span class="comment-author"><?php printf( sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?></a></span>
 			  <span class="comment-date"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php
