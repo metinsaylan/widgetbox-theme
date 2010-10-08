@@ -14,12 +14,6 @@ $widgetbox_page_width = get_option('widgetbox_page_width');
 		if(function_exists('register_default_headers')){
 		// Default custom headers packaged with the theme. %s is a placeholder for the theme template directory URI.
 		register_default_headers( array(
-			'blue' => array(
-				'url' => '%s/headers/blue.jpg',
-				'thumbnail_url' => '%s/headers/blue-thumbnail.jpg',
-				/* translators: header image description */
-				'description' => __( 'Blue background', 'widgetbox' )
-			), 
 			'slate' => array(
 				'url' => '%s/headers/slate.jpg',
 				'thumbnail_url' => '%s/headers/slate-thumbnail.jpg',
