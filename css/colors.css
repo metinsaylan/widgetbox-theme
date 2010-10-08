@@ -1,4 +1,8 @@
-/* Kuler : 1D5A73, 3B848C, 8aBfB0, c4d9bf, d91f04 */
+/* Kuler : 
+1D5A73, 3B848C, 8aBfB0, c4d9bf, d91f04 
+aab200, b7e539, baffb2, 879399, 1f1626
+6db5c7, header:65878f, 242424, ffffff, ff7600
+*/
 
 body { background: #170f0e; }
 a { color: #4792cc; }
@@ -10,7 +14,7 @@ a[rel="home"]:hover { background: url('images/home.png') right 50% no-repeat; }
 strong, em {  }
 
 /* HEADER */
-#header { background-color: #8aBfB0; border:1px solid #90c4dc; -moz-border-radius-topleft: 15px; -moz-border-radius-topright: 15px; -webkit-border-top-left-radius: 15px; -webkit-border-top-right-radius: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px; }
+#header { background-color: #879399; border:1px solid #a4b2ba; -moz-border-radius-topleft: 15px; -moz-border-radius-topright: 15px; -webkit-border-top-left-radius: 15px; -webkit-border-top-right-radius: 15px; border-top-left-radius: 15px; border-top-right-radius: 15px; }
 #header .description { color: #fff; }
 #header .description a { color: #fff; }
 #header .stf_blog_title, #header .stf_blog_title a, #header .stf_blog_title a:link { color: #fff; }
@@ -32,7 +36,8 @@ strong, em {  }
 .entry-title, .entry-title a{ color:#333; text-shadow: #fff 0px 1px 0px; }
 
 /* SIDEBAR & WIDGETS */
-.widgettittle, .widget-title, .widgets h4, .widget .widgettitle { color: #1d5a73; }
+.widgettittle, .widget-title, .widgets h4, .widget .widgettitle { color: #1d5a73; text-shadow: #fff 0px 1px 0px; }
+.widget_archive { color:#999; }
 
 /* COMMENTS */
 #commentform textarea { background: #333; }
@@ -45,7 +50,7 @@ strong, em {  }
 .bypostauthor  .comment-body { background: #fbf8ca; }
 .byuser .comment-body { background: #fbf8ca; }
 #commentform textarea { background: #eee; border-style: solid; }
-#comments h3 { color: #909; }
+#comments h3 { color: #1d5a73; }
 li.even { /*background:#e1e1e1; */ }
 .comment-body{ -khtml-border-radius: 8px; -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; }
 

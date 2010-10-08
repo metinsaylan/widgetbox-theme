@@ -26,8 +26,6 @@ while ( have_posts() ): the_post(); ?>
 			</div>
 			<div class="entry-header-bottom"></div>
 		</div><!-- .entry-head -->
-		
-		<?php include_once('share.php'); ?>
 
 		<div class="entry-content">
 			<div class=""></div>
