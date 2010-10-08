@@ -10,6 +10,18 @@ $font_families = array(
 
 $options = array (
 
+array( "name" => "Elements",
+	"type" => "section"),
+array( "type" => "open"),
+
+array(  "name" => "Header height",
+	"desc" => "px Height of the header.",
+	"id" => "stf_header_height",
+	"std" => "190",
+	"type" => "text"),
+
+array( "type" => "close")
+
 array( "name" => "Framework Options",
 	"type" => "section"),
 array( "type" => "open"),
