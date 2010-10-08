@@ -15,7 +15,7 @@ pre, code {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 }
 
-small, .edit-link a, #comments-list li .comment-meta, .reply a, #cancel-comment-reply{
+small, .comment-edit-link a, .edit-link a, .reply a, #cancel-comment-reply{
 	font-family: Verdana, sans-serif; font-size:10px;
 }
 
@@ -75,7 +75,7 @@ h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500;
 }
 
 #comments h3 { text-transform: uppercase;}
-
+#comments .fn{ font-weight:bold; }
 
 .entry-content blockquote { font-style: oblique; }
 #footer a { font-weight: normal; }

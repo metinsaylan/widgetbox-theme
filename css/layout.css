@@ -2,9 +2,19 @@
 
 #commentform textarea { border: 2px solid #222; width: 98%; }
 #comments-list li { position: relative; }
-#comments-list li .comment-author { border: 1px double #ccc; height: 30px; width:150px; margin: 0px; margin-bottom: 15px; }
-#comments-list li .comment-meta { margin: 0px; padding: 0px; position: absolute; right: 0px; top: 0px; }
+#comments-list li li{ margin-left:15px; }
+#comments-list li .comment-author { margin-right:10px; }
+.comment-author-avatar{ float: left; margin: 3px 6px 3px 3px; position: relative; z-index: 3; }
+div.comment-meta {  }
+div.comment-body{ display: block; min-height: 67px; overflow: hidden;
+	position: relative; border:1px solid #ccc; padding:8px; margin:6px; }
 #comments-list ol, #comments-list ul { list-style-type: none; }
+div.reply{ 
+	top: 56px;
+	left: 4px;
+	padding: 0px 0px 0px 5px;
+	position: absolute;
+	width: 40px; }
 #cancel-comment-reply { position: absolute; right: 5px; top: 5px; }
 #commentform input[type="text"] { border: none; border-bottom: 1px dashed #999; }
 #comments-list .avatar, #comments-list .gravatar { float: left; margin-right: 10px; }
@@ -109,7 +119,9 @@ li.admintab a { left: 10px; position: fixed; top: 10px; z-index: 100; zoom: 1; }
 #nav-images .nav-previous { display: inline; height: 80px; width: 80px; }
 #q, #s { border: none; display: inline; float: left; height: 16px !important; margin: 3px; padding: 4px; padding-left: 26px; width: 163px; }
 #return_to_top div { bottom: 100px; height: 64px; overflow: hidden; position: fixed; right: 10px; text-indent: -9999px; width: 64px; z-index: 10; }
-#wrapper { -moz-border-radius-bottomleft: 15px; -moz-border-radius-bottomright: 15px; -webkit-border-bottom-left-radius: 15px; -webkit-border-bottom-right-radius: 15px; border: 0; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; clear: both; margin: 0px auto; padding: 0px; position: relative; text-align: left; z-index: 0; }
+#wrapper { -moz-border-radius-bottomleft: 15px; -moz-border-radius-bottomright: 15px; -webkit-border-bottom-left-radius: 15px; -webkit-border-bottom-right-radius: 15px; border: 0; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; clear: both; margin: 0px auto; padding: 0px; position: relative; text-align: left; z-index: 0; 
+-moz-border-radius-topleft: 15px; -moz-border-radius-topright: 15px; -webkit-border-top-left-radius: 15px; -webkit-border-top-right-radius: 15px; border: 0; border-top-left-radius: 15px; border-top-right-radius: 15px;
+}
 * html #header { height: 198px; }
 .m2-adsense .square-200 { clear: right; float: right; margin-left: 10px; }
 .stf_blog_title .description { padding: 10px 20px 0px 20px; }

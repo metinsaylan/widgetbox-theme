@@ -70,27 +70,34 @@ function widgetbox_comment( $comment, $args, $depth ) {
 	?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<div id="comment-<?php comment_ID(); ?>">
-		<div class="comment-author vcard">
-			<?php echo get_avatar( $comment, 40 ); ?>
-			<?php printf( sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+		<div class="arrow"></div>		
+		<div class="comment-author-avatar vcard">
+			<a href="<?php echo get_comment_author_url( get_comment_ID() ); ?>" rel="external nofollow" title="<?php echo comment_author(); ?>">
+				<?php echo get_avatar( $comment, 40 ); ?>
+			</a>
 		</div><!-- .comment-author .vcard -->
+		
 		<?php if ( $comment->comment_approved == '0' ) : ?>
 			<em><?php _e( 'Your comment is awaiting moderation.', 'widgetbox' ); ?></em>
 			<br />
 		<?php endif; ?>
 
-		<div class="comment-meta commentmetadata"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
-			<?php
-				/* translators: 1: date, 2: time */
-				printf( __( '%1$s at %2$s', 'widgetbox' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)', 'widgetbox' ), ' ' );
-			?>
-		</div><!-- .comment-meta .commentmetadata -->
-
-		<div class="comment-body"><?php comment_text(); ?></div>
+		<div class="comment-body">
+			<div class="comment-meta commentmetadata">
+			  <span class="comment-author"><?php printf( sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?></a></span>
+			  <span class="comment-date"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><?php
+					/* translators: 1: date, 2: time */
+					printf( __( '<span title="at %2$s">%1$s</span>', 'widgetbox' ), get_comment_date('M j, Y'),  get_comment_time() ); ?></a></span>
+				<span class="comment-edit-link"><?php edit_comment_link( __( 'edit', 'widgetbox' ), ' ' );	?></a>
+			</div><!-- .comment-meta .commentmetadata -->
+			<div class="comment-text"><?php comment_text(); ?></div>
+		</div>
 
 		<div class="reply">
 			<?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
 		</div><!-- .reply -->
+		
+		<div class="clear"></div>
 	</div><!-- #comment-##  -->
 
 	<?php

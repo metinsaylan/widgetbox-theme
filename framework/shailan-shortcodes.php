@@ -200,6 +200,15 @@ function shailan_the_shortlink($args){
 
 } 
 
+function stf_edit_link_shortcode($atts){
+	ob_start();
+	edit_post_link( __( 'Edit' ), '<span class="edit-link">', '</span>' );
+	$link = ob_get_contents();
+	ob_end_clean();
+	return $link;
+}
+
+
 // TODO : [permalink]
 // TODO : [title]
 
@@ -398,7 +407,7 @@ add_shortcode('cmnts', 'shailan_comments_link');
 add_shortcode('comment_count', 'shailan_comment_count');
 add_shortcode('the_shortlink', 'shailan_the_shortlink'); 
 add_shortcode('shortlink', 'shailan_the_shortlink');
-
+add_shortcode('edit', 'stf_edit_link_shortcode');
 
 
 
