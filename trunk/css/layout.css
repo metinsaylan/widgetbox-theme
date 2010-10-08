@@ -21,7 +21,7 @@ div.reply{
 #comments-list li .buttons { margin-bottom: 10px; }
 #respond, #comments-list #respond { overflow: hidden; padding: 10px; position: relative; }
 
-#respond{border-width:2px; border-style:solid; }
+#respond{ border: 0; }
 #trackbacks-list { margin-bottom: 10px; }
 
 
@@ -68,7 +68,7 @@ ul.related_post li { border-bottom: 1px solid #ddd; padding: 5px 8px; }
 #footer { clear: both; margin: 0px auto; min-height: 30px; padding: 0px; text-align: center; }
 .widget_tag_cloud { line-height: 2em; }
 
-#header { height: auto; overflow: visible; position: relative; }
+#header { height: auto; overflow: visible; position: relative; height: 250px; }
 .post_share { border: 0px; float: left; margin-left: -94px; margin-right: 10px; position: relative; }
 #cancel-comment-reply { padding: 0 20px 0 0; position: absolute; right: 5px; top: 5px; }
 #commentform input[type="text"] { border: none; border-bottom: 1px dashed #999; }
@@ -122,7 +122,7 @@ li.admintab a { left: 10px; position: fixed; top: 10px; z-index: 100; zoom: 1; }
 #wrapper { -moz-border-radius-bottomleft: 15px; -moz-border-radius-bottomright: 15px; -webkit-border-bottom-left-radius: 15px; -webkit-border-bottom-right-radius: 15px; border: 0; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px; clear: both; margin: 0px auto; padding: 0px; position: relative; text-align: left; z-index: 0; 
 -moz-border-radius-topleft: 15px; -moz-border-radius-topright: 15px; -webkit-border-top-left-radius: 15px; -webkit-border-top-right-radius: 15px; border: 0; border-top-left-radius: 15px; border-top-right-radius: 15px;
 }
-* html #header { height: 198px; }
+* html #header { height: 320px; }
 .m2-adsense .square-200 { clear: right; float: right; margin-left: 10px; }
 .stf_blog_title .description { padding: 10px 20px 0px 20px; }
 .stf_blog_title .logo { float: left; }
