@@ -10,6 +10,9 @@ global $stf;
 class Shailan_Framework{
 	/** Constructor */
 	function Shailan_Framework(){
+		
+		$this->version = "1.0";
+		
 		// Load shortcodes, widgets, template tags
 		require_once("shailan-loader.php");
 		
@@ -17,11 +20,39 @@ class Shailan_Framework{
 		$this->options = $options;
 		$this->widget_areas = array();
 		
+		$this->check_install();
+		
 		add_action( 'admin_init', array(&$this, 'theme_admin_init'));
 		add_action( 'admin_menu', array(&$this, 'theme_admin_header'));
 		add_action( 'widgets_init', array(&$this, 'theme_register_sidebars') );
-		add_action('wp_print_styles', array(&$this, 'theme_framework_css') );
+		add_action( 'wp_print_styles', array(&$this, 'theme_framework_css') );
 	}
+	
+	function check_install(){
+		// Get settings
+		$settings = get_option('stf_settings');		
+		
+		if(FALSE === $settings){ // Options doesn't exist, install standard settings
+			// Create settings array
+			$settings = array();
+			// Set default values
+			foreach($this->options as $option){
+				$settings[$option['id']] = $option['std'];
+			}
+			$settings['stf_version'] = $this->version;
+			// Save the settings
+			update_option('stf_settings', $settings);
+		} else { // Options exist, update if necessary
+			$ver = $settings['stf_version'];
+			
+			if($ver != $this->version){ // Update needed
+				// TODO : add updates here.
+				
+				
+			}
+		}		
+	}
+	
 	
 	/** Setup theme */
 	function setupTheme($args){
@@ -157,7 +188,6 @@ class Shailan_Framework{
 		$css_framework = get_option('stf_css_framework');
 		if( empty($css_framework) || $css_framework != "Blueprint CSS" || $css_framework != "None" ){
 			// 960 grid system
-			//wp_enqueue_style( '960-reset', get_template_directory_uri() . '/framework/css/960/reset.css' );
 			wp_enqueue_style( '960', get_template_directory_uri() . '/framework/css/960/960.css' );
 			wp_enqueue_style( '960-text', get_template_directory_uri() . '/framework/css/960/text.css' );
 		} else {
@@ -196,6 +226,20 @@ function stf_container_class(){
 	// }
 
 	echo " class=\"" . $container_class . "\"";
+}
+
+function stf_entry_header(){
+	$meta = get_option('stf_entry_header_meta');
+	if(!empty($meta)){
+		echo do_shortcode($meta);
+	}
+}
+
+function stf_entry_footer(){
+	$meta = get_option('stf_entry_footer_meta');
+	if(!empty($meta)){
+		echo do_shortcode($meta);
+	}
 }
 
 function stf_widgets( $id, $default_widgets = array(), $callback = null ){
