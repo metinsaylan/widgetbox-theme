@@ -49,6 +49,7 @@ class stf_navigation extends WP_Widget {
 		<p>Displays simple post navigation. This widget has no options. Yet.</p>
 		
 		<?php
+		
 		stf_widget_footer();
 		
     }

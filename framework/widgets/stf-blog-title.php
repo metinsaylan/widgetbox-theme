@@ -132,6 +132,8 @@ class stf_blog_title extends WP_Widget {
 		<label for="<?php echo $this->get_field_id('home'); ?>"><?php _e( 'Add homepage link' ); ?></label><br />
 				
         <?php 
+		
+		stf_widget_footer();
     }
 
 } 

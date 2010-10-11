@@ -20,6 +20,7 @@ class Shailan_Framework{
 		add_action( 'admin_init', array(&$this, 'theme_admin_init'));
 		add_action( 'admin_menu', array(&$this, 'theme_admin_header'));
 		add_action( 'widgets_init', array(&$this, 'theme_register_sidebars') );
+		add_action('wp_print_styles', array(&$this, 'theme_framework_css') );
 	}
 	
 	/** Setup theme */
@@ -151,6 +152,22 @@ class Shailan_Framework{
 			) );
 		}
 	}
+	
+	function theme_framework_css(){
+		$cssframework = get_option('stf_css_framework');
+		if( empty($css_framework) || $css_framework == "960" ){
+			// 960 grid system
+			//wp_enqueue_style( '960-reset', get_template_directory_uri() . '/framework/css/960/reset.css' );
+			wp_enqueue_style( '960', get_template_directory_uri() . '/framework/css/960/960.css' );
+			//wp_enqueue_style( '960-text', get_template_directory_uri() . '/framework/css/960/text.css' );
+		} else {
+			// Blueprint grid system
+			wp_enqueue_style( 'blueprint', get_template_directory_uri() . '/framework/css/blueprint/screen.css', '', '', 'screen' );
+			wp_enqueue_style( 'blueprint-print', get_template_directory_uri() . '/framework/css/blueprint/print.css', '', '', 'screen' );
+			wp_enqueue_style( 'blueprint-ie', get_template_directory_uri() . '/framework/css/blueprint/ie.css', '', '', 'screen' );
+			
+		}
+	}
 
 };
 
@@ -160,6 +177,21 @@ $stf = new Shailan_Framework();
 function get_theme_name(){
 	global $stf;
 	return $stf->name;
+}
+
+function stf_container_class(){
+	$css_framework = get_option('stf_css_framework');
+	
+	$cclasses = array( 
+		'None'=>'',
+		'960.gs 12Column'=>'container_12',
+		'960.gs 16Column'=>'container_16', 
+		'Blueprint CSS'=>'container'
+	);	
+	
+	$container_class = " class=\"" . $cclasses[$css_framework] . "\"";
+
+	echo $container_class;
 }
 
 function stf_widgets( $id, $default_widgets = array(), $callback = null ){

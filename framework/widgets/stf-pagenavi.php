@@ -38,6 +38,8 @@ class stf_pagenavi extends WP_Widget {
 		} else { 
 			echo "You don't have <a href=\"http://wordpress.org/extend/plugins/wp-pagenavi/\">wp-pagenavi</a> installed. Please install it first to use this widget."; 
 		}		
+		
+		stf_widget_footer();
     }
 
 } 
