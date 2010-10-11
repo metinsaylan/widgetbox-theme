@@ -8,6 +8,13 @@ $font_families = array(
 	'DejaVu Sans, Bitstream Vera Sans, Segoe UI, Lucida Grande, Verdana, Tahoma, Arial, sans-serif;'
 );
 
+$css_frameworks = array( 
+	'None',
+	'960.gs 12Column',
+	'960.gs 16Column', 
+	'Blueprint CSS' 
+);
+
 $options = array (
 /*
 array( "name" => "Elements",
@@ -25,6 +32,13 @@ array( "type" => "close"),
 array( "name" => "Framework Options",
 	"type" => "section"),
 array( "type" => "open"),
+
+	array(  "name" => "CSS Framework",
+		"desc" => "Active CSS Framework. See shortcode documentation for grid shortcodes.",
+		"id" => "stf_css_framework",
+		"std" => "None",
+		"type" => "select",
+		"options" => $css_frameworks ),
 	
 	array(  "name" => "Google Ads Unique ID",
 		"desc" => " Your unique adsense ID.",

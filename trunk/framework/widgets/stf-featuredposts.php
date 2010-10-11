@@ -192,6 +192,8 @@ class stf_featured extends WP_Widget {
 		</select></label></p>
 		
 		<?php
+		
+		stf_widget_footer();
     }
 
 } 
