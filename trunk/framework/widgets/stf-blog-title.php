@@ -5,13 +5,22 @@ class stf_blog_title extends WP_Widget {
 		$widget_ops = array('classname' => 'stf_blog_title', 'description' => __( 'Automatic title widget' ) );
 		$this->WP_Widget('stf-blog-title', __('Blog Title'), $widget_ops);
 		$this->alt_option_name = 'stf_blog_title';	
+		
+		$this->widget_defaults = array(
+			'title' => '',
+			'dynamic' => ''
+		);
     }
 
     /** @see WP_Widget::widget */
     function widget($args, $instance) {		
         global $wp_query;
-		
+
 		extract( $args );
+		$widget_options = wp_parse_args( $instance, $this->widget_defaults );
+		extract( $widget_options, EXTR_SKIP );
+		
+		$dynamic = (bool) $dynamic;
 		
         //$title = apply_filters('widget_title', $instance['title']);
 		
@@ -20,11 +29,12 @@ class stf_blog_title extends WP_Widget {
 		}
 				
         echo $before_widget;		
+
+		if($dynamic){
 		
 		$sep = "@ ";
-
 		// Returns the title based on the type of page being viewed
-		if( have_posts()){
+		if( have_posts() ){
 			$the_post_ID = $wp_query->post->ID;
 		
 		if( is_single() ) {
@@ -79,11 +89,16 @@ class stf_blog_title extends WP_Widget {
 			$tagline = 'on <a href="'.get_bloginfo('url').'"  rel="home">'. get_bloginfo( 'name' ) . '</a>'; 
 		}
 		
-		} else {
-			$titles = array('I can\'t find any post matching that. <br />Let\'s search something else?');
+		} else { // Not found
+			$titles = array('This is 404 : Not found');
 			$title = $titles[rand(0, count($titles)-1)];
 			$tagline = 'Not found on <a href="'.get_bloginfo('url').'" rel="home">'. get_bloginfo( 'name' ) . '</a>'; 
 		}
+		
+		} else {
+			$title = '<a href="'.get_bloginfo('url').'">' . get_bloginfo( 'name' ) . '</a>';
+			$tagline = get_bloginfo('description');
+		}		
 		
 	?>
 
@@ -115,7 +130,12 @@ class stf_blog_title extends WP_Widget {
     }
 
     /** @see WP_Widget::form */
-    function form($instance) {			
+    function form($instance) {	
+		$widget_options = wp_parse_args( $instance, $this->widget_defaults );
+		extract( $widget_options, EXTR_SKIP );	
+		
+		$dynamic = (bool) $dynamic;
+		$home = (bool) $home;
 	
 		if(!empty($instance['logo_url']) && strlen($instance['logo_url'])){
 			$logo_url = $instance['logo_url'];	
@@ -128,9 +148,9 @@ class stf_blog_title extends WP_Widget {
 		<p><label for="<?php echo $this->get_field_id('logo_url'); ?>"><?php _e('Logo URL:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('logo_url'); ?>" name="<?php echo $this->get_field_name('logo_url'); ?>" type="text" value="<?php echo $logo_url; ?>" /></label></p>
 		
 		<p>
-		<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('home'); ?>" name="<?php echo $this->get_field_name('home'); ?>"<?php checked( $home ); ?> />
-		<label for="<?php echo $this->get_field_id('home'); ?>"><?php _e( 'Add homepage link' ); ?></label><br />
-				
+		<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('dynamic'); ?>" name="<?php echo $this->get_field_name('dynamic'); ?>"<?php checked( $dynamic ); ?> />
+		<label for="<?php echo $this->get_field_id('dynamic'); ?>"><?php _e( 'Dynamic titles' ); ?></label><br />
+		
         <?php 
 		
 		stf_widget_footer();

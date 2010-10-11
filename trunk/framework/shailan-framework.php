@@ -159,7 +159,7 @@ class Shailan_Framework{
 			// 960 grid system
 			//wp_enqueue_style( '960-reset', get_template_directory_uri() . '/framework/css/960/reset.css' );
 			wp_enqueue_style( '960', get_template_directory_uri() . '/framework/css/960/960.css' );
-			//wp_enqueue_style( '960-text', get_template_directory_uri() . '/framework/css/960/text.css' );
+			wp_enqueue_style( '960-text', get_template_directory_uri() . '/framework/css/960/text.css' );
 		} else {
 			// Blueprint grid system
 			wp_enqueue_style( 'blueprint', get_template_directory_uri() . '/framework/css/blueprint/screen.css', '', '', 'screen' );
