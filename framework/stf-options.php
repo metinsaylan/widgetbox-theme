@@ -29,6 +29,25 @@ array(  "name" => "Header height",
 
 array( "type" => "close"),
 */
+array( "name" => "Entry Options",
+	"type" => "section"),
+array( "type" => "open"),
+
+	array(  "name" => "Entry header",
+		"desc" => "Entry header meta, shows right under the post title.",
+		"id" => "stf_entry_header_meta",
+		"std" => "By [author] on [date] | [cmnts]",
+		"type" => "text"),
+		
+	array(  "name" => "Entry footer",
+		"desc" => "Entry footer meta, shows below the post content.",
+		"id" => "stf_entry_footer_meta",
+		"std" => "Filed in [categories] | [tags]",
+		"type" => "text"),
+
+
+array( "type" => "close"),
+
 array( "name" => "Framework Options",
 	"type" => "section"),
 array( "type" => "open"),
@@ -52,17 +71,17 @@ array( "type" => "open"),
 		"std" => "",
 		"type" => "textarea"),
 	
-array( "name" => "Custom Favicon",
-	"desc" => "A favicon is a 16x16 pixel icon that represents your site; paste the URL to a .ico image that you want to use as the image",
-	"id" => "shailan_favicon",
-	"type" => "text",
-	"std" => get_bloginfo('url') ."/favicon.ico"),	
+	array( "name" => "Custom Favicon",
+		"desc" => "A favicon is a 16x16 pixel icon that represents your site; paste the URL to a .ico image that you want to use as the image",
+		"id" => "shailan_favicon",
+		"type" => "text",
+		"std" => get_bloginfo('url') ."/favicon.ico"),	
 	
-array( "name" => "Feedburner URL",
-	"desc" => "Feedburner is a Google service that takes care of your RSS feed. Paste your Feedburner URL here to let readers see it in your website",
-	"id" => "shailan_feedburner",
-	"type" => "text",
-	"std" => get_bloginfo('rss2_url')),
+	array( "name" => "Feedburner URL",
+		"desc" => "Feedburner is a Google service that takes care of your RSS feed. Paste your Feedburner URL here to let readers see it in your website",
+		"id" => "shailan_feedburner",
+		"type" => "text",
+		"std" => get_bloginfo('rss2_url')),
 	
 array( "type" => "close")
 
