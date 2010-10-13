@@ -107,7 +107,7 @@ class stf_featured extends WP_Widget {
 					</div>
 				<?php } ?>
 				<?php if($post_title): ?>
-				<h4 class="fpost-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+				<span class="fpost-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span>
 				<?php endif; ?>
 				
 				<?php if($content == 'post_content'){ ?>
