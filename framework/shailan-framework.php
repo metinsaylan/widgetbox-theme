@@ -20,15 +20,15 @@ class Shailan_Framework{
 		$this->options = $options;
 		$this->widget_areas = array();
 		
-		$this->check_install();
+		$this->settings = $this->get_settings();
 		
-		add_action( 'admin_init', array(&$this, 'theme_admin_init'));
-		add_action( 'admin_menu', array(&$this, 'theme_admin_header'));
+		add_action( 'admin_init', array(&$this, 'theme_admin_init') );
+		add_action( 'admin_menu', array(&$this, 'theme_admin_header') );
 		add_action( 'widgets_init', array(&$this, 'theme_register_sidebars') );
 		add_action( 'wp_print_styles', array(&$this, 'theme_framework_css') );
 	}
 	
-	function check_install(){
+	function get_settings(){
 		// Get settings
 		$settings = get_option('stf_settings');		
 		
@@ -36,7 +36,7 @@ class Shailan_Framework{
 			// Create settings array
 			$settings = array();
 			// Set default values
-			foreach($this->options as $option){
+			foreach($this->default_options as $option){
 				$settings[$option['id']] = $option['std'];
 			}
 			$settings['stf_version'] = $this->version;
@@ -48,11 +48,23 @@ class Shailan_Framework{
 			if($ver != $this->version){ // Update needed
 				// TODO : add updates here.
 				
-				
-			}
+				return $settings;				
+			} else { // Everythings gonna be alright. Return.
+				return $settings;
+			} 
 		}		
 	}
 	
+	function get_setting($key){
+		$settings = get_option('stf_settings');
+		
+		if(isset($settings[$key])){
+			$value = $settings[$key];
+			return $value;
+		} else {
+			return FALSE;
+		}
+	}
 	
 	/** Setup theme */
 	function setupTheme($args){
@@ -115,27 +127,48 @@ class Shailan_Framework{
 	
 	function theme_admin_init(){
 		$file_dir=get_bloginfo('template_directory');
+		
 		wp_enqueue_style("options-page", $file_dir . "/framework/css/options.css", false, "1.0", "all");
 		wp_enqueue_style("widgets-mod", $file_dir . "/framework/css/widgets.css", false, "1.0", "all");
 	}
 	
 	function theme_admin_header(){
+	
 		if ( @$_GET['page'] == "theme-options" ) {
+		
 			if ( @$_REQUEST['action'] && 'save' == $_REQUEST['action'] ) {
-				foreach ($this->options as $value) {
-				update_option( $value['id'], $_REQUEST[ $value['id'] ] ); }
-		 
-			foreach ($this->options as $value) {
-				if( isset( $_REQUEST[ $value['id'] ] ) ) 
-					{ update_option( $value['id'], $_REQUEST[ $value['id'] ]  ); }
-				else 
-					{ delete_option( $value['id'] ); } }
+				// Save settings
+				// Get settings array
+				$settings = get_option('stf_settings'); 
+				
+				if(FALSE === $settings){ $settings = array(); }
+				
+				// Set updated values
+				foreach($this->options as $option){
+					$settings[ $option['id'] ] = $_REQUEST[ $option['id'] ]; }
+				
+				// Save the settings
+				update_option('stf_settings', $settings);
+				
+				// Update instance settings array
+				$this->settings = $settings;
+									
 				header("Location: admin.php?page=theme-options&saved=true");
 				die;
 			} else if( @$_REQUEST['action'] && 'reset' == $_REQUEST['action'] ) {
-				foreach ($this->options as $value) {
-					delete_option( $value['id'] ); 
-				}
+				
+				// Start a new settings array
+				$settings = array();
+				
+				// Set standart values
+				foreach($this->options as $option){
+					$settings[$option['id']] = $option['std']; }
+				
+				// Save the settings
+				update_option('stf_settings', $settings);
+				
+				// Update instance settings array
+				$this->settings = $settings;
 				
 				header("Location: admin.php?page=theme-options&reset=true");
 				die;
@@ -150,6 +183,7 @@ class Shailan_Framework{
 	
 	function theme_admin_page(){
 		$options = $this->options;
+		$current = $this->get_settings();
 		$title = $this->name . ' Theme Settings';		
 		
 		$navigation = "";
@@ -185,7 +219,9 @@ class Shailan_Framework{
 	}
 	
 	function theme_framework_css(){
-		$css_framework = get_option('stf_css_framework');
+	
+		$css_framework = $this->settings['stf_css_framework']; //get_stf_option('stf_css_framework');
+		
 		if( empty($css_framework) || $css_framework != "Blueprint CSS" || $css_framework != "None" ){
 			// 960 grid system
 			wp_enqueue_style( '960', get_template_directory_uri() . '/framework/css/960/960.css' );
@@ -209,8 +245,14 @@ function get_theme_name(){
 	return $stf->name;
 }
 
+function stf_remove_widget_areas(){
+	// Remove all the widget areas
+	$stf->widget_areas = array();
+}
+
 function stf_container_class(){
-	$css_framework = get_option('stf_css_framework');
+	global $stf;
+	$css_framework = $stf->get_setting('stf_css_framework');
 	
 	$cclasses = array( 
 		'None'=>'',
@@ -229,15 +271,17 @@ function stf_container_class(){
 }
 
 function stf_entry_header(){
-	$meta = get_option('stf_entry_header_meta');
-	if(!empty($meta)){
+	global $stf;
+	$meta = $stf->get_setting('stf_entry_header_meta');
+	if(FALSE !== $meta){
 		echo do_shortcode($meta);
 	}
 }
 
 function stf_entry_footer(){
-	$meta = get_option('stf_entry_footer_meta');
-	if(!empty($meta)){
+	global $stf;
+	$meta = $stf->get_setting('stf_entry_footer_meta');
+	if(FALSE !== $meta){
 		echo do_shortcode($meta);
 	}
 }
