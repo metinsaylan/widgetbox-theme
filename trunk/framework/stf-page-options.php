@@ -11,6 +11,12 @@
 <div id="message" class="error"><p><?php echo $errors[$_GET['error']]; ?></p></div>
 <?php } ?>
  
+<?php if(WP_DEBUG){ ?>
+<pre>
+<?php print_r($current); ?>
+</pre>
+<?php } ?>
+ 
 <div class="ex_opts">
 <form method="post">
 <?php foreach ($options as $value) {
@@ -33,7 +39,7 @@ switch ( $value['type'] ) {
 
 <div class="ex_input ex_text">
 	<label for="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label>
- 	<input name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" type="<?php echo $value['type']; ?>" value="<?php if ( get_option( $value['id'] ) != "") { echo stripslashes(get_option( $value['id'])  ); } else { echo $value['std']; } ?>" />
+ 	<input name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" type="<?php echo $value['type']; ?>" value="<?php if ( $current[ $value['id'] ] != "") { echo stripslashes( $current[ $value['id'] ] ); } else { echo $value['std']; } ?>" />
  <small><?php echo $value['desc']; ?></small><div class="clearfix"></div>
  
  </div>
@@ -45,7 +51,7 @@ case 'textarea':
 
 <div class="ex_input ex_textarea">
 	<label for="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label>
- 	<textarea name="<?php echo $value['id']; ?>" type="<?php echo $value['type']; ?>" cols="" rows=""><?php if ( get_option( $value['id'] ) != "") { echo stripslashes(get_option( $value['id']) ); } else { echo $value['std']; } ?></textarea>
+ 	<textarea name="<?php echo $value['id']; ?>" type="<?php echo $value['type']; ?>" cols="" rows=""><?php if ( $current[ $value['id'] ] != "") { echo stripslashes($current[ $value['id'] ] ); } else { echo $value['std']; } ?></textarea>
  <small><?php echo $value['desc']; ?></small><div class="clearfix"></div>
  
  </div>
@@ -61,7 +67,7 @@ case 'select':
 	
 <select name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>">
 <?php foreach ($value['options'] as $option) { ?>
-		<option <?php if (get_option( $value['id'] ) == $option) { echo 'selected="selected"'; } ?>><?php echo $option; ?></option><?php } ?>
+		<option <?php if ( $current[ $value['id'] ] == $option) { echo 'selected="selected"'; } ?>><?php echo $option; ?></option><?php } ?>
 </select>
 
 	<small><?php echo $value['desc']; ?></small><div class="clearfix"></div>
@@ -75,7 +81,7 @@ case "checkbox":
 <div class="ex_input ex_checkbox">
 	<label for="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label>
 	
-<?php if(get_option($value['id'])){ $checked = "checked=\"checked\""; }else{ $checked = "";} ?>
+<?php if( $current[ $value['id'] ]){ $checked = "checked=\"checked\""; }else{ $checked = "";} ?>
 <input type="checkbox" name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" value="true" <?php echo $checked; ?> />
 
 

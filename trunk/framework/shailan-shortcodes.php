@@ -375,6 +375,31 @@ function stf_dropcap($atts, $content = null ){
 	return '<span class="dropcap">'.$content.'</span>';
 }
 
+function stf_is_home($atts, $content = null){
+	if(is_home()){ return $content; } else { return null; }
+}
+
+function stf_is_single($atts, $content = null){
+	if(is_single()){ return $content; } else { return null; }
+}
+
+function stf_is_search($atts, $content = null){
+	if(is_search()){ return $content; } else { return null; }
+}
+
+function stf_is_archives($atts, $content = null){
+	if(is_archive()){ return $content; } else { return null; }
+}
+
+function stf_user_only($atts, $content = null){
+	extract(shortcode_atts( array(
+		'capability' => 'read',
+		'msg' => '<div class="access-denied"><span>[ Member only content ]</span></div>'
+	), $atts));
+	
+	if(current_user_can($capability)){ return $content; } else { return $msg; }
+}
+
 /* WIDGETS */
 add_shortcode('tag_cloud', 'shailan_tags_shortcode');
 add_shortcode('query_posts', 'shailan_queryposts');
@@ -409,6 +434,12 @@ add_shortcode('the_shortlink', 'shailan_the_shortlink');
 add_shortcode('shortlink', 'shailan_the_shortlink');
 add_shortcode('edit', 'stf_edit_link_shortcode');
 
+/* CONDITIONALS */
+add_shortcode('home', 'stf_is_home');
+add_shortcode('single', 'stf_is_single');
+add_shortcode('search', 'stf_is_search');
+add_shortcode('archive', 'stf_is_archive');
 
+add_shortcode('cloak', 'stf_user_only');
 
 ?>
