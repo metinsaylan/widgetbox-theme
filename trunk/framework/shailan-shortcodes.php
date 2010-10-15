@@ -400,6 +400,22 @@ function stf_user_only($atts, $content = null){
 	if(current_user_can($capability)){ return $content; } else { return $msg; }
 }
 
+function stf_generator_link_shortcode($atts, $content = null){
+	extract(shortcode_atts( array(
+		'class' => 'generator-link'
+	), $atts));
+	
+	return "<span class=\"" . $class . "\"><a href=\"http://wordpress.org/\" title=\"" . __( 'WordPress', 'stf' ) . "\" rel=\"generator external nofollow\">" . __( 'WordPress', 'stf' ) . "</a></span>";
+}
+
+function stf_theme_link_shortcode($atts, $content = null){	
+	extract(shortcode_atts( array(
+		'class' => 'theme-link'
+	), $atts));
+	
+	return "<span class=\"" . $class . "\"><a href=\"". themeinfo('URI') ."\" rel=\"designer external\">" . themeinfo('Name') . "</a></span>";
+}
+
 /* WIDGETS */
 add_shortcode('tag_cloud', 'shailan_tags_shortcode');
 add_shortcode('query_posts', 'shailan_queryposts');
@@ -411,6 +427,10 @@ add_shortcode('tag', 'stf_wrap_tag');
 add_shortcode('htag', 'stf_wrap_twitter_tag'); 
 add_shortcode('hashtag', 'stf_wrap_twitter_tag');
 add_shortcode('pagerank', 'stf_pagerank');
+
+/* THEME */
+add_shortcode('generator', 'stf_generator_link_shortcode');
+add_shortcode('themelink', 'stf_theme_link_shortcode');
 
 /* POST META */
 add_shortcode('the_ID', 'shailan_the_ID'); 

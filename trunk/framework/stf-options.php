@@ -29,7 +29,7 @@ array(  "name" => "Header height",
 
 array( "type" => "close"),
 */
-array( "name" => "Entry Options",
+array( "name" => "Theme Options",
 	"type" => "section"),
 array( "type" => "open"),
 
@@ -43,6 +43,12 @@ array( "type" => "open"),
 		"desc" => "Entry footer meta, shows below the post content.",
 		"id" => "stf_entry_footer_meta",
 		"std" => "Filed in [categories] | [tags]",
+		"type" => "text"),
+		
+	array(  "name" => "Theme footer",
+		"desc" => "Displays at the bottom of site. You can use various shortcodes here.",
+		"id" => "stf_theme_footer",
+		"std" => "Powered by [wp] [and] [themename]",
 		"type" => "text"),
 
 

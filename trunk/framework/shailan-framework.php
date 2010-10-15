@@ -5,21 +5,29 @@
  Version	: 1.0
  Contact	: metinsaylan (at) gmail (dot) com
 */
+
 global $stf;
+global $theme_data;
 
 class Shailan_Framework{
+
 	/** Constructor */
 	function Shailan_Framework(){
-		
+	
 		$this->version = "1.0";
+		
+		// Get theme data once
+		$this->stylesheet = get_stylesheet();
+		$theme_data = get_theme_data( get_stylesheet_directory() . '/style.css' );		
+		$this->theme = $theme_data;
 		
 		// Load shortcodes, widgets, template tags
 		require_once("shailan-loader.php");
 		
-		require_once("stf-options.php"); // TODO : Set default options set here
+		require_once("stf-options.php");
 		$this->options = $options;
-		$this->widget_areas = array();
 		
+		$this->widget_areas = array();
 		$this->settings = $this->get_settings();
 		
 		add_action( 'admin_init', array(&$this, 'theme_admin_init') );
@@ -53,17 +61,6 @@ class Shailan_Framework{
 				return $settings;
 			} 
 		}		
-	}
-	
-	function get_setting($key){
-		$settings = get_option('stf_settings');
-		
-		if(isset($settings[$key])){
-			$value = $settings[$key];
-			return $value;
-		} else {
-			return FALSE;
-		}
 	}
 	
 	/** Setup theme */
@@ -239,10 +236,31 @@ class Shailan_Framework{
 
 $stf = new Shailan_Framework();
 
+function stf_get_setting($key){
+	$settings = get_option('stf_settings');
+	
+	if(isset($settings[$key])){
+		$value = $settings[$key];
+		return $value;
+	} else {
+		return FALSE;
+	}
+}
+
 // Theme template tags
-function get_theme_name(){
-	global $stf;
-	return $stf->name;
+function themeinfo($key){
+	global $theme_data;
+	
+	if(empty($theme_data)){
+		$theme_data = get_theme_data( get_stylesheet_directory() . '/style.css' );	
+	}
+	
+	if(array_key_exists($key, $theme_data)){
+		return $theme_data[$key];
+	} else {
+		trigger_error("Key '" . $key . "' for themeinfo doesn't exist"  , E_USER_ERROR);
+		return FALSE;
+	}
 }
 
 function stf_remove_widget_areas(){
@@ -251,8 +269,7 @@ function stf_remove_widget_areas(){
 }
 
 function stf_container_class(){
-	global $stf;
-	$css_framework = $stf->get_setting('stf_css_framework');
+	$css_framework = stf_get_setting('stf_css_framework');
 	
 	$cclasses = array( 
 		'None'=>'',
@@ -270,55 +287,3 @@ function stf_container_class(){
 	echo " class=\"" . $container_class . "\"";
 }
 
-function stf_entry_header(){
-	global $stf;
-	$meta = $stf->get_setting('stf_entry_header_meta');
-	if(FALSE !== $meta){
-		echo do_shortcode($meta);
-	}
-}
-
-function stf_entry_footer(){
-	global $stf;
-	$meta = $stf->get_setting('stf_entry_footer_meta');
-	if(FALSE !== $meta){
-		echo do_shortcode($meta);
-	}
-}
-
-function stf_widgets( $id, $default_widgets = array(), $callback = null ){
-	if(!dynamic_sidebar($id)){ // If widget area has no widgets
-		if(is_array($default_widgets)){
-			foreach($default_widgets as $widget_callback)
-				the_widget($widget_callback);
-		} elseif (!empty($default_widgets)){
-			the_widget($default_widgets);
-		} elseif (null != $callback){
-			call_user_func($callback);
-		}
-	}
-}
-
-function stf_sidebar_defaults(){
-	// SEARCH
-	the_widget('WP_Widget_Search', 'title=&');
-	// RECENT POSTS
-	the_widget('WP_Widget_Recent_Posts', array(
-		'widget_id' => null,
-		'title' => __('Recent Posts'),
-		'number' => '7'));
-	// COMMENTS
-	the_widget('WP_Widget_Recent_Comments', array(
-		'widget_id' => null,
-		'title' => __('Recent Comments'),
-		'number' => '7'));
-	// ARCHIVES
-	the_widget('WP_Widget_Archives', array(
-		'widget_id' => null,
-		'count' => 1,
-		'dropdown' => 0));
-	// TAG CLOUD
-	the_widget('WP_Widget_Tag_Cloud');
-	// LINKS
-	the_widget('WP_Widget_Links');
-}
