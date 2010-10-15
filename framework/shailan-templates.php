@@ -9,9 +9,32 @@
 */
 
 global $stf;
+global $theme_data;
 
 /** CONSTANTS */
 define('THEME_IMAGES_DIRECTORY', trailingslashit(get_bloginfo('stylesheet_directory')) . 'images');
+
+/**
+ * An extension for dynamic_sidebar(). If no widgets exist it shows default widgets
+ * given by an array or a callback.
+ *
+ * @since 1.0.0
+ * @uses get_theme_data() to get theme information.
+ */
+function themeinfo($key){
+	global $theme_data;
+	
+	if(empty($theme_data)){
+		$theme_data = get_theme_data( get_stylesheet_directory() . '/style.css' );	
+	}
+	
+	if(array_key_exists($key, $theme_data)){
+		return $theme_data[$key];
+	} else {
+		trigger_error("Key '" . $key . "' for themeinfo doesn't exist"  , E_USER_ERROR);
+		return FALSE;
+	}
+}
 
 /**
  * An extension for dynamic_sidebar(). If no widgets exist it shows default widgets
