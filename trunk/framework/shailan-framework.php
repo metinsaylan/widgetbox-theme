@@ -33,7 +33,7 @@ class Shailan_Framework{
 		add_action( 'admin_init', array(&$this, 'theme_admin_init') );
 		add_action( 'admin_menu', array(&$this, 'theme_admin_header') );
 		add_action( 'widgets_init', array(&$this, 'theme_register_sidebars') );
-		add_action( 'wp_print_styles', array(&$this, 'theme_framework_css') );
+		/*add_action( 'wp_print_styles', array(&$this, 'theme_framework_css') );*/
 	}
 	
 	function get_settings(){
@@ -215,7 +215,7 @@ class Shailan_Framework{
 		}
 	}
 	
-	function theme_framework_css(){
+	/*function theme_framework_css(){
 	
 		$css_framework = $this->settings['stf_css_framework']; //get_stf_option('stf_css_framework');
 		
@@ -230,7 +230,7 @@ class Shailan_Framework{
 			wp_enqueue_style( 'blueprint-ie', get_template_directory_uri() . '/framework/css/blueprint/ie.css', '', '', 'ie' );
 			
 		}
-	}
+	}*/
 
 };
 
@@ -243,22 +243,6 @@ function stf_get_setting($key){
 		$value = $settings[$key];
 		return $value;
 	} else {
-		return FALSE;
-	}
-}
-
-// Theme template tags
-function themeinfo($key){
-	global $theme_data;
-	
-	if(empty($theme_data)){
-		$theme_data = get_theme_data( get_stylesheet_directory() . '/style.css' );	
-	}
-	
-	if(array_key_exists($key, $theme_data)){
-		return $theme_data[$key];
-	} else {
-		trigger_error("Key '" . $key . "' for themeinfo doesn't exist"  , E_USER_ERROR);
 		return FALSE;
 	}
 }
