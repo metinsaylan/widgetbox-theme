@@ -25,7 +25,7 @@ class Shailan_Framework{
 		require_once("shailan-loader.php");
 		
 		require_once("stf-options.php");
-		$this->options = $options;
+		$this->default_options = $options;
 		
 		$this->widget_areas = array();
 		$this->settings = $this->get_settings();
@@ -115,11 +115,11 @@ class Shailan_Framework{
 	}
 	
 	function register_theme_options($options){
-		$this->options = $options;
+		$this->default_options = $options;
 	}
 	
 	function extend_options($options){
-		$this->options = array_merge((array)$options, (array)$this->options);
+		$this->default_options = array_merge((array)$options, (array)$this->default_options);
 	}
 	
 	function theme_admin_init(){
@@ -141,7 +141,7 @@ class Shailan_Framework{
 				if(FALSE === $settings){ $settings = array(); }
 				
 				// Set updated values
-				foreach($this->options as $option){
+				foreach($this->default_options as $option){
 					$settings[ $option['id'] ] = $_REQUEST[ $option['id'] ]; }
 				
 				// Save the settings
@@ -158,7 +158,7 @@ class Shailan_Framework{
 				$settings = array();
 				
 				// Set standart values
-				foreach($this->options as $option){
+				foreach($this->default_options as $option){
 					$settings[$option['id']] = $option['std']; }
 				
 				// Save the settings
@@ -179,7 +179,7 @@ class Shailan_Framework{
 	}
 	
 	function theme_admin_page(){
-		$options = $this->options;
+		$options = $this->default_options;
 		$current = $this->get_settings();
 		$title = $this->name . ' Theme Settings';		
 		

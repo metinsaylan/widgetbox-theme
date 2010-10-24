@@ -39,7 +39,7 @@ switch ( $value['type'] ) {
 
 <div class="ex_input ex_text">
 	<label for="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label>
- 	<input name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" type="<?php echo $value['type']; ?>" value="<?php if ( $current[ $value['id'] ] != "") { echo stripslashes( $current[ $value['id'] ] ); } else { echo $value['std']; } ?>" />
+ 	<input name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>" type="<?php echo $value['type']; ?>" value="<?php if ( $current[ $value['id'] ] != "") { echo esc_html(stripslashes($current[ $value['id'] ] ) ); } ?>" />
  <small><?php echo $value['desc']; ?></small><div class="clearfix"></div>
  
  </div>
@@ -67,7 +67,7 @@ case 'select':
 	
 <select name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>">
 <?php foreach ($value['options'] as $option) { ?>
-		<option <?php if ( $current[ $value['id'] ] == $option) { echo 'selected="selected"'; } ?>><?php echo $option; ?></option><?php } ?>
+		<option <?php if ( isset($current[ $value['id'] ]) && $current[ $value['id'] ] == $option) { echo 'selected="selected"'; } ?>><?php echo $option; ?></option><?php } ?>
 </select>
 
 	<small><?php echo $value['desc']; ?></small><div class="clearfix"></div>
