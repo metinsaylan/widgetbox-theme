@@ -15,8 +15,7 @@ global $theme_data;
 define('THEME_IMAGES_DIRECTORY', trailingslashit(get_bloginfo('stylesheet_directory')) . 'images');
 
 /**
- * An extension for dynamic_sidebar(). If no widgets exist it shows default widgets
- * given by an array or a callback.
+ * Returns theme info if exists. 
  *
  * @since 1.0.0
  * @uses get_theme_data() to get theme information.
@@ -57,7 +56,7 @@ function stf_widgets( $id, $default_widgets = array(), $callback = null ){
 }
 
 /**
- * Return a set of default sidebars. Can be used to fill in default sidebars.
+ * Return a set of default sidebar widgets. Can be used to fill in default sidebars.
  *
  * @since 1.0.0
  * @uses the_widget() to show widgets.
@@ -109,14 +108,116 @@ function stf_entry_header(){
 function stf_entry_footer(){
 	$meta = stf_get_setting('stf_entry_footer_meta');
 	if(FALSE !== $meta){
-		echo do_shortcode($meta);
+		echo do_shortcode(stripslashes($meta));
 	}
 }
+
+/**
+ * Returns entry thumbnail. Size can be changed via options panel.
+ *
+ * @since 1.0.0
+ * @uses do_shortcode() to parse shortcodes in the footer.
+ */
+function stf_entry_thumbnail( $size = null ){
+	global $post;
+	
+	if(function_exists('has_post_thumbnail') && has_post_thumbnail( $post->ID )) {
+		echo '<div class="entry-thumbnail"><a href="'.get_permalink( $post->ID ).'" title="' . get_the_title( $post->ID ) . '">';
+		echo get_the_post_thumbnail( $post->ID, $size );
+		echo '</a></div>';
+	} else {
+		echo '<div class="entry-thumbnail"><a href="'.get_permalink( $post->ID ).'" title="' . get_the_title( $post->ID ) . '">';
+		echo '<div class="entry-thumbnail-default"></div>';
+		echo '</a></div>';
+	}
+}
+
+function stf_posts( $number_of_posts = 0, $template = '',  $reset = false ){
+	global $wp_query;
+	
+	// Reset to default query if needed
+	if($reset){ wp_reset_query(); }
+	
+	// Change number of posts if needed
+	if( 0 != $number_of_posts ){
+		query_posts(
+			array_merge(
+				array('posts_per_page' => $number_of_posts),
+				$wp_query->query
+			)
+		); }
+	
+	// Load template if given
+	if('' != $template){
+		locate_template( array($template), true, false );
+	} else { locate_template( array('loop.php'), true, false ); }
+}
+
+function stf_random_posts( $number_of_posts = 5, $template = '' ){
+	global $posts_displayed;
+
+	$sticky = get_option('sticky_posts');	
+	
+	// Change query
+	$query_arguments = array(
+		'caller_get_posts'=>1,
+		'post__not_in' => array_merge( $sticky, $posts_displayed ),
+		'posts_per_page' => $number_of_posts,
+		'orderby'=>'rand'
+	);
+	
+	// Display them
+	stf_custom_posts( $query_arguments, $template );
+}
+
+function stf_most_viewed_posts( $number_of_posts = 5, $template = '' ){
+	global $posts_displayed;
+
+	if(function_exists('the_views')){
+	// Change query
+	$query_arguments = array(
+	   'caller_get_posts'=>1,
+	   'post__not_in' => $posts_displayed,
+	   'posts_per_page' => $number_of_posts,
+	   'v_sortby' => 'views',
+	   'v_orderby' => 'desc'
+	   );
+	
+	// Display them
+	stf_custom_posts( $query_arguments, $template ); 
+	} else { stf_random_posts( $number_of_posts, $template ); }
+}
+
+function stf_most_commented_posts( $number_of_posts = 5, $template = '' ){
+	global $posts_displayed;
+	
+	// Change query
+	$query_arguments = array(
+		'caller_get_posts'=>1,
+		'post__not_in' => $posts_displayed,
+		'orderby' => 'comment_count',
+		'posts_per_page' => $number_of_posts
+	);
+	
+	// Display them
+	stf_custom_posts( $query_arguments, $template );
+}
+
+function stf_custom_posts( $query_arguments, $template = '' ){
+
+	query_posts( $query_arguments );
+	// Display them
+	stf_posts( 0, $template );
+	// Reset to default query
+	wp_reset_query();	
+}
+
+
 
 function stf_theme_footer(){
 	$meta = stf_get_setting('stf_theme_footer');
 	if(FALSE !== $meta){
-		echo do_shortcode($meta);
+		echo do_shortcode(stripslashes($meta));
 	}
 }
 
