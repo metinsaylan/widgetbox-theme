@@ -1,19 +1,18 @@
 <?php
 
 function stf_get_shortlink($id = 0, $context = 'post', $allow_slugs = true){
-	// Allow plugins to short-circuit this function.
-	$shortlink = apply_filters('pre_get_shortlink', false, $id, $context, $allow_slugs);
-	if ( false !== $shortlink )
-		return $shortlink;
-
-	global $wp_query;
+	global $wp_query, $post;
+	
 	$post_id = 0;
-	if ( 'query' == $context && is_single() ) {
+	
+	if(0 == $id && is_object($post)){
+		$post_id = $post->ID;
+	} elseif ( 'query' == $context && is_single() ) {
 		$post_id = $wp_query->get_queried_object_id();
 	} elseif ( 'post' == $context ) {
 		$post = get_post($id);
 		$post_id = $post->ID;
-	}
+	} 
 
 	$shortlink = '';
 
@@ -24,9 +23,12 @@ function stf_get_shortlink($id = 0, $context = 'post', $allow_slugs = true){
 			$shortlink = home_url('?p=' . $post->ID);
 	}
 
-	return apply_filters('get_shortlink', $shortlink, $id, $context, $allow_slugs);
+	return $shortlink;
 }
 
+// Function to filter out used tags and categories
+function hash_filter($var){ global $title; return (strpos($title, "#" . $var) === false); }
+	
 /* Generate and save a better tweet text & save it to post meta */
 function stf_generate_post_tweet($post_ID){
 	global $post;
@@ -76,14 +78,11 @@ function stf_generate_post_tweet($post_ID){
 	$replacements = array();
 	$patterns = array();
 	foreach($hashtags as $hash) { 
-		$patterns[] = "/" . $hash . "/i";
+		$patterns[] = "{" . preg_quote($hash, '{}') . "}i";
 		$replacements[] = " #" . $hash . " ";
 	} 		
 				
 	$title = preg_replace($patterns, $replacements, $title);
-		
-	// Function to filter out used tags and categories
-	function hash_filter($var){ global $title; return (strpos($title, "#" . $var) === false); }
 		
 	// Remove already used hashtags
 	$hashtags = array_filter($hashtags, 'hash_filter');		
@@ -114,8 +113,18 @@ function stf_save_post_tweet($post_ID){
 add_action('publish_post', 'stf_save_post_tweet');
 
 function stf_get_tweet($id = 0){
-	$post = get_post($id);
-	$post_ID = $post->ID;
+	global $wp_query, $post;
+	
+	if(0 == $id){
+		if(is_object($post)){
+			$post_ID = $post->ID;
+		} else {
+			return FALSE;
+		}
+	} else {
+		$post = get_post($id);
+		$post_ID = $post->ID;
+	}
 	
 	if($post_ID){ $tweet_text = get_post_meta($post_ID, 'stf_tweet_text', true); }
 		
