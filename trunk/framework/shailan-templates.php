@@ -132,6 +132,58 @@ function stf_entry_thumbnail( $size = null ){
 	}
 }
 
+function stf_get_templates(){
+	global $wp_query;
+
+	// array for loading loop templates
+	$templates = array();
+	
+	if ( is_home() ) {
+		$templates[] = 'loop-home.php';
+
+	} elseif(is_single()){
+		$templates[] = 'loop-single.php';
+	}elseif(is_page()){
+		$templates[] = 'loop-page.php';
+	}elseif ( is_archive() ) {
+		if ( is_date() ) {
+
+			the_post();
+
+			if ( is_day() ) {
+				$templates[] = 'loop-archive-day.php';
+			} elseif ( is_month() ) {
+				$templates[] = 'loop-archive-month.php';
+			} elseif ( is_year() ) {
+				$templates[] = 'loop-archive-year.php';
+			}
+
+			$templates[] = 'loop-archive-date.php';
+
+			rewind_posts();
+		} elseif ( is_category() ) {
+			$templates[] = 'loop-category-' . absint( get_query_var('cat') ) . '.php';
+			$templates[] = 'loop-category.php';
+			
+		} elseif ( is_tag() ) {
+			$templates[] = 'loop-tag-' . get_query_var('tag') . '.php';
+			$templates[] = 'loop-tag.php';
+			
+		} elseif ( is_author() ) {
+			$templates[] = 'loop-author.php';
+		}
+		
+		$templates[] = 'loop-archive.php';
+	} elseif ( is_search() ) {
+		$templates[] = 'loop-search.php';
+	}
+
+	$templates[] = 'loop.php';
+	
+	return $templates;
+	
+}
+
 function stf_posts( $number_of_posts = 0, $template = '',  $reset = false ){
 	global $wp_query;
 	
@@ -150,7 +202,17 @@ function stf_posts( $number_of_posts = 0, $template = '',  $reset = false ){
 	// Load template if given
 	if('' != $template){
 		locate_template( array($template), true, false );
-	} else { locate_template( array('loop.php'), true, false ); }
+	} else { 
+	
+		$templates = stf_get_templates();
+	
+		if ( have_posts() ): 
+			locate_template( $templates, true, false ); 
+		else: 
+			define('PAGE_NOT_FOUND', true); 
+			locate_template( array('loop-404.php'), true, false );
+		endif; 
+	}
 }
 
 function stf_random_posts( $number_of_posts = 5, $template = '' ){
@@ -160,7 +222,7 @@ function stf_random_posts( $number_of_posts = 5, $template = '' ){
 	
 	// Change query
 	$query_arguments = array(
-		'caller_get_posts'=>1,
+		'ignore_sticky_posts'=>1,
 		'post__not_in' => array_merge( $sticky, $posts_displayed ),
 		'posts_per_page' => $number_of_posts,
 		'orderby'=>'rand'
@@ -176,7 +238,7 @@ function stf_most_viewed_posts( $number_of_posts = 5, $template = '' ){
 	if(function_exists('the_views')){
 	// Change query
 	$query_arguments = array(
-	   'caller_get_posts'=>1,
+	   'ignore_sticky_posts'=>1,
 	   'post__not_in' => $posts_displayed,
 	   'posts_per_page' => $number_of_posts,
 	   'v_sortby' => 'views',
@@ -193,7 +255,7 @@ function stf_most_commented_posts( $number_of_posts = 5, $template = '' ){
 	
 	// Change query
 	$query_arguments = array(
-		'caller_get_posts'=>1,
+		'ignore_sticky_posts'=>1,
 		'post__not_in' => $posts_displayed,
 		'orderby' => 'comment_count',
 		'posts_per_page' => $number_of_posts
@@ -232,7 +294,7 @@ function stf_theme_footer(){
  * @param string $classname		class attribute of the image tag
  * @param string $alt 			alternative text attribute of the image.
  */
-function get_theme_image($filename, $dimensions=NULL, $classname='', $alt='' ){
+function get_theme_image($filename, $dimensions=NULL, $classname='', $alt='', $title='' ){
 	$img = '<img src="' . THEME_IMAGES_DIRECTORY . '/' . $filename . '"';
 	
 	if(!empty($dimensions)){
@@ -242,13 +304,14 @@ function get_theme_image($filename, $dimensions=NULL, $classname='', $alt='' ){
 	
 	if(!empty($classname)){ $img .= ' class="'.$classname.'"';}
 	if(!empty($alt)){ $img .= ' alt="'.$alt.'"';}
+	if(!empty($title)){ $img .= ' title="'.$title.'"';}
 	
 	$img .= ' />';
 	return $img;
 }
 
-function theme_image($filename, $dimensions=NULL, $classname='', $alt='' ){
-	echo get_theme_image($filename, $dimensions, $classname, $alt);
+function theme_image($filename, $dimensions=NULL, $classname='', $alt='', $title = '' ){
+	echo get_theme_image($filename, $dimensions, $classname, $alt, $title);
 } 
 
 function stf_comment( $comment, $args, $depth ) {
