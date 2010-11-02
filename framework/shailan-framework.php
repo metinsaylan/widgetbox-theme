@@ -95,7 +95,7 @@ class Shailan_Framework{
 				if(is_array($custom_image_sizes)){
 					foreach($custom_image_sizes as $tag=>$size){
 						$size = explode( "x" , $size );
-						add_image_size( $tag, $size[0], $size[1] );
+						add_image_size( $tag, $size[0], $size[1], true );
 					}
 				}
 			}

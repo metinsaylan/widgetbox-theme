@@ -99,12 +99,12 @@ function shailan_contactmethods( $contactmethods ) {
 
 /** Google Analytics Support */
 function shailan_google_analytics(){	
-	echo "\n\t" . stripslashes(get_option('shailan_analytics_code')) . "\n";
+	echo "\n\t" . stripslashes(stf_get_setting('shailan_analytics_code')) . "\n";
 }; add_action('wp_head', 'shailan_google_analytics');
 
 /** Feed redirects */
 function shailan_feed_link($output, $feed) {
-	$feed_url = get_option('shailan_feedburner');
+	$feed_url = stf_get_setting('shailan_feedburner');
 	if(empty($feed_url)){$feed_url = "http://feeds.feedburner.com/shailan";}
 	
 	$feed_array = array('rss' => $feed_url, 'rss2' => $feed_url, 'atom' => $feed_url, 'rdf' => $feed_url, 'comments_rss2' => '');
@@ -114,7 +114,7 @@ function shailan_feed_link($output, $feed) {
 }
 
 function other_feed_links($link) {
-	$feed_url = get_option('shailan_feedburner');
+	$feed_url = stf_get_setting('shailan_feedburner');
 	if(empty($feed_url)){$feed_url = "http://feeds.feedburner.com/shailan";}
 	$link = $feed_url;
 	return $link;
@@ -127,7 +127,7 @@ add_filter('search_feed_link','other_feed_links');
 
 /** Custom Favicon Support */
 function shailan_favicon() { 
-	$favicon = get_option('shailan_favicon');
+	$favicon = stf_get_setting('shailan_favicon');
 	echo "<link rel=\"shortcut icon\" href=\"".$favicon."\" />";
 } add_action('wp_head', 'shailan_favicon');
 
