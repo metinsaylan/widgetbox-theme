@@ -8,7 +8,7 @@
 */
 
 /** [tags] : outputs tag cloud */
-function shailan_tags_shortcode($args) {
+function stf_tags_shortcode($args) {
 	global $post;
 
 	$defaults = array(
@@ -27,7 +27,7 @@ function shailan_tags_shortcode($args) {
 } 
 
 /** [and] : wraps ampersand to style it better */
-function shailan_and_shortcode($args) {
+function stf_and_shortcode($args) {
 	$and = '<span class="amp">&</span>';
 	return $and;
 } 
@@ -36,10 +36,10 @@ function shailan_and_shortcode($args) {
 /** META SHORTCODES */
 
 /** [ID], [the_ID] */
-function shailan_the_ID($args){ return '<span class="meta_ID">' . get_the_ID() . '</span>'; } 
+function stf_the_ID($args){ return '<span class="meta_ID">' . get_the_ID() . '</span>'; } 
 
 /** [author], [the_author] */
-function shailan_the_author_shortcode($args){
+function stf_the_author_shortcode($args){
 	$defaults = array(
 		'before' => '',
 		'after' => ''
@@ -48,15 +48,15 @@ function shailan_the_author_shortcode($args){
 	return '<span class="meta_author">' . $before . get_the_author() . $after . '</span>'; } 
 
 /** [authorlink], [the_author_link] */
-function shailan_the_author_link_shortcode($args){ 
+function stf_the_author_link_shortcode($args){ 
 	//'<span class="author vcard"><a class="url fn n" href="'.get_author_posts_url( get_the_author_meta( 'ID' ) ).'" title="View all posts by '.get_the_author().'">'.get_the_author().'</a></span>'
 	return '<span class="meta_author_posts">' . get_the_author_link() . '</span>'; } 
 
 /** [date], [the_date] */
-function shailan_the_date($args){ return '<span class="meta_date">' . get_the_date() .'</span>'; } 
+function stf_the_date($args){ return '<span class="meta_date">' . get_the_date() .'</span>'; } 
 
 /** [category], [the_category] */
-function shailan_the_category($args){ 
+function stf_the_category($args){ 
 	global $post;
 	
 	$defaults = array(
@@ -91,7 +91,7 @@ function shailan_the_category($args){
 	
 } 
 
-function shailan_categories($args){ 
+function stf_categories($args){ 
 	global $post;
 	
 	$defaults = array(
@@ -125,7 +125,7 @@ function shailan_categories($args){
 	
 } 
 
-function shailan_tags($args){ 
+function stf_tags($args){ 
 	global $post;
 	
 	$defaults = array(
@@ -146,7 +146,7 @@ function shailan_tags($args){
 	
 } 
 
-function shailan_comments_link($args){
+function stf_comments_link($args){
 	global $post, $id;
 	
 	$defaults = array(
@@ -170,7 +170,7 @@ function shailan_comments_link($args){
 	return '<span class="comments-link"><a href="'.$link.'" >' . $output . '</a></span>';
 } 
 
-function shailan_comment_count($args){
+function stf_comment_count($args){
 	global $post, $id;	
 	$link = get_comments_link();
 	$number = get_comments_number($id);
@@ -179,7 +179,7 @@ function shailan_comment_count($args){
 } 
 
 // [shortlink text="shortlink" title="twit this" before="Get the " after="!"]
-function shailan_the_shortlink($args){ 
+function stf_the_shortlink($args){ 
 	global $post;
 
 	$defaults = array(
@@ -212,7 +212,7 @@ function stf_edit_link_shortcode($atts){
 // TODO : [permalink]
 // TODO : [title]
 
-function shailan_queryposts($atts){
+function stf_queryposts($atts){
   extract(shortcode_atts( array(
    'category_id' => '',
    'category_name' => '',
@@ -270,6 +270,54 @@ function shailan_queryposts($atts){
   //ob_end_clean();
 
   return $output;
+}
+
+function stf_loop($atts){
+	global $wp_query;
+
+  extract(shortcode_atts( array(
+   'posts_per_page' => '',
+   'category_id' => '',
+   'category_name' => '',
+   'tag' => '',
+   'day' => '',
+   'month' => '',
+   'year' => '',
+   'count' => '5',
+   'author_id' => '',
+   'author_name' => '',
+   'order_by' => 'date',
+   'template' => 'loop.php'
+  ), $atts));
+  
+  $output = '';
+  $query = array();
+
+  if ($category_id != '') $query[] = 'cat=' .$category_id;
+  if ($category_name != '') $query[] = 'category_name=' .$category_name;
+  if ($tag != '') $query[] = 'tag=' . $tag;
+  if ($day != '') $query[] = 'day=' . $day;
+  if ($month != '') $query[] = 'monthnum=' . $month;
+  if ($year != '') $query[] = 'year=' . $year;
+  if ($count) $query[] = 'posts_per_page=' .$count;
+  if ($author_id != '') $query[] = 'author=' . $author_id;
+  if ($author_name != '') $query[] = 'author_name=' . $author_name;
+  if ($order_by) $query[] = 'orderby=' . $order_by;
+
+	query_posts(
+		array_merge(
+		array('posts_per_page' => $number_of_posts),
+			$wp_query->query
+		)
+	);
+	
+	if('' == $template){ $template = "loop.php"; }	
+	
+	ob_start();
+	 locate_template( array($template), true, false );
+	 $posts = ob_get_contents();
+	ob_end_clean();
+    return $posts;  
 }
 
 function stf_pagerank($atts){
@@ -459,12 +507,13 @@ function custom_query_shortcode($atts) {
 
 
 /* WIDGETS */
-add_shortcode('tag_cloud', 'shailan_tags_shortcode');
-add_shortcode('query_posts', 'shailan_queryposts');
+add_shortcode('tag_cloud', 'stf_tags_shortcode');
+add_shortcode('query_posts', 'stf_queryposts');
 add_shortcode('list_posts', 'custom_query_shortcode');
+add_shortcode('loop', 'stf_loop');
 
 /* MISC */
-add_shortcode('and', 'shailan_and_shortcode');
+add_shortcode('and', 'stf_and_shortcode');
 add_shortcode('dropcap', 'stf_dropcap');
 add_shortcode('tag', 'stf_wrap_tag');
 add_shortcode('htag', 'stf_wrap_twitter_tag'); 
@@ -476,25 +525,25 @@ add_shortcode('generator', 'stf_generator_link_shortcode');
 add_shortcode('themelink', 'stf_theme_link_shortcode');
 
 /* POST META */
-add_shortcode('the_ID', 'shailan_the_ID'); 
-add_shortcode('ID', 'shailan_the_ID');
-add_shortcode('the_author', 'shailan_the_author_shortcode'); 
-add_shortcode('author', 'shailan_the_author_shortcode');
-add_shortcode('the_author_link', 'shailan_the_author_link_shortcode'); 
-add_shortcode('authorlink', 'shailan_the_author_link_shortcode');
-add_shortcode('the_date', 'shailan_the_date'); 
-add_shortcode('date', 'shailan_the_date');
-add_shortcode('the_category', 'shailan_the_category'); 
-add_shortcode('category', 'shailan_the_category');
-add_shortcode('the_categories', 'shailan_categories'); 
-add_shortcode('categories', 'shailan_categories');
-add_shortcode('the_tags', 'shailan_tags'); 
-add_shortcode('tags', 'shailan_tags');
-add_shortcode('comments', 'shailan_comments_link'); 
-add_shortcode('cmnts', 'shailan_comments_link');
-add_shortcode('comment_count', 'shailan_comment_count');
-add_shortcode('the_shortlink', 'shailan_the_shortlink'); 
-add_shortcode('shortlink', 'shailan_the_shortlink');
+add_shortcode('the_ID', 'stf_the_ID'); 
+add_shortcode('ID', 'stf_the_ID');
+add_shortcode('the_author', 'stf_the_author_shortcode'); 
+add_shortcode('author', 'stf_the_author_shortcode');
+add_shortcode('the_author_link', 'stf_the_author_link_shortcode'); 
+add_shortcode('authorlink', 'stf_the_author_link_shortcode');
+add_shortcode('the_date', 'stf_the_date'); 
+add_shortcode('date', 'stf_the_date');
+add_shortcode('the_category', 'stf_the_category'); 
+add_shortcode('category', 'stf_the_category');
+add_shortcode('the_categories', 'stf_categories'); 
+add_shortcode('categories', 'stf_categories');
+add_shortcode('the_tags', 'stf_tags'); 
+add_shortcode('tags', 'stf_tags');
+add_shortcode('comments', 'stf_comments_link'); 
+add_shortcode('cmnts', 'stf_comments_link');
+add_shortcode('comment_count', 'stf_comment_count');
+add_shortcode('the_shortlink', 'stf_the_shortlink'); 
+add_shortcode('shortlink', 'stf_the_shortlink');
 add_shortcode('edit', 'stf_edit_link_shortcode');
 
 /* CONDITIONALS */
