@@ -1,8 +1,49 @@
 /* Shailan Theme Framework CSS Styles*/
 body, td, textarea, input, select { font: normal normal normal 13px/normal dejavu sans, bitstream vera sans, segoe ui, lucida grande, verdana, tahoma, arial, sans-serif; }
 h1, h2, h3 { font-weight: normal; }
+
+/* LINKS */
 a { text-decoration: none; } a:hover { text-decoration: underline; }
+a img { border: none; }
+
+/* ELEMENTS */
 pre, code { font-family: monaco, consolas, "andale mono", "dejavu sans mono", monospace; }
 small { font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 9px; }
-.amp { font-family: baskerville, palatino, "book antiqua", serif; font-style: italic; }
+hr{ display:none; }
+abbr[title], acronym[title] { cursor: help; }
+
+/* HELPERS */
+.amp, .and{ font-family: Baskerville, Palatino, "Book Antiqua", serif; font-style: italic; } 
 .smallcaps { font-variant: small-caps; }
+blockquote.left { margin-right: 20px; text-align: right; margin-left: 0; width: 33%; float: left; }
+blockquote.right { margin-left: 20px; text-align: left; margin-right: 0; width: 33%; float: right; }
+img.noborder { border: none !important; }
+
+/* FLOATS */
+.fl, .floatleft { display:inline; float:left; } .fr, .floatright{ display:inline; float:right; } 
+.cl{ clear:left; } .cr{ clear:right; } .clear,.clearfix { clear: both; }
+
+/* OTHER WP COMMONS */
+.entry-content img { margin: 0 0 1.5em 0; }
+.alignleft, img.alignleft, img[align="left"] { margin-right: 1.5em; display: inline; float: left; }
+.alignright, img.alignright, img[align="right"] { margin-left: 1.5em; display: inline; float: right; }
+.center, .aligncenter, img.aligncenter { margin-right: auto; margin-left: auto; display: block; /*clear: both;*/ }
+.alignnone, img.alignnone { }
+
+.wp-caption { margin-bottom: 1.5em; text-align: center; padding-top: 5px; }
+.wp-caption img { border: 0 none; padding: 0; margin: 0; }
+.wp-caption p.wp-caption-text { line-height: 1.5em; font-size: 10px; margin: 0; }
+.wp-smiley { margin: 0 !important; max-height: 1em; }
+
+.gallery dl {}
+.gallery dt {}
+.gallery dd {}
+.gallery dl a {}
+.gallery dl img {}
+.gallery-caption {}
+
+.size-full {}
+.size-large {}
+.size-medium {}
+.size-thumbnail {}
+

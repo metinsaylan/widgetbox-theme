@@ -464,6 +464,17 @@ function stf_theme_link_shortcode($atts, $content = null){
 	return "<span class=\"" . $class . "\"><a href=\"". themeinfo('URI') ."\" rel=\"designer external\">" . themeinfo('Name') . "</a></span>";
 }
 
+function stf_site_link_shortcode($atts, $content = null){
+	extract(shortcode_atts( array(
+		'rel' => 'nofollow',
+		'title' => get_bloginfo('description')
+	), $atts));
+
+	if(null == $content){ $content = get_bloginfo('name'); }
+	
+	return "<a href='".get_bloginfo('url')."' rel='".$rel."' title='".$title."'>". $content . "</a>";
+}
+
 // source : http://digwp.com/2010/01/custom-query-shortcode/
 function custom_query_shortcode($atts) {
    // EXAMPLE USAGE:
@@ -522,7 +533,9 @@ add_shortcode('pagerank', 'stf_pagerank');
 
 /* THEME */
 add_shortcode('generator', 'stf_generator_link_shortcode');
+add_shortcode('wp', 'stf_generator_link_shortcode');
 add_shortcode('themelink', 'stf_theme_link_shortcode');
+add_shortcode('sitelink', 'stf_site_link_shortcode');
 
 /* POST META */
 add_shortcode('the_ID', 'stf_the_ID'); 
