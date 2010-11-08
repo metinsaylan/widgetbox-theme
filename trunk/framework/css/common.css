@@ -1,6 +1,11 @@
 /* Shailan Theme Framework CSS Styles*/
 body, td, textarea, input, select { font: normal normal normal 13px/normal dejavu sans, bitstream vera sans, segoe ui, lucida grande, verdana, tahoma, arial, sans-serif; }
 h1, h2, h3 { font-weight: normal; }
+*, :active, :focus {
+	outline: 0px none;
+	outline-style: none;
+	outline-width: 0px;
+}
 
 /* LINKS */
 a { text-decoration: none; } a:hover { text-decoration: underline; }
