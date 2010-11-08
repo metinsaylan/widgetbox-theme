@@ -128,7 +128,7 @@ add_filter('search_feed_link','other_feed_links');
 /** Custom Favicon Support */
 function shailan_favicon() { 
 	$favicon = stf_get_setting('shailan_favicon');
-	echo "<link rel=\"shortcut icon\" href=\"".$favicon."\" />";
+	echo "\n\t<link rel=\"shortcut icon\" href=\"".$favicon."\" />\n";
 } add_action('wp_head', 'shailan_favicon');
 
 /** Excerpt Length Settings */
