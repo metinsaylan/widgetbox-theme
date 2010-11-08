@@ -39,6 +39,10 @@ function stf_common_styles(){
 	echo "<link rel='stylesheet' id='framework-css'  href='".get_template_directory_uri() . "/framework/css/common.css' type='text/css' media='all' />";
 }
 
+function stf_cufon(){
+	echo "<script src='". get_stylesheet_directory_uri() ."/js/cufon-yui.js' type='text/javascript'></script>";
+}
+
 /**
  * An extension for dynamic_sidebar(). If no widgets exist it shows default widgets
  * given by an array or a callback.
