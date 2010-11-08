@@ -171,11 +171,8 @@ class Shailan_Framework{
 				die;
 			}
 		}
-		//add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
-		//add_menu_page($this->name, $this->name, 'administrator', basename(__FILE__), array(&$this, 'theme_admin_page'));
-		//add_submenu_page( $parent_slug, $page_title, $menu_title, $capability, $menu_slug, $function);
-		add_submenu_page('themes.php', $this->name . " Options", "Theme Options", "administrator", "theme-options", array(&$this, 'theme_admin_page'));	
 		
+		add_menu_page( $this->name, $this->name, 'administrator', "theme-options", array(&$this, 'theme_admin_page') );	
 	}
 	
 	function theme_admin_page(){
