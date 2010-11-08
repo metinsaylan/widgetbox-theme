@@ -1,0 +1,8 @@
+/* Shailan Theme Framework CSS Styles*/
+body, td, textarea, input, select { font: normal normal normal 13px/normal dejavu sans, bitstream vera sans, segoe ui, lucida grande, verdana, tahoma, arial, sans-serif; }
+h1, h2, h3 { font-weight: normal; }
+a { text-decoration: none; } a:hover { text-decoration: underline; }
+pre, code { font-family: monaco, consolas, "andale mono", "dejavu sans mono", monospace; }
+small { font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 9px; }
+.amp { font-family: baskerville, palatino, "book antiqua", serif; font-style: italic; }
+.smallcaps { font-variant: small-caps; }

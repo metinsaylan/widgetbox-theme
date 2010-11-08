@@ -35,6 +35,10 @@ function themeinfo($key){
 	}
 }
 
+function stf_common_styles(){
+	echo "<link rel='stylesheet' id='framework-css'  href='".get_template_directory_uri() . "/framework/css/common.css' type='text/css' media='all' />";
+}
+
 /**
  * An extension for dynamic_sidebar(). If no widgets exist it shows default widgets
  * given by an array or a callback.

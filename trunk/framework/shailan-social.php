@@ -179,17 +179,20 @@ if(get_option('shailan_twitter_anywhere') == 'enabled'){
 		$twitter_api_key = get_option('shailan_twitter_anywhere_key');
 		echo "<script src=\"http://platform.twitter.com/anywhere.js?id=$twitter_api_key&v=1\" type=\"text/javascript\"></script>";
 		echo "<script type=\"text/javascript\">
+		//<![CDATA[
 			twttr.anywhere(function (T) {
 				T('.entry-content').hovercards();
 				T('.entry-content').linkifyUsers();
 			});
+		//]]>
 		</script>";
 	} add_action( 'wp_head', 'install_twitter_anywhere' );
 }
 
 // DIGG BUTTON SCRIPT
 function install_digg(){
-	echo "<script type=\"text/javascript\">
+	echo "\n\t<script type=\"text/javascript\">
+	//<![CDATA[
 	(function() {
 	var s = document.createElement('SCRIPT'), s1 = document.getElementsByTagName('SCRIPT')[0];
 	s.type = 'text/javascript';
@@ -197,5 +200,6 @@ function install_digg(){
 	s.src = 'http://widgets.digg.com/buttons.js';
 	s1.parentNode.insertBefore(s, s1);
 	})();
+	//]]>
 	</script>";
 } add_action( 'wp_head', 'install_digg' );
