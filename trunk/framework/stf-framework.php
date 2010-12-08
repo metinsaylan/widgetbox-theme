@@ -22,7 +22,7 @@ class Shailan_Framework{
 		$this->theme = $theme_data;
 		
 		// Load shortcodes, widgets, template tags
-		require_once("shailan-loader.php");
+		require_once("stf-loader.php");
 		
 		require_once("stf-options.php");
 		$this->default_options = $options;

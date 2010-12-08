@@ -20,6 +20,7 @@ class stf_featured extends WP_Widget {
 			'number' => 1,
 			'thumbnail' => FALSE,
 			'thumbnail_size' => 'thumbnail',
+			'template' => 'stf-default-template',
 			'post_title' => FALSE,
 			'content' => 'none'
 		);
@@ -82,48 +83,29 @@ class stf_featured extends WP_Widget {
 		}
 
 		echo "\n\t<!-- Featured Posts Query: ";
-		print_r($fquery);
+			print_r($fquery);
 		echo " -->\n";
 		
+		// Query posts
 		$temp_query = $wp_query;
-		$featuredPosts = new WP_Query($fquery);
-		?>
-		<ul id="featured-posts">
-				<?php while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>				
-				<li class="fpost">				
-				<?php if($thumbnail){ ?>
-					<div class="fpost-thumbnail">
-						<a href="<?php the_permalink(); ?>" rel="bookmark" >
-							<?php /* the current post has a thumbnail */
-								if( has_post_thumbnail() ){
-									$thumb_id = get_post_thumbnail_id();
-									$alt = the_title('','',false);
-									/* $src = wp_get_attachment_url($thumb_id);	*/
-									echo get_image_tag($thumb_id, $alt, $alt, $thumbnail_align, $thumbnail_size);
-								} else {
-									echo '<img src="'.get_bloginfo('template_directory').'/images/default-'.$thumbnail_size.'.png" title="'.the_title('','',false).'" width="'.$w.'" height="'.$h.'" class="align'.$thumbnail_align.' size-'.$thumbnail_size.'" />';
-								} ?>
-						</a>
-					</div>
-				<?php } ?>
-				<?php if($post_title): ?>
-				<span class="fpost-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span>
-				<?php endif; ?>
-				
-				<?php if($content == 'post_content'){ ?>
-					<div class="fpost-content"><?php the_content(); ?></div>
-				<?php }elseif($content == 'post_excerpt'){ ?>
-					<div class="fpost-content"><?php the_excerpt(); ?></div>
-				<?php } ?>
-				</li>
-				
-				<?php endwhile; ?>
-			</ul>
+		//$featuredPosts = new WP_Query($fquery);
+		query_posts($fquery);
 		
-		<div class="clear"></div>
-		<?php
-		// Back to normal..		
-
+		echo '<div id="loop-'.$this->number.'" class="">';
+		
+		// Load template
+		if('stf-default-template' != $template && file_exists($template)){
+			// Locate template
+			include($template); // not once
+		
+		} else {
+			// Default template	
+			include('templates/loop-list.php');
+		}
+		
+		echo '</div>';
+		
+		// Restore default query
 		$wp_query = $temp_query;
 		wp_reset_query();
 		
@@ -135,16 +117,8 @@ class stf_featured extends WP_Widget {
     }
 
     function form($instance) {  
-		global $_wp_additional_image_sizes;
-		if(isset($instance['thumbnail'])){ $instance['thumbnail'] = (bool) $instance['thumbnail']; }
-		if(isset($instance['post_title'])){ $instance['post_title'] = (bool) $instance['post_title']; }
 		$widget_options = wp_parse_args( $instance, $this->widget_defaults );
 		extract( $widget_options, EXTR_SKIP );
-		$post_title = (bool) $post_title;		
-		
-		$image_sizes = array('thumbnail', 'medium', 'large'); // Standard sizes
-			if ( isset( $_wp_additional_image_sizes ) && count( $_wp_additional_image_sizes ) )
-			$image_sizes = array_merge( $image_sizes, array_keys( $_wp_additional_image_sizes ) );
 		
 		?>
 		
@@ -166,33 +140,30 @@ class stf_featured extends WP_Widget {
 		 ?>
 		</select></label></p>
 		
-		<p><label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of items:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo $number; ?>" /></label><br /> 
-					<small><?php _e('Number of items to be displayed'); ?></small></p>
-		<p><input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('thumbnail'); ?>" name="<?php echo $this->get_field_name('thumbnail'); ?>"<?php checked( $thumbnail ); ?> />
-		<label for="<?php echo $this->get_field_id('thumbnail'); ?>"><?php _e( 'Display thumbnail'); ?></label></p>
-		
-		<p><label for="<?php echo $this->get_field_id('thumbnail_size'); ?>"><?php _e('Thumbnail Size:'); ?><select name="<?php echo $this->get_field_name('thumbnail_size'); ?>" id="<?php echo $this->get_field_id('thumbnail_size'); ?>" >	
+		<p><label for="<?php echo $this->get_field_id('template'); ?>"><?php _e('Loop Template:'); ?><select name="<?php echo $this->get_field_name('template'); ?>" id="<?php echo $this->get_field_id('template'); ?>" >	
+			<option value="stf-default-template" <?php if($category == 'stf-default-template'){ echo ' selected="selected"'; }; ?>>Default Template</option>
 		 <?php 
-		  foreach ($image_sizes as $image_size) {  
-			$option = '<option value="'.$image_size .'" '. ( $image_size == $thumbnail_size ? ' selected="selected"' : '' ) .'>';
-			$option .= $image_size;
+			$path = pathinfo(__FILE__);
+			$path = $path['dirname'] . '/templates/';
+			$default_templates = GetFileList(BY_EXPRESSION, "{loop-.*?.php}", $path, true);
+			$theme_templates = GetFileList(BY_EXPRESSION, "{loop-.*?.php}", get_stylesheet_directory(), true);
+			$templates = array_merge( $default_templates, $theme_templates );
+		  
+		  foreach ($templates as $temp) {  
+			$file = pathinfo($temp);
+			$filename = $file['filename'] . '.' . $file['extension']; //substr($file['filename'], 5, strlen($file['filename']));
+			$option = '<option value="'.$temp .'" '. ( $temp == $template ? ' selected="selected"' : '' ) .'>';
+			$option .= $filename;
 			$option .= '</option>\n';
 			echo $option;
 		  }
 		 ?>
 		</select></label></p>
 		
-		<p><input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id('post_title'); ?>" name="<?php echo $this->get_field_name('post_title'); ?>"<?php checked( $post_title ); ?> />
-		<label for="<?php echo $this->get_field_id('post_title'); ?>"><?php _e( 'Display post title'); ?></label></p>
-		
-		<p><label for="<?php echo $this->get_field_id('content'); ?>"><?php _e('Content display:'); ?><select name="<?php echo $this->get_field_name('content'); ?>" id="<?php echo $this->get_field_id('content'); ?>" >	
-			<option value="post_content" <?php if($content == 'post_content'){ echo ' selected="selected"'; } ?> >Post Content</option>
-			<option value="post_excerpt" <?php if($content == 'post_excerpt'){ echo ' selected="selected"'; } ?> >Post Excerpt</option>
-			<option value="none" <?php if($content == 'none'){ echo ' selected="selected"'; } ?> >None</option>
-		</select></label></p>
-		
+		<p><label for="<?php echo $this->get_field_id('number'); ?>"><?php _e('Number of items:'); ?> <input class="widefat" id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" type="text" value="<?php echo $number; ?>" /></label><br /> 
+					<small><?php _e('Number of items to be displayed'); ?></small></p>
+				
 		<?php
-		
 		stf_widget_footer();
     }
 
