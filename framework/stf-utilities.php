@@ -204,6 +204,67 @@ function shailan_twitter_followers($twitter_id){
 	return $twitter['count'];
 }
 
+define("BY_EXTENSION", 1); 
+define("BY_EXPRESSION", 2); 
+    
+function GetFileList($HowToSearch, $Condition, $Directory, $AddPath) { 
+  $hDir = opendir($Directory); 
+  if (!$hDir) return false; 
+  
+  $result = array(); 
+  $index = 0; 
 
+  //--------------------------------- 
+  // Add trailing slash to directory. 
+  //--------------------------------- 
+  if (!eregi('/${1}', $Directory)) $Directory .= "/"; 
 
+  //-------------------------------------------- 
+  // Loop while we still have directory entries. 
+  //-------------------------------------------- 
+  while ($dirEntry = readdir($hDir)) { 
+	 $new_entry = ""; 
+	 $add = false; 
+	  
+	 //-------------------------------- 
+	 // Add entries based on extension. 
+	 //-------------------------------- 
+	 if ($HowToSearch == BY_EXTENSION) 
+		if (eregi($Condition . '${1}', $dirEntry)) $add = true; 
+
+	 //--------------------------------------------------------- 
+	 // Add entries based on Perl-compatible regular-expression. 
+	 //--------------------------------------------------------- 
+	 if ($HowToSearch == BY_EXPRESSION) 
+		if (preg_match($Condition, $dirEntry)) $add = true; 
+
+	 //------------------------------- 
+	 // Add the entry if it qualifies. 
+	 //------------------------------- 
+	 if ($add) {        
+		if ($AddPath == true) $new_entry = $Directory; 
+			
+		$new_entry .= $dirEntry; 
+		$result[$index++] = $new_entry; 
+	 } 
+  } 
+  
+  closedir($hDir); 
+  return $result; 
+} 
+   //-------------------------------------------------------------------- 
+   // Get a list of JPGs from the IMAGES directory. Prefix with the path. 
+   //-------------------------------------------------------------------- 
+   //$List1 = GetFileList(BY_EXTENSION, "jpg", "images", true); 
+    
+   //---------------------------------------- 
+   // Get a list of files that start with sm_ 
+   //---------------------------------------- 
+   //$List2 = GetFileList(BY_EXPRESSION, '/^sm_/i', "images", false); 
+    
+   //------------------------------------------------ 
+   // Search the current directory for any PHP files. 
+   //------------------------------------------------ 
+   //$List3 = GetFileList(BY_EXTENSION, "php", ".", false); 
+   
 ?>
