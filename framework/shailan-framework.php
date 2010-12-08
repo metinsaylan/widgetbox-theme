@@ -170,8 +170,9 @@ class Shailan_Framework{
 				die;
 			}
 		}
+
+		add_submenu_page('themes.php', $this->name . " Options", "Theme Options", "administrator", "theme-options", array(&$this, 'theme_admin_page'));	
 		
-		add_menu_page( $this->name, $this->name, 'administrator', "theme-options", array(&$this, 'theme_admin_page') );	
 	}
 	
 	function theme_admin_page(){
@@ -210,7 +211,7 @@ class Shailan_Framework{
 			) );
 		}
 	}
-	
+
 };
 
 $stf = new Shailan_Framework();
