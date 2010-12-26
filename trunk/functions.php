@@ -1,48 +1,40 @@
 <?php
-// ENABLE DEBUG
-/* if(!WP_DEBUG){  define ('WP_DEBUG', true); }
-@ini_set('log_errors','On');
-@ini_set('display_errors','On'); */
+// LOAD FRAMEWORK
+include_once('framework/stf-framework.php');
 
-/* Theme name */
-if(TEMPLATEPATH !== STYLESHEETPATH){ $themename = ucfirst(get_stylesheet()); } 
-	else { $themename = "Widgetbox"; }
-
-/* Load Smart layout generator if enabled */
-if(!defined('WB_SMARTLAYOUT') || WB_SMARTLAYOUT){ include_once(TEMPLATEPATH . "/app/wb_layout.php"); };
-
-/* Init framework */
-include_once('framework/shailan-framework.php'); // Load Framework
-
-// Load options (automattic options page)
-if(TEMPLATEPATH !== STYLESHEETPATH && file_exists(trailingslashit(get_stylesheet_directory()) . 'options.php')){
-	include_once(trailingslashit(get_stylesheet_directory()) . 'options.php');
-} else {
-	include_once(trailingslashit(get_template_directory()) . 'options.php');
-}
-$stf->extend_options($options);
-
-// Add sidebars (automatically register)
+// SIDEBARS
 $stf->add_widget_area('Topbar', 'topbar', '', '');
 $stf->add_widget_area('Header', 'header', '', '');
-$stf->add_widget_area('Content', 'content', '', '');
-$stf->add_widget_area('Sidebar1', 'sidebar1', '', '');
-$stf->add_widget_area('Sidebar2', 'sidebar2', '', '');
-$stf->add_widget_area('Footer Columns', 'footer-columns', '', '');
-$stf->add_widget_area('Footer Wide', 'footer-wide', '', '');
+$stf->add_widget_area('Home page', 'home', '', '');
+$stf->add_widget_area('Inner page', 'inner', '', '');
+$stf->add_widget_area('Sidebar Top', 'sidebar1', '', '');
+$stf->add_widget_area('Sidebar Bottom', 'sidebar2', '', '');
+$stf->add_widget_area('Footer Column1', 'column1', '', '');
+$stf->add_widget_area('Footer Column2', 'column2', '', '');
+$stf->add_widget_area('Footer Column3', 'column3', '', '');
+$stf->add_widget_area('Footer', 'footer', '', '');
 
-// Define image sizes
+function register_menus() {
+  register_nav_menus(array( 
+	'top-navigation' => __( 'Top' ),
+	'header-bottom' => __('Header Navigation'),
+	'footer' => __('Footer')
+  ));
+} add_action( 'init', 'register_menus' );
+
+
+// THUMB SIZES
 $image_sizes = array(
-	'featured_post_thumbnail' => '125x125',
-	'index_thumbnail' => '200x200',
-	'post_teaser' => '250x250'
+	'featured' => '125x125',
+	'frontpage' => '200x200',
+	'teaser' => '250x250'
 );
 
+// THEME OPTIONS
 $theme_options = array(
-	"name" => $themename,
-	"shortname" => "widgetbox", 
-	"domain" => "shailan",
-	"editor_style" => true,
+	"shortname" => "widgetbox",  // For options
+	"domain" => "shailan", // For translations
+	"editor_style" => true, 
 	"nav_menus" => true,
 	"custom_background" => true,
 	"post_thumbnails" => true,
@@ -55,15 +47,6 @@ $stf->setupTheme($theme_options);
 
 // Custom header support
 include_once('app/wb_custom_header.php');
-
-function widgetbox_body_class($classes){
-	global $wp_query, $wpdb;
-	$layout = get_option('widgetbox_active_layout');
-	$classes[] = strtolower($layout);
-	return $classes;
-}; add_filter( 'body_class', 'widgetbox_body_class');
-
 function get_post_link(){ return "<a href=\"".get_permalink()."\" class=\"post-link\">".get_the_title()."</a>"; }
-
 
 ?>

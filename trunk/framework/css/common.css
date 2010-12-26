@@ -13,16 +13,28 @@ a img { border: none; }
 
 /* ELEMENTS */
 pre, code { font-family: monaco, consolas, "andale mono", "dejavu sans mono", monospace; }
-small { font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 9px; }
+small { font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 0.9em; line-height: 1.5em; }
 hr{ display:none; }
+
+code { font-size: 1.1em; }
+
 abbr[title], acronym[title] { cursor: help; }
+abbr.entry-date { cursor: inherit; }
+p{ text-align:justify; }
 
 /* HELPERS */
-.amp, .and{ font-family: Baskerville, Palatino, "Book Antiqua", serif; font-style: italic; } 
+.amp, .and { font-family: Baskerville, Palatino, "Book Antiqua", serif; font-style: italic; } 
 .smallcaps { font-variant: small-caps; }
 blockquote.left { margin-right: 20px; text-align: right; margin-left: 0; width: 33%; float: left; }
 blockquote.right { margin-left: 20px; text-align: left; margin-right: 0; width: 33%; float: right; }
 img.noborder { border: none !important; }
+.hidden { position: absolute !important; left: 0px; top: -500px !important; width: 1px; height: 1px; overflow: hidden; }
+.box { border:1px solid; padding:1em; }
+
+/* MENU */
+.menu, .menu li, .menu.horizontal, .menu.horizontal li{ list-style:none;margin:0; display:inline; }
+.menu li, .menu.horizontal li{ padding:3px 10px; } .menu.horizontal li+li{ border-left:1px solid #999; }
+.menu li ul{ display:none; }
 
 /* FLOATS */
 .fl, .floatleft { display:inline; float:left; } .fr, .floatright{ display:inline; float:right; } 
