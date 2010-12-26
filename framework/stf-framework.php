@@ -65,7 +65,6 @@ class Shailan_Framework{
 	/** Setup theme */
 	function setupTheme($args){
 		$defaults = array(
-			"name" => "Shailan Theme Framework",
 			"shortname" => "stf",
 			"domain" => "",
 			"editor_style" => false,
@@ -81,7 +80,7 @@ class Shailan_Framework{
 		$setup_options = wp_parse_args( $args, $defaults );
 		extract( $setup_options, EXTR_SKIP );
 		
-		$this->name = $name;
+		$this->name = $this->theme['Name'];
 		$this->shortname = $shortname;
 		
 		if ( function_exists( 'add_editor_style' ) && $editor_style ) { add_editor_style(); }

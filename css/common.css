@@ -7,33 +7,6 @@
  *	Common css classes needed for wordpress themes.
  */
 
-.clear,.clearfix { clear: both; }
-.entry-content img { margin: 0 0 1.5em 0; }
-.alignleft, img.alignleft, img[align="left"] { margin-right: 1.5em; display: inline; float: left; }
-.alignright, img.alignright, img[align="right"] { margin-left: 1.5em; display: inline; float: right; }
-.center, .aligncenter, img.aligncenter { margin-right: auto; margin-left: auto; display: block; /*clear: both;*/ }
-.alignnone, img.alignnone { }
-.wp-caption { margin-bottom: 1.5em; text-align: center; padding-top: 5px; }
-.wp-caption img { border: 0 none; padding: 0; margin: 0; }
-.wp-caption p.wp-caption-text { line-height: 1.5; font-size: 10px; margin: 0; }
-.wp-smiley { margin: 0 !important; max-height: 1em; }
-blockquote.left { margin-right: 20px; text-align: right; margin-left: 0; width: 33%; float: left; }
-blockquote.right { margin-left: 20px; text-align: left; margin-right: 0; width: 33%; float: right; }
-.gallery dl {}
-.gallery dt {}
-.gallery dd {}
-.gallery dl a {}
-.gallery dl img {}
-.gallery-caption {}
-
-.size-full {}
-.size-large {}
-.size-medium {}
-.size-thumbnail {}
-
-a img { border: none; }
-img.noborder { border: none !important; }
-
 a[rel~="attachment"] img,.gallery a img,.wp-caption { 
 	background-color: #F3F3F3;
 	border: 1px solid #ddd;
@@ -46,21 +19,15 @@ a[rel~="attachment"] img,.gallery a img,.wp-caption {
 .wp-caption a img, .wp-caption a img:hover { padding: 4px 0px 0px; border: 0 none; }
 .wp-caption .wp-caption-text { margin: 4px 0 2px; }
 
-.smallcaps { font-variant: small-caps; }
-abbr[title], acronym[title] { cursor: help; }
-abbr.entry-date { cursor: inherit; }
-small { font-size: 0.9em; line-height: 1.5em; }
-code { font-size: 1.1em; }
-hr { display: none; }
 img.wp-smiley { border: none !important; padding: 0 0 0 5px !important; }
-.hidden { position: absolute !important; left: 0px; top: -500px !important; width: 1px; height: 1px; overflow: hidden; }
+
 .alert { background: #FFF6BF; text-align: center; margin: 10px auto; padding: 4px 20px; }
 .hidetext { text-indent: -9999px; }
-.amp{ font-family: Baskerville, Palatino, "Book Antiqua", serif; font-style: italic; } 
+
 .rss-link{ padding-left:18px; background:url(images/icons/rss.gif) 0 50% no-repeat; }
 .logged-in a[rel~="nofollow"]{border-bottom:1px dashed #ccc;}
 #lightbox{z-index:598;} 
-.box {border:1px solid;}
+
 
 pre{ background:#f0f0f0; padding:10px; border:2px solid #ccc; border-radius: 8px;
 	-moz-border-radius: 8px;
