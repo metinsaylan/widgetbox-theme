@@ -40,7 +40,7 @@ foreach ( $comments as $comment )
    
 <?php /* An ordered list of our custom comments callback, custom_comments(), in functions.php   */ ?>    
      <ol>
-<?php wp_list_comments('type=comment&callback=widgetbox_comment'); ?>
+<?php wp_list_comments('type=comment&callback=stf_comment'); ?>
      </ol>
  
 <?php /* If there are enough comments, build the comment navigation */ ?>
@@ -62,7 +62,7 @@ foreach ( $comments as $comment )
  
 <?php /* An ordered list of our custom trackbacks callback, custom_pings(), in functions.php   */ ?>    
      <ol>
-<?php wp_list_comments('type=pings&callback=widgetbox_comment'); ?>
+<?php wp_list_comments('type=pings&callback=stf_comment'); ?>
      </ol>    
      
     </div><!-- #trackbacks-list .comments -->  

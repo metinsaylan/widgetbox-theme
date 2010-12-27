@@ -5,7 +5,7 @@
 .header-navigation{  }
 
 /* HEADER */
-#header-wrap{ background:lightSlateGray; }
+#header-wrap{ background:#210000; }
 #header { height: auto; overflow: visible; position: relative; }
 #header .widget_text p { padding: 0px 10px; }
 /*
