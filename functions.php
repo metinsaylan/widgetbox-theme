@@ -22,7 +22,6 @@ function register_menus() {
   ));
 } add_action( 'init', 'register_menus' );
 
-
 // THUMB SIZES
 $image_sizes = array(
 	'featured' => '125x125',

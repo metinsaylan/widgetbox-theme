@@ -1,12 +1,14 @@
 /*
-THEME NAME: widgetbox
+THEME NAME: *Widgetbox
 THEME URI: http://shailan.com
 DESCRIPTION: Widgetbox is an all-widget theme. You can get more all-widget themes from <a href="http://shailan.com">shailan.com</a>.
-VERSION: 1.0
+VERSION: 2.0
 AUTHOR: Matt Say
 AUTHOR URI: http://shailan.com
 TAGS: sandbox, microformats, hcard, hatom, xoxo, widgets, blank slate, starter theme, minimalist, developer, all-widget, widgets, adsense-ready, custom-widgets.
 */
+
+
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 /* TYPOGRAPHY */
 h1, h2, h3, h4, p.intro, blockquote { font-family: 'Droid Sans', arial, sans-serif; }
