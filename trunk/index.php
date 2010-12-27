@@ -7,7 +7,9 @@
 		</div><!-- #content -->
 		
 		<div id="sidebar-wrapper" class="grid_4">
-			<?php get_sidebar() ?>
+			<div id="sidebar">
+				<?php get_sidebar() ?>
+			</div>
 		</div>		
 	</div><!-- #container -->
 <?php get_footer() ?>

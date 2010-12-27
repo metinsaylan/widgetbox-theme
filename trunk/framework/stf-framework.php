@@ -205,8 +205,8 @@ class Shailan_Framework{
 			'description' => $widget_area['description'],
 			'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
 			'after_widget' => '</div>',
-			'before_title' => '<h3 class="widget-title">',
-			'after_title' => '</h3>',
+			'before_title' => '<span class="widget-title">',
+			'after_title' => '</span>',
 			) );
 		}
 	}

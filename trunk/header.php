@@ -31,7 +31,7 @@
 
 <div id="header-wrap">
 <div id="header" class="container_12">
-	<div id="branding" class="grid_4">
+	<div id="branding" class="grid_5">
 		<?php // If logo url exists ?>
 		<div id="logo">
 			<a href="<?php echo home_url( '/' ); ?>" rel="home <?php if(!is_front_page() || !is_home()){ echo 'nofollow';} ?>">
@@ -48,7 +48,7 @@
 			<div id="site-description"><?php bloginfo( 'description' ); ?></div>
 		</div><!-- #branding -->
 	</div>
-	<div id="header-widgets" class="grid_8">
+	<div id="header-widgets" class="grid_7">
 		<?php stf_widgets('header', 'stf_blog_title'); ?>
 	</div>
 	<?php wp_nav_menu( array( 'theme_location' => 'header-bottom', 'fallback_cb' => false, 'container_class' => 'header-navigation clearfix' ) ); ?>
