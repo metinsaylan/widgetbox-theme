@@ -33,8 +33,10 @@ img.noborder { border: none !important; }
 
 /* MENU */
 .menu, .menu li, .menu.horizontal, .menu.horizontal li{ list-style:none;margin:0; display:inline; }
-.menu li, .menu.horizontal li{ padding:3px 10px; } .menu.horizontal li+li{ border-left:1px solid #999; }
+.menu ul, .menu ol { margin:0px; padding:2px; }
+.menu li, .menu.horizontal li{ } .menu.horizontal li+li{ border-left:1px solid #999; }
 .menu li ul{ display:none; }
+.menu li a{ padding:3px 8px; }
 
 /* FLOATS */
 .fl, .floatleft { display:inline; float:left; } .fr, .floatright{ display:inline; float:right; } 

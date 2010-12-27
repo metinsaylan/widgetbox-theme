@@ -19,25 +19,6 @@ function stf_body_class_filter($classes) {
 	else
 		$classes[] = 'columns-one';
 
-	switch ( get_option('stfusestyle') ) {
-		case 0: // No CSS
-			$classes[] = 'nostfcss';
-			break;
-		case 1: // Sidebars Left
-			$classes[] = 'sidebarsleft';
-			break;
-		case 2: // Sidebars Right
-			$classes[] = 'sidebarsright';
-			break;
-		case 3: // Flanking Sidebars
-			$classes[] = 'flankingsidebars';
-			break;
-	}
-
-	// If animations are turned on
-	if ( '1' == get_option('stfanimations') )
-		$classes[] = 'animations';
-
 	// Only on single posts and static pages
 	if ( is_single() or is_page() ) {
 		// Add 'author-XXXX' class
@@ -117,9 +98,7 @@ add_filter('post_class', 'stf_post_class_filter');
 
 function stf_comment_class_filter($classes) {
 	global $comment;
-
 	stf_date_classes(mysql2date('U', $comment->comment_date), $classes, 'c-');
-
 	return $classes;
 }
 

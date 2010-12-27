@@ -49,9 +49,12 @@
 		</div><!-- #branding -->
 	</div>
 	<div id="header-widgets" class="grid_7">
-		<?php stf_widgets('header', 'stf_blog_title'); ?>
+		<?php stf_widgets('header'); ?>
 	</div>
-	<?php wp_nav_menu( array( 'theme_location' => 'header-bottom', 'fallback_cb' => false, 'container_class' => 'header-navigation clearfix' ) ); ?>
+	<div class="clear"></div>
+	<div id="header-menu">
+		<?php wp_nav_menu( array( 'theme_location' => 'header-bottom', 'menu_id' => 'menu-main', 'container_class' => 'header-navigation clearfix' ) ); ?>
+	</div>
 	<div class="clear"></div>
 </div>
 </div>
