@@ -9,6 +9,7 @@
 
 include_once('stf-utilities.php'); // GENERIC FUNCTIONS
 include_once('stf-shortcodes.php'); // SHORTCODES
+include_once('stf-filters.php'); // FILTERS
 include_once('stf-templates.php'); // CUSTOM TEMPLATES
 include_once('stf-social.php'); // SOCIAL
 
