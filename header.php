@@ -27,8 +27,31 @@
 	<?php stf_widgets('topbar'); ?>
 </div>
 
-<div id="wrapper" class="hfeed container_12">
-<div id="header">
-	<?php stf_widgets('header', 'stf_blog_title'); ?>
-	<?php wp_nav_menu( array( 'theme_location' => 'header-bottom', 'fallback_cb' => false, 'container_class' => 'header-navigation' ) ); ?>
+<div id="wrapper">
+
+<div id="header-wrap">
+<div id="header" class="container_12">
+	<div id="branding" class="grid_4">
+		<?php // If logo url exists ?>
+		<div id="logo">
+			<a href="<?php echo home_url( '/' ); ?>" rel="home <?php if(!is_front_page() || !is_home()){ echo 'nofollow';} ?>">
+				<?php theme_image( 'logo.png', '50x50', 'logo', get_bloginfo('name'), get_bloginfo('description') ); ?>
+			</a>
+		</div>
+		<?php // End logo ?>
+			
+		<div id="site-id" role="banner">
+			<?php $heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div'; ?>
+			<<?php echo $heading_tag; ?> id="site-title">
+				<span><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home <?php if(!is_front_page() || !is_home()){ echo 'nofollow';} ?>"><?php bloginfo( 'name' ); ?></a></span>
+			</<?php echo $heading_tag; ?>>
+			<div id="site-description"><?php bloginfo( 'description' ); ?></div>
+		</div><!-- #branding -->
+	</div>
+	<div id="header-widgets" class="grid_8">
+		<?php stf_widgets('header', 'stf_blog_title'); ?>
+	</div>
+	<?php wp_nav_menu( array( 'theme_location' => 'header-bottom', 'fallback_cb' => false, 'container_class' => 'header-navigation clearfix' ) ); ?>
+	<div class="clear"></div>
+</div>
 </div>
