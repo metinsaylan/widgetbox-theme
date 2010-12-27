@@ -1,20 +1,30 @@
 	<div class="clear"></div>
 </div><!-- #wrapper .hfeed -->
 
-<div id="footer">
-	<div class="widgets columns"> <?php stf_widgets('footer-columns'); ?> <div class="clear"></div></div>
-	<div class="widgets wide"> <?php stf_widgets('footer'); ?> <div class="clear"></div></div>
+<div id="footer" class="container_12">
+	<div class="footer-columns">
+		<div class="grid_4">
+			<?php stf_widgets('column1'); ?> 
+		</div>
+		<div class="grid_4">
+			<?php stf_widgets('column2'); ?> 
+		</div>
+		<div class="grid_4">
+			<?php stf_widgets('column3'); ?> 
+		</div>	
+	<div class="clear"></div></div>
+	
+	<div class="footer-wide"><?php stf_widgets('footer'); ?><div class="clear"></div></div>
 	
 	<div class="clear"></div>
-	
-	<?php wp_nav_menu( array( 'theme_location' => 'footer', 'container_class' => 'footer-navigation' ) ); ?>
+	<?php wp_nav_menu( array( 'theme_location' => 'footer', 'container_class' => 'footer-navigation', 'menu_id' => 'menu-footer' ) ); ?>
 	
 	<div id="footer-links">
-		<div id="theme-footer">
+		<div id="theme-footer" class="grid_6">
 			<?php stf_theme_footer(); ?>
 		</div>
 		
-		<div id="theme-link">
+		<div id="theme-link" class="grid_6 right">
 			Powered by Wordpress <span class="and">&amp;</span> <a href="http://shailan.com" title="Awesome all widget theme by Shailan">Widgetbox</a>
 		</div>
 	</div>
