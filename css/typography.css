@@ -11,19 +11,6 @@ h3#comments-title, h3#reply-title, #access .menu, #access div.menu ul, #cancel-c
 .wp-caption-text, input[type=submit], #comments h3  {
 	font-family: "Helvetica Neue", Arial, Helvetica, "Nimbus Sans L", sans-serif;
 }
-pre, code {
-	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
-}
-
-small, .comment-edit-link a, .edit-link a, .reply a, #cancel-comment-reply{
-	font-family: Verdana, sans-serif; font-size:10px;
-}
-
-.entry-title, .entry-title a {
-	font-weight:500; line-height:24px; letter-spacing:2px;
-	font-size: 13px;
-	line-height:24px;
-}
 
 /** Blog title */
 h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500; 
@@ -40,17 +27,6 @@ h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500;
 		border-top-left-radius: 4px 4px;
 		border-top-right-radius: 4px 4px; }
 
-.four04 .entry-title, body.page #current-content .entry-title, .entry-title { 
-		margin:5px 0px; 
-		text-align:left; 
-		font-weight:500; 
-		text-shadow: rgba(0, 0, 0, 0.0078125) 0px 0px 0px; }
-		
-
-.entry-title  a {text-decoration:none;}
-
-
-
 .widgettittle, .widget-title, .widgets h4, .widget .widgettitle{
 	font-weight:500; 
 	line-height:24px;
@@ -62,10 +38,6 @@ h1.blog-title, h2.blog-title{ font-size: 4em; line-height:38px; font-weight:500;
 #content h4{font-size:1.2em; font-style:oblique; }
 #content h5{font-size:1.1em; font-style:oblique; }
 #content h6{font-size:1em; font-style:oblique; }
-
-.entry-content h4, .entry-meta h4, .entry-content h3 { margin:5px 0px; text-shadow: rgba(0, 0, 0, 0.0078125) }
-
-.archive-meta{ font-size:1.3em; text-shadow: rgba(0, 0, 0, 0.01) 0px 0px 0px; }
 
 #leavecomment, .comments #loading, #comments-closed-msg{font-family: Georgia, Helvetica, sans-serif; font-size:3em; text-shadow: #fff 1px 1px 0.1em; }
 
