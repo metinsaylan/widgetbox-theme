@@ -29,7 +29,7 @@ foreach ( $comments as $comment )
 <?php //if ( ! empty($comments_by_type['comment']) ) : ?>
  
     <div id="comments-list" class="comments">
-     <h3><?php printf($comment_count > 1 ? __('<span>%d</span> Comments', 'widgetbox') : __('<span>One</span> Comment', 'widgetbox'), $comment_count) ?></h3>
+     <span class="section-title"><?php printf($comment_count > 1 ? __('<span>%d</span> Comments', 'widgetbox') : __('<span>One</span> Comment', 'widgetbox'), $comment_count) ?></span>
  
 <?php /* If there are enough comments, build the comment navigation  */ ?>    
 <?php $total_pages = get_comment_pages_count(); if ( $total_pages > 1 ) : ?>
@@ -58,7 +58,7 @@ foreach ( $comments as $comment )
 <?php /*if ( ! empty($comments_by_type['pings']) ) : */?>
  
     <div id="trackbacks-list" class="comments">
-     <h3><?php printf($ping_count > 1 ? __('<span>%d</span> Trackbacks', 'widgetbox') : __('<span>One</span> Trackback', 'widgetbox'), $ping_count) ?></h3>
+     <span class="section-title"><?php printf($ping_count > 1 ? __('<span>%d</span> Trackbacks', 'widgetbox') : __('<span>One</span> Trackback', 'widgetbox'), $ping_count) ?></span>
  
 <?php /* An ordered list of our custom trackbacks callback, custom_pings(), in functions.php   */ ?>    
      <ol>
@@ -74,7 +74,7 @@ foreach ( $comments as $comment )
 <?php /* If comments are open, build the respond form */ ?>
 <?php if ( 'open' == $post->comment_status ) : ?>
     <div id="respond">
-        <h3><?php comment_form_title( __('Post a Comment', 'widgetbox'), __('Post a Reply to %s', 'widgetbox') ); ?></h3>
+        <span class="section-title"><?php comment_form_title( __('Post a Comment', 'widgetbox'), __('Post a Reply to %s', 'widgetbox') ); ?></span>
        
         <div id="cancel-comment-reply"><?php cancel_comment_reply_link() ?></div>
  

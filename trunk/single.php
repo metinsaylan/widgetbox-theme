@@ -1,17 +1,14 @@
 <?php get_header() ?>
-
-	<div id="container">
-		<div id="single-widgets-top"><?php dynamic_sidebar('single-widgets-top'); ?></div>
-		<div id="content">
-		
-<?php $post_index = 1; while ( have_posts() ): the_post(); ?>
-
+	<div id="container" class="container_12">
+		<div id="content-wrapper" class="grid_8">
+			<div id="content">
+	<?php $post_index = 1; while ( have_posts() ): the_post(); ?>
 	<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<span class="entry-title"><?php the_title(); ?></span>
 	
 		<div class="entry-header">
 				<?php edit_post_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
 		</div><!-- .entry-header -->
-
 		<?php //include_once('share-inline.php'); ?>
 		
 		<div class="entry-content">
@@ -24,15 +21,19 @@
 		
 		<div class="clear"></div>		
 	</div><!-- #post-ID -->
+	<?php comments_template( '', true ); ?>
+	<?php endwhile; ?>
+
+			</div><!-- #content -->	
+		</div><!-- #content-wrapper -->
 	
-		<?php comments_template( '', true ); ?>
-
-<?php endwhile; ?>
-
-		<div id="single-widgets-bottom"><?php dynamic_sidebar('single-widgets-bottom'); ?></div>
+		<div id="sidebar-wrapper" class="grid_4">
+			<div id="sidebar">
+				<?php get_sidebar() ?>
+			</div>
+		</div>		
 		
-		</div><!-- #content -->
+
 	</div><!-- #container -->
 
-<?php get_sidebar() ?>
 <?php get_footer() ?>
