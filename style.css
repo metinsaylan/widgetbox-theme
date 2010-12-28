@@ -12,7 +12,7 @@ TAGS: sandbox, microformats, hcard, hatom, xoxo, widgets, blank slate, starter t
 
 body {
 	color: #4b4e4c;
-	background: #0b0f0c url(images/widgetbox_background.jpg) repeat-x;
+	background: #0b0f0c url(images/widgetbox_bg2.png) repeat-x;
 	font: 13px/20px Arial, Helvetica, sans-serif;
 }
 
@@ -46,7 +46,7 @@ h2 a:active { color: #363d38; text-decoration: none; }
 h1, h2, h3, h4, p.intro, blockquote, #site-title, .section-title, .entry-title { font-family: 'Droid Sans', arial, sans-serif; text-shadow:1px 1px 2px rgba(60, 60, 60, 0.3); color:#666; }
 p.intro{ font-size: 1.2em; }
 
-#site-title{ font-family: 'Ubuntu', serif; font-size: 2.2em; }
+#site-title{ font-family: 'Ubuntu', serif; font-size: 2.2em; color:#ddd; text-shadow: 0 1px 0 #000; }
 .entry-title{ font-size: 1.8em; }
 .section-title{ font-size: 1.8em; color: #666; }
 .entry-title a, .section-title a{ color: #666; }
@@ -138,7 +138,7 @@ p, pre, table, form {
 #header ul.menu li.hover ul { display: block; } */
 
 /* CONTENT */
-#content{ background:#eee; padding-top:15px; }
+#content{ background:#f0efed; padding-top:15px; }
 div#sub-title{ background:#efefef; border-bottom:1px solid #ccc; margin-bottom:15px; }
 .navigation{ font-weight:bold; }
 

@@ -21,14 +21,6 @@
 <div id="main-title"><h1><?php wp_title( "", true ); ?></h1></div>
 <?php do_action('template_body_top'); ?>
 
-<div id="top-menu">
-	<?php wp_nav_menu( array( 'theme_location' => 'top-navigation', 'fallback_cb' => false, 'menu_id'=> 'menu-top', 'container_class' => 'top-navigation', 'depth' => '0' ) ); ?>
-</div>
-
-<div id="topbar">
-	<?php stf_widgets('topbar'); ?>
-</div>
-
 <div id="wrapper">
 
 <div id="header_wrap">
@@ -50,6 +42,11 @@
 			<div id="site-description"><?php bloginfo( 'description' ); ?></div>
 		</div><!-- #branding -->
 	</div>
+	
+	<div id="top-menu">
+		<?php wp_nav_menu( array( 'theme_location' => 'top-navigation', 'fallback_cb' => false, 'menu_id'=> 'menu-top', 'container_class' => 'top-navigation', 'depth' => '0' ) ); ?>
+	</div>
+	
 	<div id="header-widgets" class="grid_7">
 		<?php stf_widgets('header'); ?>
 	</div>
