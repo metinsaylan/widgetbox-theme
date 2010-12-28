@@ -17,9 +17,7 @@ while ( have_posts() ): the_post(); ?>
 			<div class="entry-header-top"></div>
 			<div class="entry-header-middle">
 			
-			<h3 class="entry-title">
-				<a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php /*k2_permalink_title(); */ ?>"><?php the_title(); ?></a>
-			</h3>
+			<span class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php /*k2_permalink_title(); */ ?>"><?php the_title(); ?></a></span>
 
 			<?php do_action('template_entry_head'); // This also handles widget areas ?>
 			

@@ -30,6 +30,7 @@ blockquote.right { margin-left: 20px; text-align: left; margin-right: 0; width: 
 img.noborder { border: none !important; }
 .hidden { position: absolute !important; left: 0px; top: -500px !important; width: 1px; height: 1px; overflow: hidden; }
 .box { border:1px solid; padding:1em; }
+.img_button, .hide_text { display:block; text-indent: -9999px; }
 
 /* MENU */
 .menu, .menu li, .menu.horizontal, .menu.horizontal li{ list-style:none;margin:0; display:inline; }
