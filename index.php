@@ -1,17 +1,23 @@
 <?php get_header() ?>
+	<!-- Content wrap -->
 	<div id="content_wrap" class="clearfix">
-		<div id="content-wrapper" class="grid_8">
-			<div id="content">
-			<?php stf_widgets( 'home', array('stf_navigation', 'stf_blog_posts', 'stf_navigation') ); ?>
-			</div>
-		</div><!-- #content -->
+		<!-- Content -->
+		<div id="content" class="container_12">
 		
-		<div id="sidebar-wrapper" class="grid_4">
-			<div id="sidebar">
-				<?php get_sidebar() ?>
+			<!-- Page -->
+			<div id="page" class="grid_8">
+				<?php stf_widgets( 'home', array('stf_navigation', 'stf_blog_posts', 'stf_navigation') ); ?>
 			</div>
-		</div>	
+			<!-- [END] Page -->
+			
+			<!-- Sidebar -->
+			<div id="sidebar_wrapper" class="grid_4">
+				<div id="sidebar">
+					<?php get_sidebar() ?>
+				</div>
+			</div>	
+			<!-- [END] Sidebar -->
 
-		<div class="clear"></div>
-	</div><!-- #container -->
+		</div><!-- [END] Content -->
+	</div><!-- [END] Content wrap -->
 <?php get_footer() ?>
