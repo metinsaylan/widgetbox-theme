@@ -21,6 +21,8 @@ class Shailan_Framework{
 		$theme_data = get_theme_data( get_stylesheet_directory() . '/style.css' );		
 		$this->theme = $theme_data;
 		
+		//print_r($this->theme);
+		
 		// Load shortcodes, widgets, template tags
 		require_once("stf-loader.php");
 		
@@ -28,7 +30,7 @@ class Shailan_Framework{
 		$this->default_options = $options;
 		
 		$this->widget_areas = array();
-		$this->settings = $this->get_settings();
+		$this->settings = $this->get_settings();		
 		
 		add_action( 'admin_init', array(&$this, 'theme_admin_init') );
 		add_action( 'admin_menu', array(&$this, 'theme_admin_header') );
@@ -180,7 +182,7 @@ class Shailan_Framework{
 		$title = $this->name . ' Theme Settings';		
 		
 		$navigation = "";
-		$footer_text = "<p><small>Powered by <a href=\"http://shailan.com/wordpress/themes/framework\">Shailan Theme Framework</a></small></p>";
+		$footer_text = "<p><small><a href=\"" . $this->theme['URI'] . "\">". $this->name . "</a> is powered by <a href=\"http://shailan.com/wordpress/themes/framework\" title=\"Shailan Theme Framework\">STF</a></small></p>";
 		
 		// Render theme options page
 		include_once("stf-page-options.php");

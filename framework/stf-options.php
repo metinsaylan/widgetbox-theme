@@ -33,6 +33,12 @@ array( "name" => "Theme Options",
 	"type" => "section"),
 array( "type" => "open"),
 
+	array(  "name" => "Logo url",
+		"desc" => "URL of your logo image. (Eg:" . trailingslashit(get_bloginfo('template_directory')) . "images/logo.png)",
+		"id" => "stf_logo_url",
+		"std" => "",
+		"type" => "text"),
+
 	array(  "name" => "Entry header",
 		"desc" => "Entry header meta, shows right under the post title.",
 		"id" => "stf_entry_header_meta",
@@ -57,12 +63,12 @@ array( "type" => "close"),
 array( "name" => "Framework Options",
 	"type" => "section"),
 array( "type" => "open"),
-	
+	/* Not needed anymore 
 	array(  "name" => "Google Ads Unique ID",
 		"desc" => " Your unique adsense ID.",
 		"id" => "shailan_adsense_id",
 		"std" => "",
-		"type" => "text"),
+		"type" => "text"), */
 	
 	array(  "name" => "Google Analytics Code",
 		"desc" => " Google Analytics Code. Will be automatically put in your <strong><em>header</em></strong>.",
@@ -72,13 +78,13 @@ array( "type" => "open"),
 	
 	array( "name" => "Custom Favicon",
 		"desc" => "A favicon is a 16x16 pixel icon that represents your site; paste the URL to a .ico image that you want to use as the image",
-		"id" => "shailan_favicon",
+		"id" => "stf_favicon",
 		"type" => "text",
 		"std" => get_bloginfo('url') ."/favicon.ico"),	
 	
 	array( "name" => "Feedburner URL",
 		"desc" => "Feedburner is a Google service that takes care of your RSS feed. Paste your Feedburner URL here to let readers see it in your website",
-		"id" => "shailan_feedburner",
+		"id" => "stf_feedburner",
 		"type" => "text",
 		"std" => get_bloginfo('rss2_url')),
 	

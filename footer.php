@@ -34,5 +34,13 @@
 
 <?php wp_footer() ?>
 
+<script type="text/javascript"> /* <![CDATA[ */
+
+jQuery(function() {
+	jQuery('a[rel~=external]').attr('target', 'blank');
+});
+
+/* ]]> */ </script>
+
 </body>
 </html>

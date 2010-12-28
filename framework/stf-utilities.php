@@ -74,9 +74,9 @@ function shailan_custom_logo() {
 //add_action('admin_head', 'shailan_custom_logo');
 
 /** Custom Admin Footer */
-function shailan_admin_footer() {
-	echo 'Fueled by <a href="http://www.wordpress.org" target="_blank">WordPress</a> | Designed by <a href="http://shailan.com" target="_blank">Shailan</a> (Follow: <a href="http://twitter.com/mattsay">@mattsay</a> | <a href="http://feeds.feedburner.com/shailan">RSS</a>)';
-} // add_filter('admin_footer_text', 'shailan_admin_footer');
+function shailan_admin_footer($content) {
+	echo $content . '| Theme Design by <a href="http://shailan.com" target="_blank">Shailan</a> (Follow: <a href="http://twitter.com/shailancom">@shailancom</a> | <a href="http://feeds.feedburner.com/shailan">RSS</a>)';
+} add_filter('admin_footer_text', 'shailan_admin_footer');
 
 /** Custom Default Avatar */
 function shailan_avatar ($avatar_defaults) {
@@ -104,19 +104,19 @@ function shailan_google_analytics(){
 
 /** Feed redirects */
 function shailan_feed_link($output, $feed) {
-	$feed_url = stf_get_setting('shailan_feedburner');
-	if(empty($feed_url)){$feed_url = "http://feeds.feedburner.com/shailan";}
-	
-	$feed_array = array('rss' => $feed_url, 'rss2' => $feed_url, 'atom' => $feed_url, 'rdf' => $feed_url, 'comments_rss2' => '');
-	$feed_array[$feed] = $feed_url; $output = $feed_array[$feed];
- 
+	$feed_url = stf_get_setting('stf_feedburner');
+	if(!empty($feed_url)){	
+		$feed_array = array('rss' => $feed_url, 'rss2' => $feed_url, 'atom' => $feed_url, 'rdf' => $feed_url, 'comments_rss2' => '');
+		$feed_array[$feed] = $feed_url; $output = $feed_array[$feed];
+	}
 	return $output;
 }
 
 function other_feed_links($link) {
-	$feed_url = stf_get_setting('shailan_feedburner');
-	if(empty($feed_url)){$feed_url = "http://feeds.feedburner.com/shailan";}
-	$link = $feed_url;
+	$feed_url = stf_get_setting('stf_feedburner');
+	if(!empty($feed_url)){
+		$link = $feed_url;
+	}
 	return $link;
 }
 add_filter('feed_link','shailan_feed_link', 1, 2);
@@ -127,8 +127,10 @@ add_filter('search_feed_link','other_feed_links');
 
 /** Custom Favicon Support */
 function shailan_favicon() { 
-	$favicon = stf_get_setting('shailan_favicon');
-	echo "\n\t<link rel=\"shortcut icon\" href=\"".$favicon."\" />\n";
+	$favicon = stf_get_setting('stf_favicon');
+	if(!empty($favicon)){
+		echo "\n\t<link rel=\"shortcut icon\" href=\"" . $favicon . "\" />\n";
+	}
 } add_action('wp_head', 'shailan_favicon');
 
 /** Excerpt Length Settings */
