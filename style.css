@@ -8,23 +8,56 @@ AUTHOR URI: http://shailan.com
 TAGS: sandbox, microformats, hcard, hatom, xoxo, widgets, blank slate, starter theme, minimalist, developer, all-widget, widgets, adsense-ready, custom-widgets.
 */
 
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
-/* TYPOGRAPHY */
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Serif|Ubuntu:regular);
+
+body {
+	color: #4b4e4c;
+	background: #0b0f0c url(images/widgetbox_background.jpg) repeat-x;
+	font: 13px/20px Arial, Helvetica, sans-serif;
+}
+
+ol, ul { list-style: none; }
+table {	border-collapse: separate; border-spacing: 0; }
+caption, th, td { text-align: left; font-weight: normal; }
+blockquote:before, blockquote:after, q:before, q:after { content: ""; }
+blockquote, q { quotes: "" ""; }
+acronym { cursor: help; border-bottom: 1px dashed #333; }
+strong { font-weight: bold; }
+em { font-style: italic; }
+hr { display: none; }
+.right { float: right; }
+.left { float: left; }
+.hide { display: none; }
+.clear { clear: both; }
+.clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
+.clearfix { display: block; }
+html[xmlns] .clearfix { display: block; }
+* html .clearfix { height: 1%; }
+
+/* Links */
+a:link, a:visited {	color: #71b259;	text-decoration: none; }
+a:hover { color: #000; text-decoration: none; }
+a:active { color: #71b259; text-decoration: none; }
+h2 a:link, h2 a:visited { color: #363d38; text-decoration: none; }
+h2 a:hover { color: #71b259; text-decoration: none; }
+h2 a:active { color: #363d38; text-decoration: none; }
+
+
 h1, h2, h3, h4, p.intro, blockquote, #site-title, .section-title, .entry-title { font-family: 'Droid Sans', arial, sans-serif; text-shadow:1px 1px 2px rgba(60, 60, 60, 0.3); color:#666; }
 p.intro{ font-size: 1.2em; }
 
+#site-title{ font-family: 'Ubuntu', serif; font-size: 2.2em; }
 .entry-title{ font-size: 1.8em; }
 .section-title{ font-size: 1.8em; color: #666; }
 .entry-title a, .section-title a{ color: #666; }
 
 .post-edit-link{ font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 0.8em }
-#footer-links, #header-menu, #footer-menu, .navigation{ font-size:0.9em; }
+#top-menu, #footer-links, #header-menu, #footer-menu, .navigation{ font-size:0.9em; }
 
 .logged-in h1,.logged-in  h2,.logged-in  h3,.logged-in  h4 { color:#f00; }
 .logged-in h1 a,.logged-in  h2 a,.logged-in  h3 a,.logged-in  h4 a{ color:#f00; }
 
 /* COMMON */
-body{ color:#666; }
 a[rel~="attachment"] img,.gallery a img,.wp-caption { 
 	background-color: #F3F3F3;
 	border: 1px solid #ddd;
@@ -90,12 +123,12 @@ p, pre, table, form {
 }
 
 /* HEADER */
-#header_wrap{ background: #dedede; padding:1px; border:1px solid #ccc; /*background:#210000;*/ }
+#main-title h1{ margin:0px; }
 #header { overflow: visible; position: relative; }
 #header .widget_text p { padding: 0px 10px; }
 #logo{ float:left; display:inline; margin:10px 0; }
 #site-id{ float:left; display:inline; margin:10px 0 0 10px; }
-#site-title{ font-size: 2.2em; margin:0; }
+#site-title{ margin:0; }
 #site-description{ font-size: 1.2em; font-weight: normal; font-style: oblique; margin:0; }
 /*
 #header ul.menu li { display: inline; }

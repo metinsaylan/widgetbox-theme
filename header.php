@@ -20,7 +20,10 @@
 <body <?php body_class(); ?>>
 <div id="main-title"><h1><?php wp_title( "", true ); ?></h1></div>
 <?php do_action('template_body_top'); ?>
-<?php wp_nav_menu( array( 'theme_location' => 'top-navigation', 'fallback_cb' => false, 'menu_id'=> 'menu-top', 'container_class' => 'top-navigation', 'depth' => '0' ) ); ?>
+
+<div id="top-menu">
+	<?php wp_nav_menu( array( 'theme_location' => 'top-navigation', 'fallback_cb' => false, 'menu_id'=> 'menu-top', 'container_class' => 'top-navigation', 'depth' => '0' ) ); ?>
+</div>
 
 <div id="topbar">
 	<?php stf_widgets('topbar'); ?>

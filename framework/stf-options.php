@@ -54,9 +54,16 @@ array( "type" => "open"),
 	array(  "name" => "Theme footer",
 		"desc" => "Displays at the bottom of site. You can use various shortcodes here.",
 		"id" => "stf_theme_footer",
-		"std" => "Powered by [wp] [and] [themename]",
+		"std" => "&copy; " . get_bloginfo('name'),
+		"type" => "text"),
+		
+	array(  "name" => "Feed footer",
+		"desc" => "Displays after every post in the feed.",
+		"id" => "stf_feed_footer",
+		"std" => '<p><strong><em>This post is originally posted on <a href="'.get_bloginfo('url').'">'.get_bloginfo('name').'</a>. <br />Visit <a href="'.get_bloginfo('url').'">'.get_bloginfo('name').'</a> for more..</em></strong></p>',
 		"type" => "text"),
 
+	
 
 array( "type" => "close"),
 
