@@ -9,10 +9,11 @@
 
 /** RSS Footer Text */
 function shailan_postrss($content) {
-	//global $post;
-	if(is_feed()){
-		$content = $content.' <p><strong><em>This post is originally posted on <a href="'.get_bloginfo('url').'">'.get_bloginfo('name').'</a>. <br />Visit <a href="'.get_bloginfo('url').'">'.get_bloginfo('name').'</a> for more..</em></strong></p>';
+	$feed_footer = stf_get_setting('stf_feed_footer');
+	if(is_feed() && !empty($feed_footer)){
+		$content = $content . $feed_footer;
 	}
+	
 	return $content;
 }
 add_filter('the_excerpt_rss', 'shailan_postrss');
