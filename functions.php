@@ -2,6 +2,8 @@
 // LOAD FRAMEWORK
 include_once('framework/stf-framework.php');
 
+remove_action( 'init', 'wp_admin_bar_init' );
+
 // SIDEBARS
 $stf->add_widget_area('Topbar', 'topbar', '', '');
 $stf->add_widget_area('Header', 'header', '', '');

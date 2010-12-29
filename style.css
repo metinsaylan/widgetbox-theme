@@ -12,7 +12,7 @@ TAGS: sandbox, microformats, hcard, hatom, xoxo, widgets, blank slate, starter t
 
 body {
 	color: #4b4e4c;
-	background: #0b0f0c url(images/widgetbox_bg2.png) repeat-x;
+	background: #0b0f0c url(images/widgetbox_bg3.png) repeat-x;
 	font: 13px/20px Arial, Helvetica, sans-serif;
 }
 
@@ -35,27 +35,31 @@ html[xmlns] .clearfix { display: block; }
 * html .clearfix { height: 1%; }
 
 /* Links */
-a:link, a:visited {	color: #71b259;	text-decoration: none; }
+a:link, a:visited {	color: #458; text-decoration: none; }
 a:hover { color: #000; text-decoration: none; }
 a:active { color: #71b259; text-decoration: none; }
 h2 a:link, h2 a:visited { color: #363d38; text-decoration: none; }
-h2 a:hover { color: #71b259; text-decoration: none; }
+h2 a:hover { color: #000; text-decoration: none; }
 h2 a:active { color: #363d38; text-decoration: none; }
 
+/* Titles */
+h1, h2, h3, h4, p.intro, blockquote, #site-title, .section-title, .entry-title, .widget-title{ 
+	font-family: 'Droid Sans', arial, sans-serif; text-shadow:1px 1px 2px rgba(60, 60, 60, 0.1); margin-bottom:0.5em; color: #697177; 
+} p.intro{ font-size: 1.2em; }
 
-h1, h2, h3, h4, p.intro, blockquote, #site-title, .section-title, .entry-title { font-family: 'Droid Sans', arial, sans-serif; text-shadow:1px 1px 2px rgba(60, 60, 60, 0.3); color:#666; }
-p.intro{ font-size: 1.2em; }
+.entry-title, .section-title, .widget-title{ display:block; font-size: 1.8em; color: #456; }
+.entry-title a, .section-title a, .widget-title a{ color: #456; }
+.entry-title a:hover, .section-title a:hover, .widget-title a:hover{ color: #000; }
 
-#site-title{ font-family: 'Ubuntu', serif; font-size: 2.2em; color:#ddd; text-shadow: 0 1px 0 #000; }
-.entry-title{ font-size: 1.8em; }
-.section-title{ font-size: 1.8em; color: #666; }
-.entry-title a, .section-title a{ color: #666; }
+/*
+.logged-in h1,.logged-in  h2,.logged-in  h3,.logged-in  h4 { color:#f00; }
+.logged-in h1 a,.logged-in  h2 a,.logged-in  h3 a,.logged-in  h4 a{ color:#f00; }
+*/
 
 .post-edit-link{ font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 0.8em }
 #top-menu, #footer-links, #header-menu, #footer-menu, .navigation{ font-size:0.9em; }
 
-.logged-in h1,.logged-in  h2,.logged-in  h3,.logged-in  h4 { color:#f00; }
-.logged-in h1 a,.logged-in  h2 a,.logged-in  h3 a,.logged-in  h4 a{ color:#f00; }
+
 
 /* COMMON */
 a[rel~="attachment"] img,.gallery a img,.wp-caption { 
@@ -94,9 +98,9 @@ div.warning, .warning{border:2px solid #bb7777; background:#ffcccc; margin:10px;
 	-webkit-border-radius: 8px;
 	-khtml-border-radius: 8px; font-style:oblique;}
 	
-p, pre, table, form {
+/*p, pre, table, form {
 	margin: 15px 0px;
-}
+}*/
 
 #wrapper { border: 0; clear: both; margin: 0 auto 15px; padding: 0px; position: relative; text-align: left; z-index: 0; }
 
@@ -104,7 +108,16 @@ p, pre, table, form {
 .top-navigation{ width: 960px; margin:3px auto 5px; text-align:right; }
 .top-navigation .menu li, .top-navigation .menu.horizontal li { padding:0; padding:3px 3px 2px 10px; }
 .header-navigation{  }
-#header-menu{ margin-top:15px; line-height:1.5em; }
+#top-menu, #header-menu{ position:relative; }
+#header-menu{ top:45px; left:10px; }
+#header-menu li{ margin-right: 10px; }
+#header-menu li a{ -webkit-box-shadow: #536373 0px 0px 2px inset;
+border: 1px solid #536373;
+color: #536373;}
+#header-menu li a:hover{ -webkit-box-shadow: #536373 0px 0px 2px;
+border: 1px solid #738393;
+color: #536373;}
+
 #footer-menu{ text-align:center; margin-bottom:15px; }
 #footer .menu li a { color:#999; }
 
@@ -112,23 +125,31 @@ p, pre, table, form {
 #header_wrap,
 #content_wrap,
 #footer_wrap {
-  min-width: 1190px;
+  min-width: 980px;
 }
 
 #header,
 #content,
 #footer {
-  width: 1190px;
+  width: 980px;
   margin:0px auto;
 }
 
 /* HEADER */
+#header_wrap{ height: 133px; }
 #main-title h1{ margin:0px; }
-#header { overflow: visible; position: relative; }
+#header { overflow: visible; position: relative; height:100%; }
 #header .widget_text p { padding: 0px 10px; }
+.gradient{ background: url(http://valendesigns.com/wp-content/themes/valen/images/backgrounds/gradient_background.jpg) no-repeat 0px 0px;
+	height: 81px;
+	left: -100px;
+	position: absolute;
+	top: 0px;
+	width: 500px; }
+#branding{ left: 0px; position: relative; top: 10px; width:300px; }
 #logo{ float:left; display:inline; margin:10px 0; }
 #site-id{ float:left; display:inline; margin:10px 0 0 10px; }
-#site-title{ margin:0; }
+#site-title a{ font-family: 'Ubuntu', serif; font-size: 1.3em; color:#def; text-shadow: 0 1px 1px #000; } 
 #site-description{ font-size: 1.2em; font-weight: normal; font-style: oblique; margin:0; }
 /*
 #header ul.menu li { display: inline; }
@@ -138,20 +159,21 @@ p, pre, table, form {
 #header ul.menu li.hover ul { display: block; } */
 
 /* CONTENT */
-#content{ background:#f0efed; padding-top:15px; }
+#content_wrap{ background:#f0efed; }
+#content{ padding:30px 10px; }
 div#sub-title{ background:#efefef; border-bottom:1px solid #ccc; margin-bottom:15px; }
 .navigation{ font-weight:bold; }
 
 .hentry { clear: both; margin: 0 0 15px; padding: 0px; position: relative; zoom: 1;  
-	border-radius: 7px; -khtml-border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px; border: 1px solid #cdcdcd;}
-.entry-title, h3.entry-title{ margin:0 0 15px 10px; }
-.entry-content{ margin:0 10px; } 
+	/*border-radius: 7px; -khtml-border-radius: 7px; -moz-border-radius: 7px; -webkit-border-radius: 7px; border: 1px solid #cdcdcd;*/
+}
 .entry-footer{ padding:0 15px; }
 
 /* FOOTER */
 #footer{ background: #1b1b1b; clear: both; margin: 0px auto; padding: 0px; }
 #footer .columns .widget { float: left; padding-left: 10px; text-align: left; width: 285px; }
 
+#footer .siteadmin a { -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; padding: 5px 10px; position: fixed; right: 5px; top: 5px; z-index: 1000; }
 
 .entry-foot .m2-esubscribe input[type~="text"] { border: 0px; border-bottom: 2px dashed #ffcc00; width: 260px; }
 ul.related_post { border-top: 1px solid #ddd; display: block; list-style-type: none; margin: 0px; margin-top: 5px; }
@@ -168,15 +190,12 @@ a { border-radius: 5px; }
 .widget { margin: 0px; }
 .post .wp-caption:hover { border: 1px solid #09c; }
 
-
 .edit-link a { position: absolute; right: 0px; top: 0px; }
-.entry-content { line-height: 2.2em; }
 .entry-content blockquote p, .entry-content blockquote ul, .entry-content blockquote ol, .entry-content blockquote div { margin: 0px; }
 .entry-content div.toc ol { margin: 0px; }
 .entry-content p { margin: 0px 0px 13px 0px; }
 .entry-content ul, .entry-content ol { padding-left: 25px; }
 .entry-foot .m2-esubscribe p { border: 2px solid #ffcc00; border-bottom-left-radius: 4px 4px; border-bottom-right-radius: 4px 4px; border-top-left-radius: 4px 4px; border-top-right-radius: 4px 4px; margin: 0px; padding: 4px 8px; text-align: center; }
-.entry-header { margin-top: 0px; }
 .entry-thumb img { height: 80px; vertical-align: middle; width: 80px; }
 .entry-thumbnail { border: 2px solid #666; margin-left: 10px; padding: 2px; }
 .m2-adsense { text-align: center; }
@@ -197,9 +216,7 @@ ul.related_post li { border-bottom: 1px solid #ddd; padding: 5px 8px; }
 #cancel-comment-reply { padding: 0 20px 0 0; position: absolute; right: 5px; top: 5px; }
 #commentform input[type="text"] { border: none; border-bottom: 1px dashed #999; }
 
-#content .entry-title,#content .entry-title a,
-#featured .entry-title,#featured .entry-title a { line-height: 42px; }
-#footer .siteadmin a { -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; padding: 5px 10px; position: fixed; right: 5px; top: 5px; z-index: 1000; }
+
 #footer a:hover { border: none; }
 #footer p { line-height: 1.6em; }
 #header ul.menu { list-style-type: none; margin: 0px; padding: 0px; }

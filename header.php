@@ -18,14 +18,15 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="main-title"><h1><?php wp_title( "", true ); ?></h1></div>
+<!-- <div id="main-title"><h1><?php wp_title( "", true ); ?></h1></div> -->
 <?php do_action('template_body_top'); ?>
 
 <div id="wrapper">
 
 <div id="header_wrap">
 <div id="header" class="clearfix">
-	<div id="branding" class="grid_5">
+	<span class="gradient"></span>
+	<div id="branding" >
 		<?php $logo_url = stf_get_setting('stf_logo_url'); if( !empty($logo_url) ){ ?>
 		<div id="logo">
 			<a href="<?php echo home_url( '/' ); ?>" rel="home <?php if(!is_front_page() || !is_home()){ echo 'nofollow';} ?>">
