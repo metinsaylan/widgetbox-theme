@@ -2,11 +2,11 @@
 	<!-- Content wrap -->
 	<div id="content_wrap" class="clearfix">
 		<!-- Content -->
-		<div id="content" class="container_12">
+		<div id="content" class="container_12 clearfix">
 		
 			<!-- Page -->
 			<div id="page" class="grid_8">
-				<?php stf_widgets( 'home', array('stf_navigation', 'stf_blog_posts', 'stf_navigation') ); ?>
+				<?php stf_widgets( 'home', array( 'stf_blog_posts', 'stf_navigation' ) ); ?>
 			</div>
 			<!-- [END] Page -->
 			
