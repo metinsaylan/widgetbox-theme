@@ -414,7 +414,6 @@ if($tag_base == '')	$tag_base = 'tag';
 	return '<a href="'.$url.'" rel="tag">' . $content . '</a>';
 }
 
-
 function stf_wrap_twitter_tag($atts, $content = null ){
 	return '<a href="https://twitter.com/search?q=%23'.$content.'" rel="nofollow">#'.$content.'</a>';
 }
@@ -475,6 +474,15 @@ function stf_site_link_shortcode($atts, $content = null){
 	return "<a href='".get_bloginfo('url')."' rel='".$rel."' title='".$title."'>". $content . "</a>";
 }
 
+function stf_latest_tweet_shortcode($atts, $content = null){
+	extract(shortcode_atts( array(
+		'username' => 'shailancom'
+	), $atts));
+
+	$tweet = '<div class="latest_tweet">'. stf_get_latest_tweet($username) . '</div>';
+	return $tweet;
+}
+
 // source : http://digwp.com/2010/01/custom-query-shortcode/
 function custom_query_shortcode($atts) {
    // EXAMPLE USAGE:
@@ -530,6 +538,7 @@ add_shortcode('tag', 'stf_wrap_tag');
 add_shortcode('htag', 'stf_wrap_twitter_tag'); 
 add_shortcode('hashtag', 'stf_wrap_twitter_tag');
 add_shortcode('pagerank', 'stf_pagerank');
+add_shortcode('latest_tweet', 'stf_latest_tweet_shortcode');
 
 /* THEME */
 add_shortcode('generator', 'stf_generator_link_shortcode');
