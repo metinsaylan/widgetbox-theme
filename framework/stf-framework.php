@@ -123,10 +123,10 @@ class Shailan_Framework{
 	}
 	
 	function theme_admin_init(){
-		$file_dir=get_bloginfo('template_directory');
-		
-		wp_enqueue_style("options-page", $file_dir . "/framework/css/options.css", false, "1.0", "all");
-		wp_enqueue_style("widgets-mod", $file_dir . "/framework/css/widgets.css", false, "1.0", "all");
+		$file_dir = get_bloginfo('template_directory');
+		 
+		wp_enqueue_style("stf-options-page", $file_dir . "/framework/css/options.css", false, "1.0", "all");
+		wp_enqueue_style("stf-widgets-mod", $file_dir . "/framework/css/widgets.css", false, "1.0", "all");
 	}
 	
 	function theme_admin_header(){
