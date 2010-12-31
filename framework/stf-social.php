@@ -174,7 +174,7 @@ function stf_get_latest_tweet($username){
 }
 
 // TWITTER ANYWHERE
-if(get_option('shailan_twitter_anywhere') == 'enabled'){
+if(stf_get_setting('shailan_twitter_anywhere') == 'enabled'){
 	function install_twitter_anywhere(){
 		$twitter_api_key = get_option('shailan_twitter_anywhere_key');
 		echo "<script src=\"http://platform.twitter.com/anywhere.js?id=$twitter_api_key&v=1\" type=\"text/javascript\"></script>";
