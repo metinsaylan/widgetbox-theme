@@ -23,7 +23,7 @@ add_filter('the_content', 'shailan_postrss');
 function shailan_get_the_author_metalink( $meta = null , $domain = '', $title = '' ) {
 	global $authordata;
 	
-	if($meta != null && array_key_exists($meta, $authordata) && strlen($authordata->$meta)>0){
+	if($meta != null && strlen($authordata->$meta)>0){
 		return '<a href="' . $domain . $authordata->$meta . '" title="' . $title . '" rel="external">' . $authordata->display_name . '</a>';
 	} else {
 		return false;
@@ -37,7 +37,7 @@ function shailan_the_author(){
 	
 	foreach($socialsite as $meta=>$domain){
 		$link = shailan_get_the_author_metalink($meta, $domain);
-		if($link){ return $link; exit;}
+		if(is_object($authordata) && $link){ return $link; exit;}
 	}
 
 	return (is_object($authordata) ? $authordata->display_name : null);
