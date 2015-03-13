@@ -1,0 +1,1 @@
+This is a widget only wordpress theme. No coding or css knowledge required to get your theme ready.
